@@ -1,0 +1,27 @@
+# =============================================================================
+# ROS SLAM Robot Project - .gitignore
+# =============================================================================
+
+# --- Large / regenerable data files ---
+*.bag
+*.bag.active
+*.pgm
+*.pcd
+*.ppm
+
+# --- Python bytecode ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- macOS ---
+.DS_Store
+
+# --- Log files (keep the logs/ directory via .gitkeep) ---
+logs/*.log
+
+# --- Explicitly tracked file types (listed for clarity, not ignored) ---
+# .yaml .csv .py .sh .launch .service .urdf .md .png
+
+# --- Never ignore .gitkeep files ---
+!.gitkeep

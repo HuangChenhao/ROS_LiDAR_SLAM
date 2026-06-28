@@ -1,0 +1,17 @@
+[Unit]
+Description=Rosmaster SLAM and gamepad control
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=pi
+Environment=ROSMASTER_CONTAINER=rosmaster_slam
+WorkingDirectory=/home/pi
+ExecStart=/bin/bash /home/pi/rosmaster_tools/rosmaster_slam_start.sh
+RemainAfterExit=yes
+TimeoutStartSec=120
+
+[Install]
+WantedBy=multi-user.target

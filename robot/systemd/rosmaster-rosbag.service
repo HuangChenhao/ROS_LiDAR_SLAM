@@ -1,0 +1,17 @@
+[Unit]
+Description=ROSMaster rosbag recorder with disk protection
+After=rosmaster-slam.service
+Requires=rosmaster-slam.service
+
+[Service]
+Type=simple
+User=pi
+ExecStartPre=/bin/sleep 45
+ExecStart=/home/pi/rosmaster_tools/rosmaster_rosbag_record.sh 300 90
+Restart=on-failure
+RestartSec=60
+StandardOutput=append:/home/pi/temp/bags/rosbag_service.log
+StandardError=append:/home/pi/temp/bags/rosbag_service.log
+
+[Install]
+WantedBy=multi-user.target

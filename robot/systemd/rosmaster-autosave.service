@@ -1,0 +1,17 @@
+[Unit]
+Description=ROSMaster SLAM map autosave (overall + 1min slices)
+After=rosmaster-slam.service
+Requires=rosmaster-slam.service
+
+[Service]
+Type=simple
+User=pi
+ExecStartPre=/bin/sleep 30
+ExecStart=/home/pi/rosmaster_tools/rosmaster_slam_autosave.sh 60 0 slam_map
+Restart=on-failure
+RestartSec=60
+StandardOutput=append:/home/pi/rosmaster_maps/autosave_service.log
+StandardError=append:/home/pi/rosmaster_maps/autosave_service.log
+
+[Install]
+WantedBy=multi-user.target
