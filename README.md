@@ -106,7 +106,7 @@ source /root/yahboomcar_ws/devel/setup.bash
 Complete sensor-to-map pipeline:
 
 ```
-┌─────────┐     /joy      ┌──────────────┐    /cmd_vel    ┌─────────────────┐
+┌─────────┐     /joy      ┌──────────────┐    /cmd_vel   ┌─────────────────┐
 │ Gamepad │──────────────→│ yahboom_joy  │──────────────→│ Mcnamu_driver   │
 │ (Xbox)  │               │   .py        │               │   .py           │
 └─────────┘               └──────────────┘               └────────┬────────┘
