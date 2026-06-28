@@ -1,27 +1,22 @@
-# =============================================================================
-# ROS SLAM Robot Project - .gitignore
-# =============================================================================
+# SSH keys - never commit private keys
+.ssh/
 
-# --- Large / regenerable data files ---
+# Diagnostic and command output files
+*_output.txt
+cmd_done.txt
+
+# ROS bag files (too large)
 *.bag
 *.bag.active
-*.pgm
-*.pcd
-*.ppm
 
-# --- Python bytecode ---
-__pycache__/
-*.pyc
-*.pyo
+# SLAM data (synced locally, not in repo)
+maps/
+bags/
+logs/
 
-# --- macOS ---
+# macOS
 .DS_Store
 
-# --- Log files (keep the logs/ directory via .gitkeep) ---
-logs/*.log
-
-# --- Explicitly tracked file types (listed for clarity, not ignored) ---
-# .yaml .csv .py .sh .launch .service .urdf .md .png
-
-# --- Never ignore .gitkeep files ---
-!.gitkeep
+# Python cache
+__pycache__/
+*.pyc
