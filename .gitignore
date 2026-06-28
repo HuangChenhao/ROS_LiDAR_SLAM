@@ -1,0 +1,22 @@
+# SSH keys - never commit private keys
+.ssh/
+
+# Diagnostic and command output files
+*_output.txt
+cmd_done.txt
+
+# ROS bag files (too large)
+*.bag
+*.bag.active
+
+# SLAM data (synced locally, not in repo)
+maps/
+bags/
+logs/
+
+# macOS
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
