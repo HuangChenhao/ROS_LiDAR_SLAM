@@ -123,7 +123,7 @@ Complete sensor-to-map pipeline:
                                                                  │
                                                           /odom_raw
                                                                  │
-┌─────────┐    /imu/imu_raw   ┌─────────────┐  /imu/imu_data    │
+┌─────────┐    /imu/imu_raw   ┌─────────────┐  /imu/imu_data     │
 │  IMU    │──────────────────→│  Madgwick   │────────────┐       │
 │ (Board) │                   │  Filter     │            │       │
 └─────────┘                   └─────────────┘            │       │
