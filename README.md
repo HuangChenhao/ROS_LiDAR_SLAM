@@ -1,4 +1,6 @@
 # Yahboom ROSMaster R2 LiDAR SLAM
+<img width="1360" height="866" alt="image" src="https://github.com/user-attachments/assets/7adedf41-72ec-4e4e-805d-0856d8fdb606" />
+
 
 2D LiDAR SLAM mapping with a Yahboom ROSMaster R2 robot. Runs RPLidar A1 + gmapping on a Raspberry Pi 5 via Docker (ROS Melodic), controlled by an Xbox 360 wireless gamepad.
 
