@@ -1,0 +1,3003 @@
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+Started joy_node with /dev/input/js0
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-17 16:16:01] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_127367.pgm
+/home/pi/rosmaster_maps/_tmp_save_127367.yaml
+/home/pi/rosmaster_maps/_tmp_save_127367.pcd
+  新地图: 689 点, 旧整体: 171 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_161601.*
+  20K /home/pi/rosmaster_maps/overall_map.pcd
+  20K /home/pi/rosmaster_maps/slices/slam_map_20260617_161601.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+Started joy_node with /dev/input/js1
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-17 16:17:05] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6246.pgm
+/home/pi/rosmaster_maps/_tmp_save_6246.yaml
+/home/pi/rosmaster_maps/_tmp_save_6246.pcd
+  新地图: 85 点, 旧整体: 689 点
+  ⚠ 新地图(85)远小于旧地图(689)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_161705.*
+  20K /home/pi/rosmaster_maps/overall_map.pcd
+  2.7K /home/pi/rosmaster_maps/slices/slam_map_20260617_161705.pcd
+[2026-06-17 16:18:07] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6246.pgm
+/home/pi/rosmaster_maps/_tmp_save_6246.yaml
+/home/pi/rosmaster_maps/_tmp_save_6246.pcd
+  新地图: 636 点, 旧整体: 689 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_161807.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260617_161807.pcd
+[2026-06-17 16:19:08] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6246.pgm
+/home/pi/rosmaster_maps/_tmp_save_6246.yaml
+/home/pi/rosmaster_maps/_tmp_save_6246.pcd
+  新地图: 1078 点, 旧整体: 636 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_161908.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  31K /home/pi/rosmaster_maps/slices/slam_map_20260617_161908.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+Started joy_node with /dev/input/js0
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-17 16:22:07] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 200 点, 旧整体: 1078 点
+  ⚠ 新地图(200)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_162207.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.8K /home/pi/rosmaster_maps/slices/slam_map_20260617_162207.pcd
+[2026-06-17 16:23:08] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 232 点, 旧整体: 1078 点
+  ⚠ 新地图(232)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260617_162308.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260617_162308.pcd
+[2026-06-28 11:37:51] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 357 点, 旧整体: 1078 点
+  ⚠ 新地图(357)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_113751.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_113751.pcd
+[2026-06-28 11:38:53] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 378 点, 旧整体: 1078 点
+  ⚠ 新地图(378)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_113853.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_113853.pcd
+[2026-06-28 11:39:54] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 380 点, 旧整体: 1078 点
+  ⚠ 新地图(380)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_113954.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_113954.pcd
+[2026-06-28 11:40:55] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 388 点, 旧整体: 1078 点
+  ⚠ 新地图(388)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114055.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114055.pcd
+[2026-06-28 11:41:56] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 390 点, 旧整体: 1078 点
+  ⚠ 新地图(390)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114156.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114156.pcd
+[2026-06-28 11:42:58] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 394 点, 旧整体: 1078 点
+  ⚠ 新地图(394)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114258.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114258.pcd
+[2026-06-28 11:43:59] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 395 点, 旧整体: 1078 点
+  ⚠ 新地图(395)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114359.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114359.pcd
+[2026-06-28 11:45:00] Saving snapshot 10...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 392 点, 旧整体: 1078 点
+  ⚠ 新地图(392)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114500.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114500.pcd
+[2026-06-28 11:46:02] Saving snapshot 11...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 395 点, 旧整体: 1078 点
+  ⚠ 新地图(395)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114602.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114602.pcd
+[2026-06-28 11:47:03] Saving snapshot 12...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 393 点, 旧整体: 1078 点
+  ⚠ 新地图(393)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114703.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114703.pcd
+[2026-06-28 11:48:04] Saving snapshot 13...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 392 点, 旧整体: 1078 点
+  ⚠ 新地图(392)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114804.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114804.pcd
+[2026-06-28 11:49:05] Saving snapshot 14...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 387 点, 旧整体: 1078 点
+  ⚠ 新地图(387)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_114905.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_114905.pcd
+[2026-06-28 11:50:07] Saving snapshot 15...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 388 点, 旧整体: 1078 点
+  ⚠ 新地图(388)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115007.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115007.pcd
+[2026-06-28 11:51:08] Saving snapshot 16...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 387 点, 旧整体: 1078 点
+  ⚠ 新地图(387)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115108.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115108.pcd
+[2026-06-28 11:52:09] Saving snapshot 17...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 387 点, 旧整体: 1078 点
+  ⚠ 新地图(387)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115209.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115209.pcd
+[2026-06-28 11:53:10] Saving snapshot 18...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 386 点, 旧整体: 1078 点
+  ⚠ 新地图(386)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115310.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115310.pcd
+[2026-06-28 11:54:12] Saving snapshot 19...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 385 点, 旧整体: 1078 点
+  ⚠ 新地图(385)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115412.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115412.pcd
+[2026-06-28 11:55:13] Saving snapshot 20...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 386 点, 旧整体: 1078 点
+  ⚠ 新地图(386)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115513.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115513.pcd
+[2026-06-28 11:56:14] Saving snapshot 21...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 386 点, 旧整体: 1078 点
+  ⚠ 新地图(386)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115614.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115614.pcd
+[2026-06-28 11:57:16] Saving snapshot 22...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 385 点, 旧整体: 1078 点
+  ⚠ 新地图(385)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115716.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_115716.pcd
+[2026-06-28 11:58:17] Saving snapshot 23...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 183 点, 旧整体: 1078 点
+  ⚠ 新地图(183)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_115817.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_115817.pcd
+[2026-06-28 12:00:34] Saving snapshot 24...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 228 点, 旧整体: 1078 点
+  ⚠ 新地图(228)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120034.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_120034.pcd
+[2026-06-28 12:01:35] Saving snapshot 25...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 246 点, 旧整体: 1078 点
+  ⚠ 新地图(246)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120135.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  7.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_120135.pcd
+[2026-06-28 12:02:36] Saving snapshot 26...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 247 点, 旧整体: 1078 点
+  ⚠ 新地图(247)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120236.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  7.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_120236.pcd
+[2026-06-28 12:03:38] Saving snapshot 27...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 277 点, 旧整体: 1078 点
+  ⚠ 新地图(277)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120338.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_120338.pcd
+[2026-06-28 12:04:39] Saving snapshot 28...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 281 点, 旧整体: 1078 点
+  ⚠ 新地图(281)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120439.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_120439.pcd
+[2026-06-28 12:05:40] Saving snapshot 29...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 280 点, 旧整体: 1078 点
+  ⚠ 新地图(280)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120540.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_120540.pcd
+[2026-06-28 12:06:42] Saving snapshot 30...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 277 点, 旧整体: 1078 点
+  ⚠ 新地图(277)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120642.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_120642.pcd
+[2026-06-28 12:07:43] Saving snapshot 31...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 278 点, 旧整体: 1078 点
+  ⚠ 新地图(278)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120743.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_120743.pcd
+[2026-06-28 12:08:45] Saving snapshot 32...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 278 点, 旧整体: 1078 点
+  ⚠ 新地图(278)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120845.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_120845.pcd
+[2026-06-28 12:09:46] Saving snapshot 33...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 308 点, 旧整体: 1078 点
+  ⚠ 新地图(308)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_120946.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_120946.pcd
+[2026-06-28 12:10:47] Saving snapshot 34...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 309 点, 旧整体: 1078 点
+  ⚠ 新地图(309)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121047.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121047.pcd
+[2026-06-28 12:11:49] Saving snapshot 35...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 311 点, 旧整体: 1078 点
+  ⚠ 新地图(311)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121149.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121149.pcd
+[2026-06-28 12:12:50] Saving snapshot 36...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 311 点, 旧整体: 1078 点
+  ⚠ 新地图(311)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121250.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121250.pcd
+[2026-06-28 12:13:52] Saving snapshot 37...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 311 点, 旧整体: 1078 点
+  ⚠ 新地图(311)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121352.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121352.pcd
+[2026-06-28 12:14:53] Saving snapshot 38...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 312 点, 旧整体: 1078 点
+  ⚠ 新地图(312)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121453.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_121453.pcd
+[2026-06-28 12:15:55] Saving snapshot 39...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 311 点, 旧整体: 1078 点
+  ⚠ 新地图(311)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121555.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121555.pcd
+[2026-06-28 12:16:56] Saving snapshot 40...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 310 点, 旧整体: 1078 点
+  ⚠ 新地图(310)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121656.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_121656.pcd
+[2026-06-28 12:17:57] Saving snapshot 41...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 312 点, 旧整体: 1078 点
+  ⚠ 新地图(312)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121757.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_121757.pcd
+[2026-06-28 12:18:59] Saving snapshot 42...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 313 点, 旧整体: 1078 点
+  ⚠ 新地图(313)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_121859.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_121859.pcd
+[2026-06-28 12:20:00] Saving snapshot 43...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 313 点, 旧整体: 1078 点
+  ⚠ 新地图(313)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122000.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_122000.pcd
+[2026-06-28 12:21:02] Saving snapshot 44...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 313 点, 旧整体: 1078 点
+  ⚠ 新地图(313)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122102.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_122102.pcd
+[2026-06-28 12:22:03] Saving snapshot 45...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 481 点, 旧整体: 1078 点
+  ⚠ 新地图(481)远小于旧地图(1078)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122203.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  14K /home/pi/rosmaster_maps/slices/slam_map_20260628_122203.pcd
+[2026-06-28 12:23:05] Saving snapshot 46...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 548 点, 旧整体: 1078 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122305.*
+  16K /home/pi/rosmaster_maps/overall_map.pcd
+  16K /home/pi/rosmaster_maps/slices/slam_map_20260628_122305.pcd
+[2026-06-28 12:24:06] Saving snapshot 47...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 558 点, 旧整体: 548 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122406.*
+  17K /home/pi/rosmaster_maps/overall_map.pcd
+  17K /home/pi/rosmaster_maps/slices/slam_map_20260628_122406.pcd
+[2026-06-28 12:25:08] Saving snapshot 48...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 604 点, 旧整体: 558 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122508.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_122508.pcd
+[2026-06-28 12:26:09] Saving snapshot 49...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 603 点, 旧整体: 604 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122609.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_122609.pcd
+[2026-06-28 12:27:10] Saving snapshot 50...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 601 点, 旧整体: 603 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122710.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_122710.pcd
+[2026-06-28 12:28:12] Saving snapshot 51...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 604 点, 旧整体: 601 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122812.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_122812.pcd
+[2026-06-28 12:29:14] Saving snapshot 52...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 603 点, 旧整体: 604 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_122914.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_122914.pcd
+[2026-06-28 12:30:15] Saving snapshot 53...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 605 点, 旧整体: 603 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123015.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123015.pcd
+[2026-06-28 12:31:17] Saving snapshot 54...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 608 点, 旧整体: 605 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123117.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123117.pcd
+[2026-06-28 12:32:18] Saving snapshot 55...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 609 点, 旧整体: 608 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123218.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123218.pcd
+[2026-06-28 12:33:20] Saving snapshot 56...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 606 点, 旧整体: 609 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123320.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123320.pcd
+[2026-06-28 12:34:21] Saving snapshot 57...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 611 点, 旧整体: 606 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123421.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123421.pcd
+[2026-06-28 12:35:23] Saving snapshot 58...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 622 点, 旧整体: 611 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123523.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123523.pcd
+[2026-06-28 12:36:24] Saving snapshot 59...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 626 点, 旧整体: 622 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123624.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123624.pcd
+[2026-06-28 12:37:25] Saving snapshot 60...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 622 点, 旧整体: 626 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123725.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123725.pcd
+[2026-06-28 12:38:27] Saving snapshot 61...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 623 点, 旧整体: 622 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123827.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123827.pcd
+[2026-06-28 12:39:28] Saving snapshot 62...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 624 点, 旧整体: 623 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_123928.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_123928.pcd
+[2026-06-28 12:40:30] Saving snapshot 63...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 626 点, 旧整体: 624 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124030.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_124030.pcd
+[2026-06-28 12:41:31] Saving snapshot 64...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 625 点, 旧整体: 626 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124131.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_124131.pcd
+[2026-06-28 12:42:33] Saving snapshot 65...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 625 点, 旧整体: 625 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124233.*
+  18K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_124233.pcd
+[2026-06-28 12:43:34] Saving snapshot 66...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 627 点, 旧整体: 625 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124334.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124334.pcd
+[2026-06-28 12:44:36] Saving snapshot 67...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 629 点, 旧整体: 627 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124436.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124436.pcd
+[2026-06-28 12:45:37] Saving snapshot 68...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 631 点, 旧整体: 629 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124537.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124537.pcd
+[2026-06-28 12:46:38] Saving snapshot 69...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 632 点, 旧整体: 631 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124638.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124638.pcd
+[2026-06-28 12:47:40] Saving snapshot 70...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 634 点, 旧整体: 632 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124740.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124740.pcd
+[2026-06-28 12:48:41] Saving snapshot 71...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 632 点, 旧整体: 634 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124841.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124841.pcd
+[2026-06-28 12:49:43] Saving snapshot 72...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 631 点, 旧整体: 632 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_124943.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_124943.pcd
+[2026-06-28 12:50:44] Saving snapshot 73...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 630 点, 旧整体: 631 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125044.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125044.pcd
+[2026-06-28 12:51:46] Saving snapshot 74...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 631 点, 旧整体: 630 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125146.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125146.pcd
+[2026-06-28 12:52:47] Saving snapshot 75...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 634 点, 旧整体: 631 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125247.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125247.pcd
+[2026-06-28 12:53:49] Saving snapshot 76...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 634 点, 旧整体: 634 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125349.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125349.pcd
+[2026-06-28 12:54:50] Saving snapshot 77...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 655 点, 旧整体: 634 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125450.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125450.pcd
+[2026-06-28 12:55:52] Saving snapshot 78...
+/home/pi/rosmaster_maps/_tmp_save_5795.pgm
+/home/pi/rosmaster_maps/_tmp_save_5795.yaml
+/home/pi/rosmaster_maps/_tmp_save_5795.pcd
+  新地图: 658 点, 旧整体: 655 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125552.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_125552.pcd
+[2026-06-28 12:56:53] Saving snapshot 79...
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js1: Microsoft X-Box 360 pad
+手柄设备: /dev/input/js1
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 12:57:44] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 6 点, 旧整体: 659 点
+  ⚠ 新地图(6)远小于旧地图(659)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125744.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  378 /home/pi/rosmaster_maps/slices/slam_map_20260628_125744.pcd
+[2026-06-28 12:58:46] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 16 点, 旧整体: 659 点
+  ⚠ 新地图(16)远小于旧地图(659)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125846.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  670 /home/pi/rosmaster_maps/slices/slam_map_20260628_125846.pcd
+[2026-06-28 12:59:47] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 50 点, 旧整体: 659 点
+  ⚠ 新地图(50)远小于旧地图(659)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_125947.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  1.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_125947.pcd
+[2026-06-28 13:00:49] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 658 点, 旧整体: 659 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130049.*
+  19K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_130049.pcd
+[2026-06-28 13:01:50] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1022 点, 旧整体: 658 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130150.*
+  29K /home/pi/rosmaster_maps/overall_map.pcd
+  29K /home/pi/rosmaster_maps/slices/slam_map_20260628_130150.pcd
+[2026-06-28 13:02:52] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1216 点, 旧整体: 1022 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130252.*
+  35K /home/pi/rosmaster_maps/overall_map.pcd
+  35K /home/pi/rosmaster_maps/slices/slam_map_20260628_130252.pcd
+[2026-06-28 13:03:53] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1185 点, 旧整体: 1216 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130353.*
+  34K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_130353.pcd
+[2026-06-28 13:04:55] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1169 点, 旧整体: 1185 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130455.*
+  33K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_130455.pcd
+[2026-06-28 13:05:56] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1136 点, 旧整体: 1169 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130556.*
+  32K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_130556.pcd
+[2026-06-28 13:06:58] Saving snapshot 10...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1119 点, 旧整体: 1136 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130658.*
+  32K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_130658.pcd
+[2026-06-28 13:07:59] Saving snapshot 11...
+/home/pi/rosmaster_maps/_tmp_save_6321.pgm
+/home/pi/rosmaster_maps/_tmp_save_6321.yaml
+/home/pi/rosmaster_maps/_tmp_save_6321.pcd
+  新地图: 1097 点, 旧整体: 1119 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_130759.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  31K /home/pi/rosmaster_maps/slices/slam_map_20260628_130759.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js0: Controller
+手柄设备: /dev/input/js0
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 16:24:52] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 193 点, 旧整体: 1097 点
+  ⚠ 新地图(193)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162452.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_162452.pcd
+[2026-06-28 16:25:53] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 200 点, 旧整体: 1097 点
+  ⚠ 新地图(200)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162553.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_162553.pcd
+[2026-06-28 16:26:54] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 201 点, 旧整体: 1097 点
+  ⚠ 新地图(201)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162654.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_162654.pcd
+[2026-06-28 16:27:56] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 201 点, 旧整体: 1097 点
+  ⚠ 新地图(201)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162756.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_162756.pcd
+[2026-06-28 16:28:57] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 199 点, 旧整体: 1097 点
+  ⚠ 新地图(199)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162857.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_162857.pcd
+[2026-06-28 16:29:59] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 199 点, 旧整体: 1097 点
+  ⚠ 新地图(199)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_162959.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_162959.pcd
+[2026-06-28 16:31:00] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 200 点, 旧整体: 1097 点
+  ⚠ 新地图(200)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163100.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_163100.pcd
+[2026-06-28 16:32:01] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 203 点, 旧整体: 1097 点
+  ⚠ 新地图(203)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163201.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_163201.pcd
+[2026-06-28 16:33:03] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 205 点, 旧整体: 1097 点
+  ⚠ 新地图(205)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163303.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_163303.pcd
+[2026-06-28 16:34:04] Saving snapshot 10...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 205 点, 旧整体: 1097 点
+  ⚠ 新地图(205)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163404.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_163404.pcd
+[2026-06-28 16:35:06] Saving snapshot 11...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 205 点, 旧整体: 1097 点
+  ⚠ 新地图(205)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163506.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_163506.pcd
+[2026-06-28 16:36:07] Saving snapshot 12...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 202 点, 旧整体: 1097 点
+  ⚠ 新地图(202)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163607.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_163607.pcd
+[2026-06-28 16:37:09] Saving snapshot 13...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 202 点, 旧整体: 1097 点
+  ⚠ 新地图(202)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163709.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_163709.pcd
+[2026-06-28 16:38:10] Saving snapshot 14...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 202 点, 旧整体: 1097 点
+  ⚠ 新地图(202)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163810.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_163810.pcd
+[2026-06-28 16:39:11] Saving snapshot 15...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 202 点, 旧整体: 1097 点
+  ⚠ 新地图(202)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_163911.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_163911.pcd
+[2026-06-28 16:40:13] Saving snapshot 16...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 202 点, 旧整体: 1097 点
+  ⚠ 新地图(202)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164013.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_164013.pcd
+[2026-06-28 16:41:14] Saving snapshot 17...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 203 点, 旧整体: 1097 点
+  ⚠ 新地图(203)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164114.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_164114.pcd
+[2026-06-28 16:42:16] Saving snapshot 18...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 203 点, 旧整体: 1097 点
+  ⚠ 新地图(203)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164216.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_164216.pcd
+[2026-06-28 16:43:17] Saving snapshot 19...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 203 点, 旧整体: 1097 点
+  ⚠ 新地图(203)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164317.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_164317.pcd
+[2026-06-28 16:44:18] Saving snapshot 20...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 204 点, 旧整体: 1097 点
+  ⚠ 新地图(204)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164418.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_164418.pcd
+[2026-06-28 16:45:20] Saving snapshot 21...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 204 点, 旧整体: 1097 点
+  ⚠ 新地图(204)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164520.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_164520.pcd
+[2026-06-28 16:46:21] Saving snapshot 22...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 205 点, 旧整体: 1097 点
+  ⚠ 新地图(205)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164621.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_164621.pcd
+[2026-06-28 16:47:23] Saving snapshot 23...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 220 点, 旧整体: 1097 点
+  ⚠ 新地图(220)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164723.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_164723.pcd
+[2026-06-28 16:48:24] Saving snapshot 24...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 221 点, 旧整体: 1097 点
+  ⚠ 新地图(221)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164824.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_164824.pcd
+[2026-06-28 16:49:25] Saving snapshot 25...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 222 点, 旧整体: 1097 点
+  ⚠ 新地图(222)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_164925.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_164925.pcd
+[2026-06-28 16:50:27] Saving snapshot 26...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 222 点, 旧整体: 1097 点
+  ⚠ 新地图(222)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165027.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_165027.pcd
+[2026-06-28 16:51:28] Saving snapshot 27...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 151 点, 旧整体: 1097 点
+  ⚠ 新地图(151)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165128.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  4.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_165128.pcd
+[2026-06-28 16:54:42] Saving snapshot 28...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 151 点, 旧整体: 1097 点
+  ⚠ 新地图(151)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165442.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  4.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_165442.pcd
+[2026-06-28 16:55:46] Saving snapshot 29...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 148 点, 旧整体: 1097 点
+  ⚠ 新地图(148)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165546.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  4.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_165546.pcd
+[2026-06-28 16:56:51] Saving snapshot 30...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 148 点, 旧整体: 1097 点
+  ⚠ 新地图(148)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165651.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  4.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_165651.pcd
+[2026-06-28 16:57:56] Saving snapshot 31...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 171 点, 旧整体: 1097 点
+  ⚠ 新地图(171)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165756.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_165756.pcd
+[2026-06-28 16:58:57] Saving snapshot 32...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 178 点, 旧整体: 1097 点
+  ⚠ 新地图(178)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165857.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_165857.pcd
+[2026-06-28 16:59:59] Saving snapshot 33...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 179 点, 旧整体: 1097 点
+  ⚠ 新地图(179)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_165959.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_165959.pcd
+[2026-06-28 17:01:00] Saving snapshot 34...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 178 点, 旧整体: 1097 点
+  ⚠ 新地图(178)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170100.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  5.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_170100.pcd
+[2026-06-28 17:02:01] Saving snapshot 35...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 203 点, 旧整体: 1097 点
+  ⚠ 新地图(203)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170201.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_170201.pcd
+[2026-06-28 17:03:03] Saving snapshot 36...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 206 点, 旧整体: 1097 点
+  ⚠ 新地图(206)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170303.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_170303.pcd
+[2026-06-28 17:04:04] Saving snapshot 37...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 206 点, 旧整体: 1097 点
+  ⚠ 新地图(206)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170404.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_170404.pcd
+[2026-06-28 17:05:06] Saving snapshot 38...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 208 点, 旧整体: 1097 点
+  ⚠ 新地图(208)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170506.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_170506.pcd
+[2026-06-28 17:06:07] Saving snapshot 39...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 211 点, 旧整体: 1097 点
+  ⚠ 新地图(211)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170607.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_170607.pcd
+[2026-06-28 17:07:09] Saving snapshot 40...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 213 点, 旧整体: 1097 点
+  ⚠ 新地图(213)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170709.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_170709.pcd
+[2026-06-28 17:08:10] Saving snapshot 41...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 214 点, 旧整体: 1097 点
+  ⚠ 新地图(214)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170810.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_170810.pcd
+[2026-06-28 17:09:11] Saving snapshot 42...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 213 点, 旧整体: 1097 点
+  ⚠ 新地图(213)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_170911.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_170911.pcd
+[2026-06-28 17:10:13] Saving snapshot 43...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 214 点, 旧整体: 1097 点
+  ⚠ 新地图(214)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171013.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_171013.pcd
+[2026-06-28 17:11:14] Saving snapshot 44...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 220 点, 旧整体: 1097 点
+  ⚠ 新地图(220)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171114.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171114.pcd
+[2026-06-28 17:12:16] Saving snapshot 45...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 220 点, 旧整体: 1097 点
+  ⚠ 新地图(220)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171216.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171216.pcd
+[2026-06-28 17:13:17] Saving snapshot 46...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 222 点, 旧整体: 1097 点
+  ⚠ 新地图(222)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171317.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171317.pcd
+[2026-06-28 17:14:18] Saving snapshot 47...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 222 点, 旧整体: 1097 点
+  ⚠ 新地图(222)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171418.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171418.pcd
+[2026-06-28 17:15:20] Saving snapshot 48...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 222 点, 旧整体: 1097 点
+  ⚠ 新地图(222)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171520.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171520.pcd
+[2026-06-28 17:16:21] Saving snapshot 49...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 223 点, 旧整体: 1097 点
+  ⚠ 新地图(223)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171621.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171621.pcd
+[2026-06-28 17:17:23] Saving snapshot 50...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 223 点, 旧整体: 1097 点
+  ⚠ 新地图(223)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171723.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171723.pcd
+[2026-06-28 17:18:24] Saving snapshot 51...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 223 点, 旧整体: 1097 点
+  ⚠ 新地图(223)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171824.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_171824.pcd
+[2026-06-28 17:19:25] Saving snapshot 52...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 224 点, 旧整体: 1097 点
+  ⚠ 新地图(224)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_171925.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_171925.pcd
+[2026-06-28 17:20:27] Saving snapshot 53...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 224 点, 旧整体: 1097 点
+  ⚠ 新地图(224)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172027.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_172027.pcd
+[2026-06-28 17:21:28] Saving snapshot 54...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 223 点, 旧整体: 1097 点
+  ⚠ 新地图(223)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172128.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_172128.pcd
+[2026-06-28 17:22:30] Saving snapshot 55...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 224 点, 旧整体: 1097 点
+  ⚠ 新地图(224)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172230.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  6.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_172230.pcd
+[2026-06-28 17:23:31] Saving snapshot 56...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 287 点, 旧整体: 1097 点
+  ⚠ 新地图(287)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172331.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_172331.pcd
+[2026-06-28 17:24:33] Saving snapshot 57...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 323 点, 旧整体: 1097 点
+  ⚠ 新地图(323)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172433.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_172433.pcd
+[2026-06-28 17:25:34] Saving snapshot 58...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 327 点, 旧整体: 1097 点
+  ⚠ 新地图(327)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172534.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_172534.pcd
+[2026-06-28 17:26:35] Saving snapshot 59...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 328 点, 旧整体: 1097 点
+  ⚠ 新地图(328)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172635.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_172635.pcd
+[2026-06-28 17:27:37] Saving snapshot 60...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 328 点, 旧整体: 1097 点
+  ⚠ 新地图(328)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172737.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_172737.pcd
+[2026-06-28 17:28:38] Saving snapshot 61...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 284 点, 旧整体: 1097 点
+  ⚠ 新地图(284)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172838.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_172838.pcd
+[2026-06-28 17:29:40] Saving snapshot 62...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 283 点, 旧整体: 1097 点
+  ⚠ 新地图(283)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_172940.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_172940.pcd
+[2026-06-28 17:30:41] Saving snapshot 63...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 284 点, 旧整体: 1097 点
+  ⚠ 新地图(284)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173041.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_173041.pcd
+[2026-06-28 17:31:42] Saving snapshot 64...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 285 点, 旧整体: 1097 点
+  ⚠ 新地图(285)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173142.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_173142.pcd
+[2026-06-28 17:32:44] Saving snapshot 65...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 287 点, 旧整体: 1097 点
+  ⚠ 新地图(287)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173244.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_173244.pcd
+[2026-06-28 17:33:45] Saving snapshot 66...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 289 点, 旧整体: 1097 点
+  ⚠ 新地图(289)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173345.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173345.pcd
+[2026-06-28 17:34:46] Saving snapshot 67...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173446.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173446.pcd
+[2026-06-28 17:35:48] Saving snapshot 68...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173548.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173548.pcd
+[2026-06-28 17:36:49] Saving snapshot 69...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 290 点, 旧整体: 1097 点
+  ⚠ 新地图(290)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173649.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173649.pcd
+[2026-06-28 17:37:51] Saving snapshot 70...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173751.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173751.pcd
+[2026-06-28 17:38:52] Saving snapshot 71...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173852.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_173852.pcd
+[2026-06-28 17:39:53] Saving snapshot 72...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_173953.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_173953.pcd
+[2026-06-28 17:40:55] Saving snapshot 73...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174055.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_174055.pcd
+[2026-06-28 17:41:56] Saving snapshot 74...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174156.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174156.pcd
+[2026-06-28 17:42:58] Saving snapshot 75...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174258.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174258.pcd
+[2026-06-28 17:43:59] Saving snapshot 76...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174359.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_174359.pcd
+[2026-06-28 17:45:01] Saving snapshot 77...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174501.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_174501.pcd
+[2026-06-28 17:46:02] Saving snapshot 78...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174602.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174602.pcd
+[2026-06-28 17:47:03] Saving snapshot 79...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174703.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174703.pcd
+[2026-06-28 17:48:05] Saving snapshot 80...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174805.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174805.pcd
+[2026-06-28 17:49:06] Saving snapshot 81...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 291 点, 旧整体: 1097 点
+  ⚠ 新地图(291)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_174906.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_174906.pcd
+[2026-06-28 17:50:08] Saving snapshot 82...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175008.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175008.pcd
+[2026-06-28 17:51:09] Saving snapshot 83...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175109.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175109.pcd
+[2026-06-28 17:52:10] Saving snapshot 84...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175210.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175210.pcd
+[2026-06-28 17:53:12] Saving snapshot 85...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 292 点, 旧整体: 1097 点
+  ⚠ 新地图(292)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175312.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175312.pcd
+[2026-06-28 17:54:13] Saving snapshot 86...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 293 点, 旧整体: 1097 点
+  ⚠ 新地图(293)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175413.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175413.pcd
+[2026-06-28 17:55:15] Saving snapshot 87...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 295 点, 旧整体: 1097 点
+  ⚠ 新地图(295)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175515.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_175515.pcd
+[2026-06-28 17:56:16] Saving snapshot 88...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 297 点, 旧整体: 1097 点
+  ⚠ 新地图(297)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175616.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_175616.pcd
+[2026-06-28 17:57:18] Saving snapshot 89...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 297 点, 旧整体: 1097 点
+  ⚠ 新地图(297)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175718.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_175718.pcd
+[2026-06-28 17:58:19] Saving snapshot 90...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 297 点, 旧整体: 1097 点
+  ⚠ 新地图(297)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175819.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_175819.pcd
+[2026-06-28 17:59:20] Saving snapshot 91...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 301 点, 旧整体: 1097 点
+  ⚠ 新地图(301)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_175920.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_175920.pcd
+[2026-06-28 18:00:22] Saving snapshot 92...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 301 点, 旧整体: 1097 点
+  ⚠ 新地图(301)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180022.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_180022.pcd
+[2026-06-28 18:01:23] Saving snapshot 93...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 343 点, 旧整体: 1097 点
+  ⚠ 新地图(343)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180123.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_180123.pcd
+[2026-06-28 18:02:25] Saving snapshot 94...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 345 点, 旧整体: 1097 点
+  ⚠ 新地图(345)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180225.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_180225.pcd
+[2026-06-28 18:03:26] Saving snapshot 95...
+/home/pi/rosmaster_maps/_tmp_save_7451.pgm
+/home/pi/rosmaster_maps/_tmp_save_7451.yaml
+/home/pi/rosmaster_maps/_tmp_save_7451.pcd
+  新地图: 351 点, 旧整体: 1097 点
+  ⚠ 新地图(351)远小于旧地图(1097)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180326.*
+  31K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_180326.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js1: Microsoft X-Box 360 pad
+手柄设备: /dev/input/js1
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+启动轨迹记录...
+轨迹记录已启动
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 18:05:18] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 1929 点, 旧整体: 1097 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180518.*
+  54K /home/pi/rosmaster_maps/overall_map.pcd
+  54K /home/pi/rosmaster_maps/slices/slam_map_20260628_180518.pcd
+[2026-06-28 18:06:20] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 3463 点, 旧整体: 1929 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180620.*
+  98K /home/pi/rosmaster_maps/overall_map.pcd
+  98K /home/pi/rosmaster_maps/slices/slam_map_20260628_180620.pcd
+[2026-06-28 18:07:21] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 4244 点, 旧整体: 3463 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180721.*
+  119K /home/pi/rosmaster_maps/overall_map.pcd
+  119K /home/pi/rosmaster_maps/slices/slam_map_20260628_180721.pcd
+[2026-06-28 18:08:23] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 7214 点, 旧整体: 4244 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180823.*
+  205K /home/pi/rosmaster_maps/overall_map.pcd
+  205K /home/pi/rosmaster_maps/slices/slam_map_20260628_180823.pcd
+[2026-06-28 18:09:26] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 10530 点, 旧整体: 7214 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_180926.*
+  300K /home/pi/rosmaster_maps/overall_map.pcd
+  300K /home/pi/rosmaster_maps/slices/slam_map_20260628_180926.pcd
+[2026-06-28 18:10:28] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 10988 点, 旧整体: 10530 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_181028.*
+  314K /home/pi/rosmaster_maps/overall_map.pcd
+  314K /home/pi/rosmaster_maps/slices/slam_map_20260628_181028.pcd
+[2026-06-28 18:11:30] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_6660.pgm
+/home/pi/rosmaster_maps/_tmp_save_6660.yaml
+/home/pi/rosmaster_maps/_tmp_save_6660.pcd
+  新地图: 13187 点, 旧整体: 10988 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_181130.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  376K /home/pi/rosmaster_maps/slices/slam_map_20260628_181130.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js0: Controller
+手柄设备: /dev/input/js0
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+启动轨迹记录...
+轨迹记录已启动
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 20:58:06] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 853 点, 旧整体: 13187 点
+  ⚠ 新地图(853)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_205806.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  25K /home/pi/rosmaster_maps/slices/slam_map_20260628_205806.pcd
+[2026-06-28 20:59:08] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 952 点, 旧整体: 13187 点
+  ⚠ 新地图(952)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_205908.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  28K /home/pi/rosmaster_maps/slices/slam_map_20260628_205908.pcd
+[2026-06-28 21:00:09] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 975 点, 旧整体: 13187 点
+  ⚠ 新地图(975)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210009.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  29K /home/pi/rosmaster_maps/slices/slam_map_20260628_210009.pcd
+[2026-06-28 21:01:11] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 984 点, 旧整体: 13187 点
+  ⚠ 新地图(984)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210111.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  29K /home/pi/rosmaster_maps/slices/slam_map_20260628_210111.pcd
+[2026-06-28 21:02:12] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 993 点, 旧整体: 13187 点
+  ⚠ 新地图(993)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210212.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  29K /home/pi/rosmaster_maps/slices/slam_map_20260628_210212.pcd
+[2026-06-28 21:03:14] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1000 点, 旧整体: 13187 点
+  ⚠ 新地图(1000)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210314.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  29K /home/pi/rosmaster_maps/slices/slam_map_20260628_210314.pcd
+[2026-06-28 21:04:15] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1021 点, 旧整体: 13187 点
+  ⚠ 新地图(1021)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210415.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  30K /home/pi/rosmaster_maps/slices/slam_map_20260628_210415.pcd
+[2026-06-28 21:05:17] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1042 点, 旧整体: 13187 点
+  ⚠ 新地图(1042)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210517.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  30K /home/pi/rosmaster_maps/slices/slam_map_20260628_210517.pcd
+[2026-06-28 21:06:18] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1067 点, 旧整体: 13187 点
+  ⚠ 新地图(1067)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210618.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  31K /home/pi/rosmaster_maps/slices/slam_map_20260628_210618.pcd
+[2026-06-28 21:07:20] Saving snapshot 10...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1087 点, 旧整体: 13187 点
+  ⚠ 新地图(1087)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210720.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_210720.pcd
+[2026-06-28 21:08:21] Saving snapshot 11...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1094 点, 旧整体: 13187 点
+  ⚠ 新地图(1094)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210821.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_210821.pcd
+[2026-06-28 21:09:23] Saving snapshot 12...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1092 点, 旧整体: 13187 点
+  ⚠ 新地图(1092)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_210923.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_210923.pcd
+[2026-06-28 21:10:24] Saving snapshot 13...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1106 点, 旧整体: 13187 点
+  ⚠ 新地图(1106)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211024.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  32K /home/pi/rosmaster_maps/slices/slam_map_20260628_211024.pcd
+[2026-06-28 21:11:26] Saving snapshot 14...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1116 点, 旧整体: 13187 点
+  ⚠ 新地图(1116)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211126.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211126.pcd
+[2026-06-28 21:12:27] Saving snapshot 15...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1118 点, 旧整体: 13187 点
+  ⚠ 新地图(1118)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211227.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211227.pcd
+[2026-06-28 21:13:28] Saving snapshot 16...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1122 点, 旧整体: 13187 点
+  ⚠ 新地图(1122)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211328.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211328.pcd
+[2026-06-28 21:14:30] Saving snapshot 17...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1126 点, 旧整体: 13187 点
+  ⚠ 新地图(1126)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211430.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211430.pcd
+[2026-06-28 21:15:31] Saving snapshot 18...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1126 点, 旧整体: 13187 点
+  ⚠ 新地图(1126)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211531.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211531.pcd
+[2026-06-28 21:16:33] Saving snapshot 19...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1129 点, 旧整体: 13187 点
+  ⚠ 新地图(1129)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211633.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211633.pcd
+[2026-06-28 21:17:34] Saving snapshot 20...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1131 点, 旧整体: 13187 点
+  ⚠ 新地图(1131)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211734.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211734.pcd
+[2026-06-28 21:18:36] Saving snapshot 21...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1134 点, 旧整体: 13187 点
+  ⚠ 新地图(1134)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211836.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211836.pcd
+[2026-06-28 21:19:37] Saving snapshot 22...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1133 点, 旧整体: 13187 点
+  ⚠ 新地图(1133)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_211937.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_211937.pcd
+[2026-06-28 21:20:39] Saving snapshot 23...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1137 点, 旧整体: 13187 点
+  ⚠ 新地图(1137)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212039.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_212039.pcd
+[2026-06-28 21:21:40] Saving snapshot 24...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1142 点, 旧整体: 13187 点
+  ⚠ 新地图(1142)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212140.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  33K /home/pi/rosmaster_maps/slices/slam_map_20260628_212140.pcd
+[2026-06-28 21:22:41] Saving snapshot 25...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1151 点, 旧整体: 13187 点
+  ⚠ 新地图(1151)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212241.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212241.pcd
+[2026-06-28 21:23:43] Saving snapshot 26...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1152 点, 旧整体: 13187 点
+  ⚠ 新地图(1152)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212343.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212343.pcd
+[2026-06-28 21:24:44] Saving snapshot 27...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1165 点, 旧整体: 13187 点
+  ⚠ 新地图(1165)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212444.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212444.pcd
+[2026-06-28 21:25:46] Saving snapshot 28...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1167 点, 旧整体: 13187 点
+  ⚠ 新地图(1167)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212546.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212546.pcd
+[2026-06-28 21:26:47] Saving snapshot 29...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1178 点, 旧整体: 13187 点
+  ⚠ 新地图(1178)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212647.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212647.pcd
+[2026-06-28 21:27:49] Saving snapshot 30...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1180 点, 旧整体: 13187 点
+  ⚠ 新地图(1180)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212749.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  34K /home/pi/rosmaster_maps/slices/slam_map_20260628_212749.pcd
+[2026-06-28 21:28:50] Saving snapshot 31...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1189 点, 旧整体: 13187 点
+  ⚠ 新地图(1189)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212850.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  35K /home/pi/rosmaster_maps/slices/slam_map_20260628_212850.pcd
+[2026-06-28 21:29:52] Saving snapshot 32...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1192 点, 旧整体: 13187 点
+  ⚠ 新地图(1192)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_212952.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  35K /home/pi/rosmaster_maps/slices/slam_map_20260628_212952.pcd
+[2026-06-28 21:30:53] Saving snapshot 33...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1195 点, 旧整体: 13187 点
+  ⚠ 新地图(1195)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213053.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  35K /home/pi/rosmaster_maps/slices/slam_map_20260628_213053.pcd
+[2026-06-28 21:31:55] Saving snapshot 34...
+/home/pi/rosmaster_maps/_tmp_save_6828.pgm
+/home/pi/rosmaster_maps/_tmp_save_6828.yaml
+/home/pi/rosmaster_maps/_tmp_save_6828.pcd
+  新地图: 1198 点, 旧整体: 13187 点
+  ⚠ 新地图(1198)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213155.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  35K /home/pi/rosmaster_maps/slices/slam_map_20260628_213155.pcd
+Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js1: Microsoft X-Box 360 pad
+手柄设备: /dev/input/js1
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+启动轨迹记录...
+轨迹记录已启动
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 21:33:32] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 4799 点, 旧整体: 13187 点
+  ⚠ 新地图(4799)远小于旧地图(13187)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213332.*
+  376K /home/pi/rosmaster_maps/overall_map.pcd
+  135K /home/pi/rosmaster_maps/slices/slam_map_20260628_213332.pcd
+[2026-06-28 21:34:34] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 7886 点, 旧整体: 13187 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213434.*
+  223K /home/pi/rosmaster_maps/overall_map.pcd
+  223K /home/pi/rosmaster_maps/slices/slam_map_20260628_213434.pcd
+[2026-06-28 21:35:36] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 9764 点, 旧整体: 7886 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213536.*
+  277K /home/pi/rosmaster_maps/overall_map.pcd
+  277K /home/pi/rosmaster_maps/slices/slam_map_20260628_213536.pcd
+[2026-06-28 21:36:37] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 12084 点, 旧整体: 9764 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213637.*
+  344K /home/pi/rosmaster_maps/overall_map.pcd
+  344K /home/pi/rosmaster_maps/slices/slam_map_20260628_213637.pcd
+[2026-06-28 21:37:39] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 12663 点, 旧整体: 12084 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213739.*
+  361K /home/pi/rosmaster_maps/overall_map.pcd
+  361K /home/pi/rosmaster_maps/slices/slam_map_20260628_213739.pcd
+[2026-06-28 21:38:42] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 16627 点, 旧整体: 12663 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213842.*
+  478K /home/pi/rosmaster_maps/overall_map.pcd
+  478K /home/pi/rosmaster_maps/slices/slam_map_20260628_213842.pcd
+[2026-06-28 21:39:44] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 21384 点, 旧整体: 16627 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_213944.*
+  622K /home/pi/rosmaster_maps/overall_map.pcd
+  622K /home/pi/rosmaster_maps/slices/slam_map_20260628_213944.pcd
+[2026-06-28 21:40:47] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 24998 点, 旧整体: 21384 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_214047.*
+  727K /home/pi/rosmaster_maps/overall_map.pcd
+  727K /home/pi/rosmaster_maps/slices/slam_map_20260628_214047.pcd
+[2026-06-28 21:41:49] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_6535.pgm
+/home/pi/rosmaster_maps/_tmp_save_6535.yaml
+/home/pi/rosmaster_maps/_tmp_save_6535.pcd
+  新地图: 24398 点, 旧整体: 24998 点
+  overall 已更新
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_214149.*
+  710K /home/pi/rosmaster_maps/overall_map.pcd
+  710K /home/pi/rosmaster_maps/slices/slam_map_20260628_214149.pcd
+                                                                                                                                                                                                                                                                                                                                                                                                                                    Starting SLAM stack if needed...
+Container already running: rosmaster_slam
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+roscore already running
+Waiting for ROS master...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+laser bringup already running
+Waiting for /scan and /odom...
+mesg: ttyname failed: Inappropriate ioctl for device
+mesg: ttyname failed: Inappropriate ioctl for device
+gmapping already running
+Waiting for /map_metadata...
+mesg: ttyname failed: Inappropriate ioctl for device
+检查 /dev/input/js0: Controller
+手柄设备: /dev/input/js0
+mesg: ttyname failed: Inappropriate ioctl for device
+killing /joy_node
+killed
+mesg: ttyname failed: Inappropriate ioctl for device
+yahboom_joy 已在运行
+mesg: ttyname failed: Inappropriate ioctl for device
+joy_node OK (/joy 有消息)
+SLAM stack is running.
+Container: rosmaster_slam
+Logs inside container: /root/rosmaster_slam_logs
+Use rosmaster_slam_status.sh to inspect topics.
+Use rosmaster_map_save.sh my_map after driving the robot around.
+启动轨迹记录...
+轨迹记录已启动
+Autosave settings:
+  interval: 60s
+  count: 0 (0=forever)
+  overall: /home/pi/rosmaster_maps/overall_map.*
+  slices:  /home/pi/rosmaster_maps/slices/
+[2026-06-28 21:43:48] Saving snapshot 1...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 251 点, 旧整体: 24134 点
+  ⚠ 新地图(251)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_214348.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  7.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_214348.pcd
+[2026-06-28 21:49:14] Saving snapshot 2...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 364 点, 旧整体: 24134 点
+  ⚠ 新地图(364)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_214914.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  11K /home/pi/rosmaster_maps/slices/slam_map_20260628_214914.pcd
+[2026-06-28 21:50:15] Saving snapshot 3...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 344 点, 旧整体: 24134 点
+  ⚠ 新地图(344)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215015.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_215015.pcd
+[2026-06-28 21:51:17] Saving snapshot 4...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 326 点, 旧整体: 24134 点
+  ⚠ 新地图(326)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215117.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_215117.pcd
+[2026-06-28 21:52:18] Saving snapshot 5...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 326 点, 旧整体: 24134 点
+  ⚠ 新地图(326)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215218.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_215218.pcd
+[2026-06-28 21:53:19] Saving snapshot 6...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 325 点, 旧整体: 24134 点
+  ⚠ 新地图(325)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215319.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_215319.pcd
+[2026-06-28 21:54:21] Saving snapshot 7...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 328 点, 旧整体: 24134 点
+  ⚠ 新地图(328)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215421.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_215421.pcd
+[2026-06-28 21:55:22] Saving snapshot 8...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 330 点, 旧整体: 24134 点
+  ⚠ 新地图(330)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215522.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_215522.pcd
+[2026-06-28 21:56:24] Saving snapshot 9...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 331 点, 旧整体: 24134 点
+  ⚠ 新地图(331)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215624.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.5K /home/pi/rosmaster_maps/slices/slam_map_20260628_215624.pcd
+[2026-06-28 21:57:25] Saving snapshot 10...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 334 点, 旧整体: 24134 点
+  ⚠ 新地图(334)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215725.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_215725.pcd
+[2026-06-28 21:58:27] Saving snapshot 11...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 336 点, 旧整体: 24134 点
+  ⚠ 新地图(336)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215827.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_215827.pcd
+[2026-06-28 21:59:28] Saving snapshot 12...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 335 点, 旧整体: 24134 点
+  ⚠ 新地图(335)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_215928.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_215928.pcd
+[2026-06-28 22:00:29] Saving snapshot 13...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 338 点, 旧整体: 24134 点
+  ⚠ 新地图(338)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220029.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_220029.pcd
+[2026-06-28 22:01:31] Saving snapshot 14...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 338 点, 旧整体: 24134 点
+  ⚠ 新地图(338)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220131.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_220131.pcd
+[2026-06-28 22:02:32] Saving snapshot 15...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 339 点, 旧整体: 24134 点
+  ⚠ 新地图(339)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220232.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_220232.pcd
+[2026-06-28 22:03:34] Saving snapshot 16...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 339 点, 旧整体: 24134 点
+  ⚠ 新地图(339)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220334.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_220334.pcd
+[2026-06-28 22:04:35] Saving snapshot 17...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 340 点, 旧整体: 24134 点
+  ⚠ 新地图(340)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220435.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_220435.pcd
+[2026-06-28 22:05:36] Saving snapshot 18...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 340 点, 旧整体: 24134 点
+  ⚠ 新地图(340)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220536.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.8K /home/pi/rosmaster_maps/slices/slam_map_20260628_220536.pcd
+[2026-06-28 22:06:38] Saving snapshot 19...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 420 点, 旧整体: 24134 点
+  ⚠ 新地图(420)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220638.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_220638.pcd
+[2026-06-28 22:07:39] Saving snapshot 20...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 420 点, 旧整体: 24134 点
+  ⚠ 新地图(420)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220739.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  12K /home/pi/rosmaster_maps/slices/slam_map_20260628_220739.pcd
+[2026-06-28 22:08:41] Saving snapshot 21...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 421 点, 旧整体: 24134 点
+  ⚠ 新地图(421)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220841.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  13K /home/pi/rosmaster_maps/slices/slam_map_20260628_220841.pcd
+[2026-06-28 22:09:42] Saving snapshot 22...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 424 点, 旧整体: 24134 点
+  ⚠ 新地图(424)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_220942.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  13K /home/pi/rosmaster_maps/slices/slam_map_20260628_220942.pcd
+[2026-06-28 22:10:43] Saving snapshot 23...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 470 点, 旧整体: 24134 点
+  ⚠ 新地图(470)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221043.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  14K /home/pi/rosmaster_maps/slices/slam_map_20260628_221043.pcd
+[2026-06-28 22:11:45] Saving snapshot 24...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 543 点, 旧整体: 24134 点
+  ⚠ 新地图(543)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221145.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  16K /home/pi/rosmaster_maps/slices/slam_map_20260628_221145.pcd
+[2026-06-28 22:12:46] Saving snapshot 25...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 555 点, 旧整体: 24134 点
+  ⚠ 新地图(555)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221246.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  16K /home/pi/rosmaster_maps/slices/slam_map_20260628_221246.pcd
+[2026-06-28 22:13:48] Saving snapshot 26...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 569 点, 旧整体: 24134 点
+  ⚠ 新地图(569)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221348.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  17K /home/pi/rosmaster_maps/slices/slam_map_20260628_221348.pcd
+[2026-06-28 22:14:49] Saving snapshot 27...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 611 点, 旧整体: 24134 点
+  ⚠ 新地图(611)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221449.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_221449.pcd
+[2026-06-28 22:15:50] Saving snapshot 28...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 615 点, 旧整体: 24134 点
+  ⚠ 新地图(615)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221550.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_221550.pcd
+[2026-06-28 22:16:52] Saving snapshot 29...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 629 点, 旧整体: 24134 点
+  ⚠ 新地图(629)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221652.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_221652.pcd
+[2026-06-28 22:17:53] Saving snapshot 30...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 633 点, 旧整体: 24134 点
+  ⚠ 新地图(633)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221753.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  18K /home/pi/rosmaster_maps/slices/slam_map_20260628_221753.pcd
+[2026-06-28 22:18:55] Saving snapshot 31...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 652 点, 旧整体: 24134 点
+  ⚠ 新地图(652)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221855.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  19K /home/pi/rosmaster_maps/slices/slam_map_20260628_221855.pcd
+[2026-06-28 22:19:56] Saving snapshot 32...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 729 点, 旧整体: 24134 点
+  ⚠ 新地图(729)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_221956.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  21K /home/pi/rosmaster_maps/slices/slam_map_20260628_221956.pcd
+[2026-06-28 22:20:58] Saving snapshot 33...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 751 点, 旧整体: 24134 点
+  ⚠ 新地图(751)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222058.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  22K /home/pi/rosmaster_maps/slices/slam_map_20260628_222058.pcd
+[2026-06-28 22:21:59] Saving snapshot 34...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 743 点, 旧整体: 24134 点
+  ⚠ 新地图(743)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222159.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  21K /home/pi/rosmaster_maps/slices/slam_map_20260628_222159.pcd
+[2026-06-28 22:23:00] Saving snapshot 35...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 283 点, 旧整体: 24134 点
+  ⚠ 新地图(283)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222300.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.2K /home/pi/rosmaster_maps/slices/slam_map_20260628_222300.pcd
+[2026-06-28 22:24:02] Saving snapshot 36...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 280 点, 旧整体: 24134 点
+  ⚠ 新地图(280)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222402.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.1K /home/pi/rosmaster_maps/slices/slam_map_20260628_222402.pcd
+[2026-06-28 22:25:03] Saving snapshot 37...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 297 点, 旧整体: 24134 点
+  ⚠ 新地图(297)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222503.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.6K /home/pi/rosmaster_maps/slices/slam_map_20260628_222503.pcd
+[2026-06-28 22:26:04] Saving snapshot 38...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 300 点, 旧整体: 24134 点
+  ⚠ 新地图(300)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222604.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.7K /home/pi/rosmaster_maps/slices/slam_map_20260628_222604.pcd
+[2026-06-28 22:27:06] Saving snapshot 39...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 312 点, 旧整体: 24134 点
+  ⚠ 新地图(312)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222706.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_222706.pcd
+[2026-06-28 22:28:07] Saving snapshot 40...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 310 点, 旧整体: 24134 点
+  ⚠ 新地图(310)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222807.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_222807.pcd
+[2026-06-28 22:29:08] Saving snapshot 41...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 310 点, 旧整体: 24134 点
+  ⚠ 新地图(310)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_222908.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_222908.pcd
+[2026-06-28 22:30:10] Saving snapshot 42...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 310 点, 旧整体: 24134 点
+  ⚠ 新地图(310)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223010.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223010.pcd
+[2026-06-28 22:31:11] Saving snapshot 43...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223111.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223111.pcd
+[2026-06-28 22:32:12] Saving snapshot 44...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 255 点, 旧整体: 24134 点
+  ⚠ 新地图(255)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223212.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  7.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_223212.pcd
+[2026-06-28 22:33:13] Saving snapshot 45...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 310 点, 旧整体: 24134 点
+  ⚠ 新地图(310)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223313.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223313.pcd
+[2026-06-28 22:34:15] Saving snapshot 46...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 308 点, 旧整体: 24134 点
+  ⚠ 新地图(308)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223415.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223415.pcd
+[2026-06-28 22:35:16] Saving snapshot 47...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223516.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223516.pcd
+[2026-06-28 22:36:17] Saving snapshot 48...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223617.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223617.pcd
+[2026-06-28 22:37:19] Saving snapshot 49...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223719.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223719.pcd
+[2026-06-28 22:38:20] Saving snapshot 50...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223820.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223820.pcd
+[2026-06-28 22:39:21] Saving snapshot 51...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 309 点, 旧整体: 24134 点
+  ⚠ 新地图(309)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_223921.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_223921.pcd
+[2026-06-28 22:40:23] Saving snapshot 52...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 255 点, 旧整体: 24134 点
+  ⚠ 新地图(255)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224023.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  7.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_224023.pcd
+[2026-06-28 22:41:24] Saving snapshot 53...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 307 点, 旧整体: 24134 点
+  ⚠ 新地图(307)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224124.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  8.9K /home/pi/rosmaster_maps/slices/slam_map_20260628_224124.pcd
+[2026-06-28 22:42:25] Saving snapshot 54...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 255 点, 旧整体: 24134 点
+  ⚠ 新地图(255)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224225.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  7.4K /home/pi/rosmaster_maps/slices/slam_map_20260628_224225.pcd
+[2026-06-28 22:43:27] Saving snapshot 55...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 314 点, 旧整体: 24134 点
+  ⚠ 新地图(314)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224327.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224327.pcd
+[2026-06-28 22:44:28] Saving snapshot 56...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 314 点, 旧整体: 24134 点
+  ⚠ 新地图(314)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224428.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224428.pcd
+[2026-06-28 22:45:29] Saving snapshot 57...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 321 点, 旧整体: 24134 点
+  ⚠ 新地图(321)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224529.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  9.3K /home/pi/rosmaster_maps/slices/slam_map_20260628_224529.pcd
+[2026-06-28 22:46:31] Saving snapshot 58...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 170 点, 旧整体: 24134 点
+  ⚠ 新地图(170)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224631.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224631.pcd
+[2026-06-28 22:47:32] Saving snapshot 59...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 170 点, 旧整体: 24134 点
+  ⚠ 新地图(170)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224732.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224732.pcd
+[2026-06-28 22:48:33] Saving snapshot 60...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 169 点, 旧整体: 24134 点
+  ⚠ 新地图(169)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224833.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224833.pcd
+[2026-06-28 22:49:35] Saving snapshot 61...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 170 点, 旧整体: 24134 点
+  ⚠ 新地图(170)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_224935.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_224935.pcd
+[2026-06-28 22:50:36] Saving snapshot 62...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 170 点, 旧整体: 24134 点
+  ⚠ 新地图(170)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_225036.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_225036.pcd
+[2026-06-28 22:51:37] Saving snapshot 63...
+/home/pi/rosmaster_maps/_tmp_save_6876.pgm
+/home/pi/rosmaster_maps/_tmp_save_6876.yaml
+/home/pi/rosmaster_maps/_tmp_save_6876.pcd
+  新地图: 170 点, 旧整体: 24134 点
+  ⚠ 新地图(170)远小于旧地图(24134)，跳过覆盖 overall（可能 gmapping 已重启）
+  slice: /home/pi/rosmaster_maps/slices/slam_map_20260628_225137.*
+  703K /home/pi/rosmaster_maps/overall_map.pcd
+  5.0K /home/pi/rosmaster_maps/slices/slam_map_20260628_225137.pcd
