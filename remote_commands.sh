@@ -1,13 +1,105 @@
 #!/bin/bash
-CONTAINER="rosmaster_slam"
+set -e
 
-echo "====== 查找 gmapping 相关文件 ======"
-docker exec $CONTAINER find /root/yahboomcar_ws -name "*.launch" 2>/dev/null | grep -iE "gmap|slam|map"
-echo "---"
-docker exec $CONTAINER find /root/yahboomcar_ws -name "*.launch" 2>/dev/null
-echo "---"
-echo "检查当前 gmapping 参数:"
-docker exec $CONTAINER bash -c 'source /opt/ros/melodic/setup.bash && source /root/yahboomcar_ws/devel/setup.bash && rosparam get /slam_gmapping 2>/dev/null' | grep -E "maxUrange|maxRange|minimumScore|particles|linearUpdate|angularUpdate|temporalUpdate"
+C="rosmaster_ros2"
+IPATH="/root/yahboomcar_ros2_ws/yahboomcar_ws/install/yahboomcar_ctrl/lib/python3.8/site-packages/yahboomcar_ctrl/yahboom_joy_R2.py"
+ROS2_SETUP="source /opt/ros/foxy/setup.bash && source /root/yahboomcar_ros2_ws/yahboomcar_ws/install/setup.bash && export ROBOT_TYPE=r2 RPLIDAR_TYPE=a1"
 
+echo "=== Deploy patch + restart joy ==="
+
+# 1. Deploy patched joy_ctrl via base64
+echo "--- 1. deploy patch ---"
+echo 'IyEvdXNyL2Jpbi9lbnYgcHl0aG9uCiMgZW5jb2Rpbmc6IHV0Zi04CiMgUGF0Y2hlZCBmb3IgRmx5ZGlnaSBEaXJld29sZiAzICsgUjIgQWNrZXJtYW5uICsgTEVEIGdlYXIgaW5kaWNhdG9yCgppbXBvcnQgb3MKaW1wb3J0IHRpbWUKaW1wb3J0IGdldHBhc3MKaW1wb3J0IHRocmVhZGluZwpmcm9tIHRpbWUgaW1wb3J0IHNsZWVwCgppbXBvcnQgcmNscHkKZnJvbSByY2xweS5ub2RlIGltcG9ydCBOb2RlCmZyb20gZ2VvbWV0cnlfbXNncy5tc2cgaW1wb3J0IFR3aXN0CmZyb20gc2Vuc29yX21zZ3MubXNnIGltcG9ydCBKb3kKZnJvbSBhY3Rpb25saWJfbXNncy5tc2cgaW1wb3J0IEdvYWxJRApmcm9tIHN0ZF9tc2dzLm1zZyBpbXBvcnQgSW50MzIsIEJvb2wKCiMgTEVEIGVmZmVjdHM6IDA9b2ZmLCAxPWZsb3dpbmcsIDI9bWFycXVlZSwgMz1icmVhdGhpbmcsIDQ9Z3JhZGllbnQsIDU9c3RhcmxpZ2h0LCA2PWJhdHRlcnkKR0VBUl9MRUQgPSB7CiAgICAxOiAoMywgJ2JyZWF0aGluZycpLCAgICAjIDEvMyBzcGVlZCDigJQgY2FsbSBicmVhdGhpbmcKICAgIDI6ICgxLCAnZmxvd2luZycpLCAgICAgICMgMi8zIHNwZWVkIOKAlCBmbG93aW5nCiAgICAzOiAoMiwgJ21hcnF1ZWUnKSwgICAgICAjIGZ1bGwgc3BlZWQg4oCUIGZhc3QgbWFycXVlZQp9CgpjbGFzcyBKb3lUZWxlb3AoTm9kZSk6CiAgICBkZWYgX19pbml0X18oc2VsZiwgbmFtZSk6CiAgICAgICAgc3VwZXIoKS5fX2luaXRfXyhuYW1lKQogICAgICAgIHNlbGYuSm95X2FjdGl2ZSA9IEZhbHNlCiAgICAgICAgc2VsZi5CdXp6ZXJfYWN0aXZlID0gRmFsc2UKICAgICAgICBzZWxmLlJHQkxpZ2h0X2luZGV4ID0gMAogICAgICAgIHNlbGYuY2FuY2VsX3RpbWUgPSB0aW1lLnRpbWUoKQogICAgICAgIHNlbGYudXNlcl9uYW1lID0gZ2V0cGFzcy5nZXR1c2VyKCkKICAgICAgICBzZWxmLmxpbmVhcl9HZWFyX2lkeCA9IDEgICMgMT1zbG93LCAyPW1lZCwgMz1mYXN0CiAgICAgICAgc2VsZi5hbmd1bGFyX0dlYXIgPSAxCgogICAgICAgIHNlbGYucHViX2dvYWwgPSBzZWxmLmNyZWF0ZV9wdWJsaXNoZXIoR29hbElELCAibW92ZV9iYXNlL2NhbmNlbCIsIDEwKQogICAgICAgIHNlbGYucHViX2NtZFZlbCA9IHNlbGYuY3JlYXRlX3B1Ymxpc2hlcihUd2lzdCwgJ2NtZF92ZWwnLCAxMCkKICAgICAgICBzZWxmLnB1Yl9CdXp6ZXIgPSBzZWxmLmNyZWF0ZV9wdWJsaXNoZXIoQm9vbCwgIkJ1enplciIsIDEpCiAgICAgICAgc2VsZi5wdWJfSm95U3RhdGUgPSBzZWxmLmNyZWF0ZV9wdWJsaXNoZXIoQm9vbCwgIkpveVN0YXRlIiwgMTApCiAgICAgICAgc2VsZi5wdWJfUkdCTGlnaHQgPSBzZWxmLmNyZWF0ZV9wdWJsaXNoZXIoSW50MzIsICJSR0JMaWdodCIsIDEwKQoKICAgICAgICBzZWxmLnN1Yl9Kb3kgPSBzZWxmLmNyZWF0ZV9zdWJzY3JpcHRpb24oSm95LCAnam95Jywgc2VsZi5idXR0b25DYWxsYmFjaywgMSkKCiAgICAgICAgc2VsZi5kZWNsYXJlX3BhcmFtZXRlcigneHNwZWVkX2xpbWl0JywgMC41KQogICAgICAgIHNlbGYuZGVjbGFyZV9wYXJhbWV0ZXIoJ3lzcGVlZF9saW1pdCcsIDEuMCkKICAgICAgICBzZWxmLmRlY2xhcmVfcGFyYW1ldGVyKCdhbmd1bGFyX3NwZWVkX2xpbWl0JywgNS4wKQogICAgICAgIHNlbGYueHNwZWVkX2xpbWl0ID0gc2VsZi5nZXRfcGFyYW1ldGVyKCd4c3BlZWRfbGltaXQnKS5nZXRfcGFyYW1ldGVyX3ZhbHVlKCkuZG91YmxlX3ZhbHVlCiAgICAgICAgc2VsZi55c3BlZWRfbGltaXQgPSBzZWxmLmdldF9wYXJhbWV0ZXIoJ3lzcGVlZF9saW1pdCcpLmdldF9wYXJhbWV0ZXJfdmFsdWUoKS5kb3VibGVfdmFsdWUKICAgICAgICBzZWxmLmFuZ3VsYXJfc3BlZWRfbGltaXQgPSBzZWxmLmdldF9wYXJhbWV0ZXIoJ2FuZ3VsYXJfc3BlZWRfbGltaXQnKS5nZXRfcGFyYW1ldGVyX3ZhbHVlKCkuZG91YmxlX3ZhbHVlCgogICAgICAgICMgR2VhciBtdWx0aXBsaWVyczogaWR4IC0+IHNwZWVkIGZyYWN0aW9uCiAgICAgICAgc2VsZi5nZWFyX21hcCA9IHsxOiAxLjAvMywgMjogMi4wLzMsIDM6IDEuMH0KCiAgICAgICAgIyBTZXQgaW5pdGlhbCBMRUQgdG8gZ2VhciAxIChicmVhdGhpbmcpCiAgICAgICAgc2VsZi5zZXRfZ2Vhcl9sZWQoMSkKICAgICAgICBzZWxmLmdldF9sb2dnZXIoKS5pbmZvKCdSMiBKb3kgc3RhcnRlZDogeHNwZWVkPXt9LCBhbmd1bGFyPXt9LCBnZWFyPTEvMyAoYnJlYXRoaW5nKScuZm9ybWF0KAogICAgICAgICAgICBzZWxmLnhzcGVlZF9saW1pdCwgc2VsZi5hbmd1bGFyX3NwZWVkX2xpbWl0KSkKCiAgICBkZWYgc2V0X2dlYXJfbGVkKHNlbGYsIGdlYXJfaWR4KToKICAgICAgICAiIiJTZXQgTEVEIGVmZmVjdCB0byBtYXRjaCBjdXJyZW50IGdlYXIiIiIKICAgICAgICBlZmZlY3QsIG5hbWUgPSBHRUFSX0xFRC5nZXQoZ2Vhcl9pZHgsICgzLCAnYnJlYXRoaW5nJykpCiAgICAgICAgbXNnID0gSW50MzIoKQogICAgICAgIG1zZy5kYXRhID0gZWZmZWN0CiAgICAgICAgZm9yIF8gaW4gcmFuZ2UoMyk6CiAgICAgICAgICAgIHNlbGYucHViX1JHQkxpZ2h0LnB1Ymxpc2gobXNnKQogICAgICAgIHNlbGYuZ2V0X2xvZ2dlcigpLmluZm8oJ0dlYXIge30vMyAtPiBMRUQ6IHt9IChlZmZlY3Qge30pJy5mb3JtYXQoZ2Vhcl9pZHgsIG5hbWUsIGVmZmVjdCkpCgogICAgZGVmIGJ0bihzZWxmLCBqb3lfZGF0YSwgaWR4KToKICAgICAgICBpZiBpZHggPCBsZW4oam95X2RhdGEuYnV0dG9ucyk6CiAgICAgICAgICAgIHJldHVybiBqb3lfZGF0YS5idXR0b25zW2lkeF0KICAgICAgICByZXR1cm4gMAoKICAgIGRlZiBheChzZWxmLCBqb3lfZGF0YSwgaWR4KToKICAgICAgICBpZiBpZHggPCBsZW4oam95X2RhdGEuYXhlcyk6CiAgICAgICAgICAgIHJldHVybiBqb3lfZGF0YS5heGVzW2lkeF0KICAgICAgICByZXR1cm4gMC4wCgogICAgZGVmIGJ1dHRvbkNhbGxiYWNrKHNlbGYsIGpveV9kYXRhKToKICAgICAgICBpZiBub3QgaXNpbnN0YW5jZShqb3lfZGF0YSwgSm95KToKICAgICAgICAgICAgcmV0dXJuCiAgICAgICAgc2VsZi51c2VyX3IyKGpveV9kYXRhKQoKICAgIGRlZiB1c2VyX3IyKHNlbGYsIGpveV9kYXRhKToKICAgICAgICAiIiJSMiBBY2tlcm1hbm4gam95IGNvbnRyb2wKCiAgICAgICAgWGJveCAzNjAgbWFwcGluZyAoRmx5ZGlnaSBYLWlucHV0KToKICAgICAgICAgIGF4ZXNbMV0gPSBsZWZ0IHN0aWNrIFkgKGZvcndhcmQvYmFjaykKICAgICAgICAgIGF4ZXNbM10gPSByaWdodCBzdGljayBYIChzdGVlcmluZykKICAgICAgICAgIGJ1dHRvbnNbMF09QSwgWzFdPUIsIFsyXT1YLCBbM109WQogICAgICAgICAgYnV0dG9uc1s0XT1MQiwgWzVdPVJCLCBbNl09QmFjaywgWzddPVN0YXJ0CiAgICAgICAgICBidXR0b25zWzhdPUd1aWRlLCBbOV09TDMsIFsxMF09UjMKICAgICAgICAiIiIKICAgICAgICAjIEJhY2sgKDYpID0gdG9nZ2xlIGpveSBhY3RpdmUKICAgICAgICBpZiBzZWxmLmJ0bihqb3lfZGF0YSwgNikgPT0gMToKICAgICAgICAgICAgc2VsZi5jYW5jZWxfbmF2KCkKCiAgICAgICAgIyBTdGFydCAoNykgPSBjeWNsZSBMRUQgbWFudWFsbHkgKG92ZXJyaWRlIGdlYXIgTEVEKQogICAgICAgIGlmIHNlbGYuYnRuKGpveV9kYXRhLCA3KSA9PSAxOgogICAgICAgICAgICBzZWxmLlJHQkxpZ2h0X2luZGV4ID0gKHNlbGYuUkdCTGlnaHRfaW5kZXggKyAxKSAlIDcKICAgICAgICAgICAgbXNnID0gSW50MzIoKQogICAgICAgICAgICBtc2cuZGF0YSA9IHNlbGYuUkdCTGlnaHRfaW5kZXgKICAgICAgICAgICAgZm9yIF8gaW4gcmFuZ2UoMyk6CiAgICAgICAgICAgICAgICBzZWxmLnB1Yl9SR0JMaWdodC5wdWJsaXNoKG1zZykKCiAgICAgICAgIyBCICgxKSA9IGJ1enplciB0b2dnbGUKICAgICAgICBpZiBzZWxmLmJ0bihqb3lfZGF0YSwgMSkgPT0gMToKICAgICAgICAgICAgQnV6emVyX2N0cmwgPSBCb29sKCkKICAgICAgICAgICAgc2VsZi5CdXp6ZXJfYWN0aXZlID0gbm90IHNlbGYuQnV6emVyX2FjdGl2ZQogICAgICAgICAgICBCdXp6ZXJfY3RybC5kYXRhID0gc2VsZi5CdXp6ZXJfYWN0aXZlCiAgICAgICAgICAgIGZvciBfIGluIHJhbmdlKDMpOgogICAgICAgICAgICAgICAgc2VsZi5wdWJfQnV6emVyLnB1Ymxpc2goQnV6emVyX2N0cmwpCgogICAgICAgICMgTEIgKDQpID0gY3ljbGUgc3BlZWQgZ2VhciAoMS8zIC0+IDIvMyAtPiAzLzMpICsgYXV0byBMRUQKICAgICAgICBpZiBzZWxmLmJ0bihqb3lfZGF0YSwgNCkgPT0gMToKICAgICAgICAgICAgc2VsZi5saW5lYXJfR2Vhcl9pZHggPSAoc2VsZi5saW5lYXJfR2Vhcl9pZHggJSAzKSArIDEKICAgICAgICAgICAgc2VsZi5zZXRfZ2Vhcl9sZWQoc2VsZi5saW5lYXJfR2Vhcl9pZHgpCgogICAgICAgICMgUkIgKDUpID0gYW5ndWxhciBnZWFyIGN5Y2xlCiAgICAgICAgaWYgc2VsZi5idG4oam95X2RhdGEsIDUpID09IDE6CiAgICAgICAgICAgIGlmIHNlbGYuYW5ndWxhcl9HZWFyID09IDEuMDoKICAgICAgICAgICAgICAgIHNlbGYuYW5ndWxhcl9HZWFyID0gMS4wIC8gNAogICAgICAgICAgICBlbGlmIHNlbGYuYW5ndWxhcl9HZWFyID09IDEuMCAvIDQ6CiAgICAgICAgICAgICAgICBzZWxmLmFuZ3VsYXJfR2VhciA9IDEuMCAvIDIKICAgICAgICAgICAgZWxpZiBzZWxmLmFuZ3VsYXJfR2VhciA9PSAxLjAgLyAyOgogICAgICAgICAgICAgICAgc2VsZi5hbmd1bGFyX0dlYXIgPSAzLjAgLyA0CiAgICAgICAgICAgIGVsaWYgc2VsZi5hbmd1bGFyX0dlYXIgPT0gMy4wIC8gNDoKICAgICAgICAgICAgICAgIHNlbGYuYW5ndWxhcl9HZWFyID0gMS4wCiAgICAgICAgICAgIHNlbGYuZ2V0X2xvZ2dlcigpLmluZm8oJ0FuZ3VsYXIgZ2VhcjogezouMmZ9Jy5mb3JtYXQoc2VsZi5hbmd1bGFyX0dlYXIpKQoKICAgICAgICAjIFIyIEFja2VybWFubjogbGVmdCBzdGljayBZID0gc3BlZWQsIHJpZ2h0IHN0aWNrIFggPSBzdGVlcmluZwogICAgICAgIGxpbmVhcl9nZWFyID0gc2VsZi5nZWFyX21hcC5nZXQoc2VsZi5saW5lYXJfR2Vhcl9pZHgsIDEuMC8zKQogICAgICAgIHhsaW5lYXJfc3BlZWQgPSBzZWxmLmZpbHRlcl9kYXRhKHNlbGYuYXgoam95X2RhdGEsIDEpKSAqIHNlbGYueHNwZWVkX2xpbWl0ICogbGluZWFyX2dlYXIKICAgICAgICBhbmd1bGFyX3NwZWVkID0gc2VsZi5maWx0ZXJfZGF0YShzZWxmLmF4KGpveV9kYXRhLCAzKSkgKiBzZWxmLmFuZ3VsYXJfc3BlZWRfbGltaXQgKiBzZWxmLmFuZ3VsYXJfR2VhcgoKICAgICAgICB4bGluZWFyX3NwZWVkID0gbWF4KC1zZWxmLnhzcGVlZF9saW1pdCwgbWluKHNlbGYueHNwZWVkX2xpbWl0LCB4bGluZWFyX3NwZWVkKSkKICAgICAgICBhbmd1bGFyX3NwZWVkID0gbWF4KC1zZWxmLmFuZ3VsYXJfc3BlZWRfbGltaXQsIG1pbihzZWxmLmFuZ3VsYXJfc3BlZWRfbGltaXQsIGFuZ3VsYXJfc3BlZWQpKQoKICAgICAgICB0d2lzdCA9IFR3aXN0KCkKICAgICAgICB0d2lzdC5saW5lYXIueCA9IHhsaW5lYXJfc3BlZWQKICAgICAgICB0d2lzdC5hbmd1bGFyLnogPSBhbmd1bGFyX3NwZWVkCgogICAgICAgIGlmIHNlbGYuSm95X2FjdGl2ZToKICAgICAgICAgICAgZm9yIF8gaW4gcmFuZ2UoMyk6CiAgICAgICAgICAgICAgICBzZWxmLnB1Yl9jbWRWZWwucHVibGlzaCh0d2lzdCkKCiAgICBkZWYgZmlsdGVyX2RhdGEoc2VsZiwgdmFsdWUpOgogICAgICAgIGlmIGFicyh2YWx1ZSkgPCAwLjI6CiAgICAgICAgICAgIHZhbHVlID0gMAogICAgICAgIHJldHVybiB2YWx1ZQoKICAgIGRlZiBjYW5jZWxfbmF2KHNlbGYpOgogICAgICAgIG5vd190aW1lID0gdGltZS50aW1lKCkKICAgICAgICBpZiBub3dfdGltZSAtIHNlbGYuY2FuY2VsX3RpbWUgPiAxOgogICAgICAgICAgICBKb3lfY3RybCA9IEJvb2woKQogICAgICAgICAgICBzZWxmLkpveV9hY3RpdmUgPSBub3Qgc2VsZi5Kb3lfYWN0aXZlCiAgICAgICAgICAgIEpveV9jdHJsLmRhdGEgPSBzZWxmLkpveV9hY3RpdmUKICAgICAgICAgICAgc2VsZi5nZXRfbG9nZ2VyKCkuaW5mbygnSm95IGFjdGl2ZToge30nLmZvcm1hdChzZWxmLkpveV9hY3RpdmUpKQogICAgICAgICAgICBmb3IgXyBpbiByYW5nZSgzKToKICAgICAgICAgICAgICAgIHNlbGYucHViX0pveVN0YXRlLnB1Ymxpc2goSm95X2N0cmwpCiAgICAgICAgICAgICAgICBzZWxmLnB1Yl9jbWRWZWwucHVibGlzaChUd2lzdCgpKQogICAgICAgICAgICBzZWxmLmNhbmNlbF90aW1lID0gbm93X3RpbWUKCmRlZiBtYWluKCk6CiAgICByY2xweS5pbml0KCkKICAgIGpveV9jdHJsID0gSm95VGVsZW9wKCdqb3lfY3RybCcpCiAgICByY2xweS5zcGluKGpveV9jdHJsKQo=' | docker exec -i "$C" bash -c "base64 -d > $IPATH"
+echo "patch deployed"
+
+# 2. Verify patch
+echo "--- 2. verify patch ---"
+docker exec "$C" grep "GEAR_LED" "$IPATH" | head -2
+
+# 3. Kill old joy_ctrl if any, then restart
+echo "--- 3. restart joy_ctrl ---"
+docker exec "$C" bash -c "pkill -f yahboom_joy_R2" 2>/dev/null || true
+sleep 1
+docker exec -d "$C" bash -c "$ROS2_SETUP && ros2 run yahboomcar_ctrl yahboom_joy_R2 --ros-args -p xspeed_limit:=0.5 -p angular_speed_limit:=5.0 > /tmp/joy_ctrl.log 2>&1"
+sleep 3
+
+# 4. Also save patch to Pi filesystem for future container recreations
+echo "--- 4. save patch to Pi ---"
+docker cp "$C:$IPATH" /home/pi/rosmaster_tools/yahboom_joy_R2_patched.py
+echo "saved to /home/pi/rosmaster_tools/"
+
+# 5. Update bringup script to deploy patch before starting joy_ctrl
+echo "--- 5. update bringup script ---"
+cat > /home/pi/rosmaster_tools/ros2_bringup.sh << 'SCRIPT'
+#!/bin/bash
+set -euo pipefail
+CONTAINER="rosmaster_ros2"
+IMAGE="yahboomtechnology/ros-foxy:4.0.7R2"
+ROS2_SETUP="source /opt/ros/foxy/setup.bash && source /root/yahboomcar_ros2_ws/yahboomcar_ws/install/setup.bash && export ROBOT_TYPE=r2 RPLIDAR_TYPE=a1"
+PATCH_SRC="/home/pi/rosmaster_tools/yahboom_joy_R2_patched.py"
+PATCH_DST="/root/yahboomcar_ros2_ws/yahboomcar_ws/install/yahboomcar_ctrl/lib/python3.8/site-packages/yahboomcar_ctrl/yahboom_joy_R2.py"
+
+echo "[$(date)] ROS2 bringup starting..."
+
+# Ensure container exists and is running
+if docker ps --format '{{.Names}}' | grep -Fxq "$CONTAINER"; then
+    echo "Container already running"
+elif docker ps -a --format '{{.Names}}' | grep -Fxq "$CONTAINER"; then
+    echo "Starting stopped container..."
+    docker start "$CONTAINER"
+    sleep 3
+else
+    echo "Creating container..."
+    docker run -dit \
+        --name "$CONTAINER" \
+        --restart=always \
+        --privileged \
+        --network host \
+        -e ROBOT_TYPE=r2 \
+        -e RPLIDAR_TYPE=a1 \
+        -v /dev:/dev \
+        -v /home/pi/temp:/root/temp \
+        "$IMAGE"
+    sleep 3
+fi
+
+# Wait for container ready
+for i in $(seq 1 15); do
+    if docker exec "$CONTAINER" echo "ready" >/dev/null 2>&1; then break; fi
+    sleep 2
+done
+
+# Deploy patched joy_ctrl
+if [ -f "$PATCH_SRC" ]; then
+    echo "Deploying patched joy_ctrl..."
+    docker cp "$PATCH_SRC" "$CONTAINER:$PATCH_DST"
+fi
+
+# Launch bringup + gmapping
+echo "Launching bringup..."
+docker exec -d "$CONTAINER" bash -c "$ROS2_SETUP && ros2 launch yahboomcar_nav map_gmapping_launch.py > /tmp/bringup.log 2>&1"
+sleep 15
+
+# Launch joy_node
+echo "Launching joy_node..."
+docker exec -d "$CONTAINER" bash -c "$ROS2_SETUP && ros2 run joy joy_node --ros-args -p device_id:=0 -p autorepeat_rate:=20.0 > /tmp/joy_node.log 2>&1"
+sleep 3
+
+# Launch joy_ctrl
+echo "Launching joy_ctrl..."
+docker exec -d "$CONTAINER" bash -c "$ROS2_SETUP && ros2 run yahboomcar_ctrl yahboom_joy_R2 --ros-args -p xspeed_limit:=0.5 -p angular_speed_limit:=5.0 > /tmp/joy_ctrl.log 2>&1"
+sleep 2
+
+# Verify
+echo "Nodes:"
+docker exec "$CONTAINER" bash -c "$ROS2_SETUP && ros2 node list" 2>&1 || true
+echo "[$(date)] ROS2 bringup complete."
+SCRIPT
+chmod +x /home/pi/rosmaster_tools/ros2_bringup.sh
+echo "bringup script updated with patch deploy"
+
+# 6. Final check
+echo "--- 6. verify nodes ---"
+docker exec "$C" bash -c "$ROS2_SETUP && ros2 node list" 2>&1
 echo ""
-echo "====== DONE ======"
+echo "=== DONE ==="

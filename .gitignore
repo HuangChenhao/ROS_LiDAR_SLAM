@@ -1,18 +1,21 @@
-# SSH keys - never commit private keys
+# Daemon transient files
+cmd_output.txt
+.trigger
+
+# SSH keys
 .ssh/
 
-# Diagnostic and command output files
-*_output.txt
-cmd_done.txt
-
-# ROS bag files (too large)
+# ROS bag files
 *.bag
 *.bag.active
 
-# SLAM data (synced locally, not in repo)
+# SLAM scan data
 maps/
+maps_*/
 bags/
 logs/
+*.pcd
+*.pgm
 
 # macOS
 .DS_Store
@@ -20,9 +23,3 @@ logs/
 # Python cache
 __pycache__/
 *.pyc
-
-# Large binary map files - ignore all except overall_map
-*.pcd
-!maps/overall_map.pcd
-*.pgm
-!maps/overall_map.pgm
