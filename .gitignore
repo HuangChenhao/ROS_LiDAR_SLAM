@@ -12,6 +12,7 @@ cmd_output.txt
 # SLAM scan data
 maps/
 maps_*/
+scans/
 bags/
 logs/
 *.pcd
