@@ -9,7 +9,9 @@ OUTPUT="$SCRIPT_DIR/cmd_output.txt"
 TRIGGER="$SCRIPT_DIR/.trigger"
 SSH_KEY="$HOME/.ssh/rosmaster_codex_nopass"
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=10"
-HOST="pi@192.168.0.110"
+# IP/用户名从 robot_config.sh 读取, 可用 R2_HOST 环境变量覆盖
+[ -f "$SCRIPT_DIR/robot_config.sh" ] && source "$SCRIPT_DIR/robot_config.sh"
+HOST="${R2_HOST:-${ROBOT_USER:-pi}@${ROBOT_IP:-192.168.0.110}}"
 
 echo "ROSMaster 守护进程已启动"
 echo "监听命令文件: $CMD_FILE"

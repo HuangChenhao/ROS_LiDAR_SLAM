@@ -16,7 +16,7 @@ This document describes the Yahboom ROSMaster R2 setup with ROS2 Foxy, including
 | SBC | Raspberry Pi 5 |
 | Gamepad / 手柄 | Flydigi Direwolf 3 (Xbox 360 emulation mode, VID:045e PID:028e) |
 | LiDAR | RPLidar A1 |
-| Connection / 连接 | Bluetooth (gamepad ↔ Pi), no internet required / 蓝牙连接，无需联网 |
+| Connection / 连接 | **USB 2.4GHz dongle** (plug into Pi USB port) / **USB 2.4GHz 接收器**（插入树莓派 USB 口） |
 
 ---
 
@@ -42,9 +42,9 @@ docker run -dit --restart=always --name rosmaster_ros2 \
 
 ## Gamepad Button Mapping / 手柄按键映射
 
-The gamepad must be in **Xbox 360 emulation mode** (X-input). Pair via Bluetooth to the Pi before use.
+The gamepad must be in **Xbox 360 emulation mode** (X-input). Plug the **USB 2.4GHz dongle** into a Pi USB port — no Bluetooth pairing needed.
 
-手柄必须处于 **Xbox 360 模拟模式**（X-input）。使用前通过蓝牙配对到树莓派。
+手柄必须处于 **Xbox 360 模拟模式**（X-input）。将 **USB 2.4GHz 接收器**插入树莓派 USB 口即可，无需蓝牙配对。
 
 ### Axes / 摇杆
 
@@ -68,15 +68,20 @@ The gamepad must be in **Xbox 360 emulation mode** (X-input). Pair via Bluetooth
 
 ### Speed Gears & LED / 速度档位与 LED
 
-| Gear / 档位 | Speed / 速度 | LED Effect / LED 效果 |
-|---|---|---|
-| 1 (default) | 1/3 max (0.17 m/s) | Breathing / 呼吸灯 |
-| 2 | 2/3 max (0.33 m/s) | Flowing / 流水灯 |
-| 3 | Full (0.50 m/s) | Marquee / 跑马灯 |
+| Gear / 档位 | Speed / 速度 | LED Effect / LED 效果 | Use / 用途 |
+|---|---|---|---|
+| — (inactive / 未激活) | 0 | **Solid red / 常亮红色** | Joy control OFF / 手柄控制关闭 |
+| 1 (default) | 0.17 m/s | Breathing / 呼吸灯 | Mapping / 建图 |
+| 2 | 0.33 m/s | Flowing / 流水灯 | Fast mapping / 快速建图 |
+| 3 | 1.0 m/s (max) | Marquee / 跑马灯 | Transit only, NOT mapping / 仅赶路，不建图 |
 
-Press **LB** to cycle gears. LED changes automatically to match the current gear.
+Press **LB** to cycle gears. LED changes automatically to match the current gear. **Red LED = control inactive** — press Back to activate.
 
-按 **LB** 切换档位，LED 会自动随档位变化。
+按 **LB** 切换档位，LED 自动随档位变化。**红灯常亮 = 控制未激活**，按 Back 激活。
+
+Steering sensitivity defaults to lowest (1/4); press **RB** to cycle up (1/4→1/2→3/4→1).
+
+转向灵敏度默认最低档（1/4），按 **RB** 可循环调高。
 
 ---
 
@@ -127,8 +132,8 @@ ros2 run yahboomcar_ctrl yahboom_joy_R2 --ros-args \
 1. **Power on the robot / 开机** — container auto-starts, bringup + joy launches automatically.
    容器自动启动，底盘和手柄控制自动运行。
 
-2. **Pair gamepad / 配对手柄** — Bluetooth pair the Flydigi Direwolf 3 to Pi (only needed once).
-   首次需蓝牙配对飞智八爪鱼3到树莓派（仅需一次）。
+2. **Connect gamepad / 连接手柄** — Plug USB 2.4GHz dongle into Pi, then power on gamepad (hold center button).
+   将 USB 2.4GHz 接收器插入树莓派 USB 口，然后长按手柄中间键开机。
 
 3. **Press Back (6) / 按 Back 键** — activates joy control (toggle on/off).
    激活手柄控制（开/关切换）。
@@ -156,6 +161,14 @@ Changes from original / 相对原版的修改:
 - Enabled `twist.angular.z` for Ackermann steering — 启用 angular.z 用于阿克曼转向
 - Remapped buttons for Xbox 360 layout — 重映射为 Xbox 360 布局
 - Added LED gear indicator via `/RGBLight` topic — 添加 LED 档位指示
+- Solid red LED when inactive (custom `/RGBLight` index 7) — 未激活时红灯常亮（自定义编号 7）
+- Absolute gear speeds: 0.17 / 0.33 / 1.0 m/s — 绝对档位速度
+- Default steering sensitivity = lowest (1/4) — 默认最低转向灵敏度
+
+The driver is also patched (`patches/Ackman_driver_R2_patched.py` on Pi at `/home/pi/rosmaster_tools/`):
+- `/RGBLight` index 7 → stop current effect, then solid red via `set_colorful_lamps(0xFF, 255, 0, 0)`
+
+驱动同样打了补丁：`/RGBLight` 编号 7 → 先停止当前特效，再设置纯红色。
 
 ---
 

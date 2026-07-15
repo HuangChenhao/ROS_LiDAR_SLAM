@@ -16,11 +16,13 @@ from actionlib_msgs.msg import GoalID
 from std_msgs.msg import Int32, Bool
 
 # LED effects: 0=off, 1=flowing, 2=marquee, 3=breathing, 4=gradient, 5=starlight, 6=battery
+# 7 = solid red (custom, patched into Ackman_driver_R2.py) — means joy control INACTIVE
 GEAR_LED = {
-    1: (3, 'breathing'),    # 1/3 speed — calm breathing
-    2: (1, 'flowing'),      # 2/3 speed — flowing
-    3: (2, 'marquee'),      # full speed — fast marquee
+    1: (3, 'breathing'),    # 0.17 m/s — mapping (calm breathing)
+    2: (1, 'flowing'),      # 0.33 m/s — mapping fast (flowing)
+    3: (2, 'marquee'),      # MAX speed — transit only, NOT for mapping (marquee)
 }
+INACTIVE_LED = 7  # solid red
 
 class JoyTeleop(Node):
     def __init__(self, name):
@@ -31,7 +33,7 @@ class JoyTeleop(Node):
         self.cancel_time = time.time()
         self.user_name = getpass.getuser()
         self.linear_Gear_idx = 1  # 1=slow, 2=med, 3=fast
-        self.angular_Gear = 1
+        self.angular_Gear = 1.0 / 4  # default lowest steering sensitivity
 
         self.pub_goal = self.create_publisher(GoalID, "move_base/cancel", 10)
         self.pub_cmdVel = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -48,13 +50,31 @@ class JoyTeleop(Node):
         self.yspeed_limit = self.get_parameter('yspeed_limit').get_parameter_value().double_value
         self.angular_speed_limit = self.get_parameter('angular_speed_limit').get_parameter_value().double_value
 
-        # Gear multipliers: idx -> speed fraction
-        self.gear_map = {1: 1.0/3, 2: 2.0/3, 3: 1.0}
+        # Gear speeds (absolute m/s): 1=mapping, 2=mapping-fast, 3=transit (NOT for mapping)
+        self.gear_map = {1: 0.17, 2: 0.33, 3: self.xspeed_limit}
 
-        # Set initial LED to gear 1 (breathing)
-        self.set_gear_led(1)
-        self.get_logger().info('R2 Joy started: xspeed={}, angular={}, gear=1/3 (breathing)'.format(
+        # Inactive at startup -> solid red LED (retry a few times, driver may still be starting)
+        self._init_led_count = 0
+        self._init_led_timer = self.create_timer(2.0, self._init_led_cb)
+        self.get_logger().info('R2 Joy started: xspeed={}, angular={}, INACTIVE (red LED)'.format(
             self.xspeed_limit, self.angular_speed_limit))
+
+    def _init_led_cb(self):
+        """Republish inactive LED a few times at startup, then stop"""
+        if not self.Joy_active:
+            self.set_inactive_led(log=False)
+        self._init_led_count += 1
+        if self._init_led_count >= 5:
+            self._init_led_timer.cancel()
+
+    def set_inactive_led(self, log=True):
+        """Solid red = joy control inactive"""
+        msg = Int32()
+        msg.data = INACTIVE_LED
+        for _ in range(3):
+            self.pub_RGBLight.publish(msg)
+        if log:
+            self.get_logger().info('Joy INACTIVE -> LED solid red')
 
     def set_gear_led(self, gear_idx):
         """Set LED effect to match current gear"""
@@ -110,10 +130,13 @@ class JoyTeleop(Node):
             for _ in range(3):
                 self.pub_Buzzer.publish(Buzzer_ctrl)
 
-        # LB (4) = cycle speed gear (1/3 -> 2/3 -> 3/3) + auto LED
+        # LB (4) = cycle speed gear (1/3 -> 2/3 -> 3/3) + auto LED (only when active)
         if self.btn(joy_data, 4) == 1:
             self.linear_Gear_idx = (self.linear_Gear_idx % 3) + 1
-            self.set_gear_led(self.linear_Gear_idx)
+            if self.Joy_active:
+                self.set_gear_led(self.linear_Gear_idx)
+            else:
+                self.get_logger().info('Gear {}/3 (inactive, LED stays red)'.format(self.linear_Gear_idx))
 
         # RB (5) = angular gear cycle
         if self.btn(joy_data, 5) == 1:
@@ -128,8 +151,8 @@ class JoyTeleop(Node):
             self.get_logger().info('Angular gear: {:.2f}'.format(self.angular_Gear))
 
         # R2 Ackermann: left stick Y = speed, right stick X = steering
-        linear_gear = self.gear_map.get(self.linear_Gear_idx, 1.0/3)
-        xlinear_speed = self.filter_data(self.ax(joy_data, 1)) * self.xspeed_limit * linear_gear
+        gear_speed = min(self.gear_map.get(self.linear_Gear_idx, 0.17), self.xspeed_limit)
+        xlinear_speed = self.filter_data(self.ax(joy_data, 1)) * gear_speed
         angular_speed = self.filter_data(self.ax(joy_data, 3)) * self.angular_speed_limit * self.angular_Gear
 
         xlinear_speed = max(-self.xspeed_limit, min(self.xspeed_limit, xlinear_speed))
@@ -159,6 +182,11 @@ class JoyTeleop(Node):
                 self.pub_JoyState.publish(Joy_ctrl)
                 self.pub_cmdVel.publish(Twist())
             self.cancel_time = now_time
+            # LED reflects state: active -> gear LED, inactive -> solid red
+            if self.Joy_active:
+                self.set_gear_led(self.linear_Gear_idx)
+            else:
+                self.set_inactive_led()
 
 def main():
     rclpy.init()
