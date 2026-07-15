@@ -10,7 +10,7 @@ view_scan.py — 读取/查看 ROSMaster R2 扫描数据 (纯标准库，无需�
   python3 view_scan.py --live         # 实时连接小车，抓取当前 /map 并显示 (不存档)
   python3 view_scan.py --scale 4      # 放大倍数 (默认自动)
 
-本地会话目录: scans/<扫描结束时间>[_会话名]/ (map.pgm + map.yaml + metadata.txt)
+本地会话目录: scans/<扫描开始时间>/ (map.pgm + map.yaml + metadata.txt)
 """
 
 import os
@@ -220,8 +220,12 @@ S="source /opt/ros/foxy/setup.bash && source /root/yahboomcar_ros2_ws/yahboomcar
 docker exec "$C" bash -c "pkill -f map_live_grab" 2>/dev/null || true
 docker exec "$C" bash -c "rm -f /tmp/live_map.*" 2>/dev/null || true
 rm -f /tmp/live_map.* 2>/dev/null || true
-# rclpy.spin() in Foxy may hang after shutdown() from a callback -> spin_once loop + hard timeout
-timeout 60 docker exec "$C" bash -c "$S && python3 -u -c \"
+
+# 建图中 (gmapping 在跑) -> 抓实时 /map; 等 12s 抓不到就走回退
+MAPPING=0
+if docker exec "$C" bash -c "pgrep -f slam_gmapping" > /dev/null 2>&1; then
+    MAPPING=1
+    timeout 30 docker exec "$C" bash -c "$S && python3 -u -c \"
 import rclpy, time
 from rclpy.node import Node
 from nav_msgs.msg import OccupancyGrid
@@ -250,14 +254,32 @@ class M(Node):
 rclpy.init()
 n = M()
 t0 = time.time()
-while not n.done and time.time() - t0 < 35:
+while not n.done and time.time() - t0 < 12:
     rclpy.spin_once(n, timeout_sec=0.5)
 if not n.done:
-    print('No /map data after 35s', flush=True)
+    print('No /map data after 12s', flush=True)
 \"" 2>&1
-docker cp "$C:/tmp/live_map.pgm" /tmp/live_map.pgm 2>/dev/null
-docker cp "$C:/tmp/live_map.yaml" /tmp/live_map.yaml 2>/dev/null
-[ -s /tmp/live_map.pgm ] && echo LIVE_OK || echo LIVE_FAILED
+    docker cp "$C:/tmp/live_map.pgm" /tmp/live_map.pgm 2>/dev/null
+    docker cp "$C:/tmp/live_map.yaml" /tmp/live_map.yaml 2>/dev/null
+fi
+
+if [ -s /tmp/live_map.pgm ]; then
+    echo "SOURCE=live"
+    echo LIVE_OK
+else
+    # 未激活 (红灯) 或抓取失败 -> 回退到小车上最新保存的会话
+    [ $MAPPING -eq 0 ] && echo "NOTE: 未在建图 (红灯状态), 使用最新保存的会话"
+    LATEST=$(docker exec "$C" bash -c "ls -1 /root/rosmaster_maps/ 2>/dev/null | grep -E '^[0-9]{8}_' | sort | tail -1")
+    if [ -n "$LATEST" ] && docker exec "$C" bash -c "[ -s /root/rosmaster_maps/$LATEST/map.pgm ]"; then
+        docker cp "$C:/root/rosmaster_maps/$LATEST/map.pgm" /tmp/live_map.pgm 2>/dev/null
+        docker cp "$C:/root/rosmaster_maps/$LATEST/map.yaml" /tmp/live_map.yaml 2>/dev/null
+        echo "SOURCE=saved:$LATEST"
+        [ -s /tmp/live_map.pgm ] && echo LIVE_OK || echo LIVE_FAILED
+    else
+        echo "SOURCE=none"
+        echo LIVE_FAILED
+    fi
+fi
 '''
 
 
@@ -269,8 +291,17 @@ def view_live(scale=None):
     if "LIVE_OK" not in out:
         print("抓取失败。输出:")
         print(out.strip()[-2000:])
-        print("\n检查: 小车开机? gmapping 在跑? 同一 wifi?")
+        print("\n检查: 小车开机? 同一 wifi? 或者还没有任何扫描会话?")
         sys.exit(1)
+
+    m = re.search(r"SOURCE=(live|saved:(\S+))", out)
+    source = m.group(1) if m else "?"
+    if source == "live":
+        title = "LIVE — 实时建图中"
+    elif source.startswith("saved:"):
+        title = f"最新保存的会话 — {source.split(':', 1)[1]} (当前未在建图)"
+    else:
+        title = "小车地图"
 
     tmp = tempfile.mkdtemp(prefix="live_scan_")
     for fn in ("live_map.pgm", "live_map.yaml"):
@@ -281,9 +312,11 @@ def view_live(scale=None):
     if not os.path.exists(pgm) or os.path.getsize(pgm) == 0:
         print("scp 拉取失败")
         sys.exit(1)
-    show_map(pgm, os.path.join(tmp, "live_map.yaml"),
-             title="LIVE — 小车当前地图", scale=scale)
-    print("\n提示: 这只是实时预览，未存档。要存档请运行: bash sync_scan.sh [会话名]")
+    show_map(pgm, os.path.join(tmp, "live_map.yaml"), title=title, scale=scale)
+    if source == "live":
+        print("\n提示: 实时预览未存档。结束建图 (切红灯) 会自动保存, 之后 bash sync_scan.sh 拉取。")
+    else:
+        print("\n提示: 当前未在建图 (红灯)。按 Back 激活即开始新会话。")
 
 
 # ---------- main ----------

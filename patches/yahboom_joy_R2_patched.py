@@ -14,13 +14,14 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
 from actionlib_msgs.msg import GoalID
 from std_msgs.msg import Int32, Bool
+from rclpy.qos import QoSProfile, DurabilityPolicy
 
 # LED effects: 0=off, 1=flowing, 2=marquee, 3=breathing, 4=gradient, 5=starlight, 6=battery
 # 7 = solid red (custom, patched into Ackman_driver_R2.py) — means joy control INACTIVE
 GEAR_LED = {
     1: (3, 'breathing'),    # 0.17 m/s — mapping (calm breathing)
     2: (1, 'flowing'),      # 0.33 m/s — mapping fast (flowing)
-    3: (2, 'marquee'),      # MAX speed — transit only, NOT for mapping (marquee)
+    3: (2, 'marquee'),      # MAX speed (marquee)
 }
 INACTIVE_LED = 7  # solid red
 
@@ -40,10 +41,13 @@ class JoyTeleop(Node):
         self.pub_Buzzer = self.create_publisher(Bool, "Buzzer", 1)
         self.pub_JoyState = self.create_publisher(Bool, "JoyState", 10)
         self.pub_RGBLight = self.create_publisher(Int32, "RGBLight", 10)
+        _qos = QoSProfile(depth=1)
+        _qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.pub_MapState = self.create_publisher(Bool, "MappingState", _qos)
 
         self.sub_Joy = self.create_subscription(Joy, 'joy', self.buttonCallback, 1)
 
-        self.declare_parameter('xspeed_limit', 0.5)
+        self.declare_parameter('xspeed_limit', 1.0)
         self.declare_parameter('yspeed_limit', 1.0)
         self.declare_parameter('angular_speed_limit', 5.0)
         self.xspeed_limit = self.get_parameter('xspeed_limit').get_parameter_value().double_value
@@ -56,8 +60,17 @@ class JoyTeleop(Node):
         # Inactive at startup -> solid red LED (retry a few times, driver may still be starting)
         self._init_led_count = 0
         self._init_led_timer = self.create_timer(2.0, self._init_led_cb)
+        self.update_mapping_state()  # boot default: OFF (no lidar, no mapping)
         self.get_logger().info('R2 Joy started: xspeed={}, angular={}, INACTIVE (red LED)'.format(
             self.xspeed_limit, self.angular_speed_limit))
+
+    def update_mapping_state(self):
+        """Mapping ON whenever joy control active (any gear). Red/inactive -> OFF (lidar stops)."""
+        state = bool(self.Joy_active)
+        msg = Bool()
+        msg.data = state
+        self.pub_MapState.publish(msg)
+        self.get_logger().info('MappingState -> {}'.format(state))
 
     def _init_led_cb(self):
         """Republish inactive LED a few times at startup, then stop"""
@@ -137,6 +150,7 @@ class JoyTeleop(Node):
                 self.set_gear_led(self.linear_Gear_idx)
             else:
                 self.get_logger().info('Gear {}/3 (inactive, LED stays red)'.format(self.linear_Gear_idx))
+            self.update_mapping_state()
 
         # RB (5) = angular gear cycle
         if self.btn(joy_data, 5) == 1:
@@ -187,6 +201,7 @@ class JoyTeleop(Node):
                 self.set_gear_led(self.linear_Gear_idx)
             else:
                 self.set_inactive_led()
+            self.update_mapping_state()
 
 def main():
     rclpy.init()
