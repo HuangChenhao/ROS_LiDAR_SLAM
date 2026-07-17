@@ -100,6 +100,17 @@ class yahboomcar_driver(Node):
 			for i in range(3):
 				self.car.set_colorful_lamps(0xFF, 255, 0, 0)
 				_t.sleep(0.05)
+		elif msg.data == 8 or msg.data == 9:
+			# 8 = blink blue x3 (gmapping), 9 = blink yellow x3 (cartographer)
+			import time as _t
+			r, g, b = (0, 80, 255) if msg.data == 8 else (255, 160, 0)
+			for i in range(3): self.car.set_colorful_effect(0, 6, parm=1)
+			_t.sleep(0.1)
+			for i in range(3):
+				self.car.set_colorful_lamps(0xFF, r, g, b)
+				_t.sleep(0.28)
+				self.car.set_colorful_lamps(0xFF, 0, 0, 0)
+				_t.sleep(0.18)
 		else:
 			for i in range(3): self.car.set_colorful_effect(msg.data, 6, parm=1)
 	def Buzzercallback(self,msg):

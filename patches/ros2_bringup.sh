@@ -28,6 +28,8 @@ docker cp "$TOOLS/yahboom_joy_R2_patched.py" "$C:$JOY_DST"
 docker cp "$TOOLS/Ackman_driver_R2_patched.py" "$C:$DRV_DST"
 docker exec "$C" mkdir -p /root/rosmaster_tools /root/rosmaster_maps
 docker cp "$TOOLS/slam_supervisor.py" "$C:/root/rosmaster_tools/slam_supervisor.py"
+docker cp "$TOOLS/rosmaster_carto.lua" "$C:/root/yahboomcar_ros2_ws/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params/rosmaster_carto.lua"
+docker cp "$TOOLS/slam_gmapping.yaml" "$C:/root/yahboomcar_ros2_ws/software/library_ws/install/slam_gmapping/share/slam_gmapping/params/slam_gmapping.yaml"
 
 # 3. Kill any old nodes
 docker exec "$C" bash -c "pkill -9 -f 'ros2|joy_node|gmapping|sllidar|rplidar|driver|ekf|imu|robot_state|joint_state|slam_supervisor'" 2>/dev/null || true

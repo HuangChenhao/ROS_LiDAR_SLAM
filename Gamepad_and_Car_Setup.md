@@ -62,9 +62,9 @@ The gamepad must be in **Xbox 360 emulation mode** (X-input). Plug the **USB 2.4
 | **RB** | 5 | Cycle angular gear (1/4→1/2→3/4→1) — 切换转向灵敏度 |
 | **Start** | 7 | Manual LED mode override — 手动切换 LED 模式 |
 | **B** | 1 | Toggle buzzer — 开关蜂鸣器 |
+| **X** | 2 | **Racing mode** — 飙车模式：最高速 + 星光灯 + 暂停建图（LB/Back 退出） |
+| **Y** | 3 | **Toggle SLAM algo** — 切换建图算法：蓝闪3下=gmapping，黄闪3下=cartographer（下一次建图生效） |
 | **A** | 0 | (unused / 未使用) |
-| **X** | 2 | (unused / 未使用) |
-| **Y** | 3 | (unused / 未使用) |
 
 ### Speed Gears & LED / 速度档位与 LED
 

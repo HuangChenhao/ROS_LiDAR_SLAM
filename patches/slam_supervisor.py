@@ -19,8 +19,10 @@ import numpy as np
 import serial
 import rclpy
 from rclpy.node import Node
+from rclpy.time import Time as RclTime
+from tf2_ros import Buffer, TransformListener
 from rclpy.qos import QoSProfile, DurabilityPolicy
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, String
 from nav_msgs.msg import OccupancyGrid
 
 ENV = ("source /opt/ros/foxy/setup.bash && "
@@ -38,18 +40,25 @@ class SlamSupervisor(Node):
         qos = QoSProfile(depth=1)
         qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
         self.create_subscription(Bool, '/MappingState', self.state_cb, qos)
+        qos2 = QoSProfile(depth=1)
+        qos2.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.create_subscription(String, '/SlamAlgo', self.algo_cb, qos2)
+        self.algo = 'gmapping'
         self.create_subscription(OccupancyGrid, '/map', self.map_cb, 1)
         self.mapping = False
         self.session = None
         self.start_ts = None
         self.procs = []
         self.last_map = None
+        self.traj = []
+        self.tf_buf = Buffer()
+        self.tf_listener = TransformListener(self.tf_buf, self)
         self._tick = 0
         self._map_dirty = False
         self.create_timer(PREVIEW_SEC, self.tick)
         os.makedirs(MAPS_DIR, exist_ok=True)
         # kill any orphan lidar/gmapping from previous supervisor instance
-        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping' 2>/dev/null; true"])
+        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping|cartographer' 2>/dev/null; true"])
         time.sleep(1)
         self.lidar_ser = None
         self.lidar_motor_off()
@@ -78,6 +87,14 @@ class SlamSupervisor(Node):
             self.lidar_ser = None
             time.sleep(0.5)
 
+    def algo_cb(self, msg):
+        if msg.data in ('gmapping', 'cartographer') and msg.data != self.algo:
+            self.algo = msg.data
+            if self.mapping:
+                self.get_logger().info('SLAM algo -> {} (applies to NEXT session)'.format(self.algo))
+            else:
+                self.get_logger().info('SLAM algo -> {}'.format(self.algo))
+
     def state_cb(self, msg):
         self.get_logger().info('MappingState received: {} (mapping={})'.format(msg.data, self.mapping))
         if msg.data and not self.mapping:
@@ -95,19 +112,28 @@ class SlamSupervisor(Node):
         self.session = os.path.join(MAPS_DIR, self.start_ts)
         os.makedirs(self.session, exist_ok=True)
         with open(os.path.join(self.session, 'metadata.txt'), 'w') as f:
-            f.write('scan_start: {}\n'.format(self.start_ts))
+            f.write('scan_start: {}\nalgo: {}\n'.format(self.start_ts, self.algo))
         self.last_map = None
         self.lidar_release()
         log = open(os.path.join(self.session, 'nodes.log'), 'w')
+        self.traj = []
+        bag_path = os.path.join(self.session, 'bag')
+        if self.algo == 'cartographer':
+            slam_cmd = ('ros2 launch yahboomcar_nav cartographer_launch.py '
+                        'configuration_basename:=rosmaster_carto.lua')
+        else:
+            slam_cmd = 'ros2 launch slam_gmapping slam_gmapping.launch.py'
         self.procs = [
             subprocess.Popen(['bash', '-c', ENV + ' && ros2 launch sllidar_ros2 sllidar_launch.py'],
                              preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
-            subprocess.Popen(['bash', '-c', ENV + ' && ros2 launch slam_gmapping slam_gmapping.launch.py'],
+            subprocess.Popen(['bash', '-c', ENV + ' && ' + slam_cmd],
+                             preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
+            subprocess.Popen(['bash', '-c', ENV + ' && ros2 bag record -o {} /scan /odom /tf /tf_static /imu/data_raw'.format(bag_path)],
                              preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
         ]
         self.mapping = True
         self._tick = 0
-        self.get_logger().info('MAPPING START -> session {}'.format(self.start_ts))
+        self.get_logger().info('MAPPING START ({}) -> session {}'.format(self.algo, self.start_ts))
 
     def stop_mapping(self):
         self.get_logger().info('MAPPING STOP -> saving final map...')
@@ -124,32 +150,89 @@ class SlamSupervisor(Node):
                 os.killpg(p.pid, signal.SIGKILL)
             except Exception:
                 pass
-        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping' 2>/dev/null; true"])
+        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping|cartographer' 2>/dev/null; true"])
         self.procs = []
         time.sleep(1)
         self.lidar_motor_off()
-        try:
-            os.remove(os.path.join(MAPS_DIR, 'live_preview.pgm'))
-        except OSError:
-            pass
+        for ext in ('ppm', 'pgm'):
+            try:
+                os.remove(os.path.join(MAPS_DIR, 'live_preview.' + ext))
+            except OSError:
+                pass
+        if self.traj and self.session and os.path.isdir(self.session):
+            try:
+                with open(os.path.join(self.session, 'trajectory.csv'), 'w') as f:
+                    f.write('x,y\n')
+                    for (x, y) in self.traj:
+                        f.write('{:.3f},{:.3f}\n'.format(x, y))
+            except Exception:
+                pass
+        # drop session folder if it never produced a map (avoids junk from mis-toggles)
+        if self.session and not os.path.exists(os.path.join(self.session, 'map.pgm')):
+            import shutil
+            shutil.rmtree(self.session, ignore_errors=True)
+            self.get_logger().info('empty session removed: {}'.format(self.session))
+            self.session = None
         self.get_logger().info('lidar + gmapping stopped, motor off')
 
     def tick(self):
         if not self.mapping:
             return
         self._tick += 1
-        if self._map_dirty:  # only re-render when gmapping published a new map
+        self.update_pose()
+        if self._map_dirty or (self._tick % 2 == 0):  # re-render on new map or every 1s (traj moves)
             self._map_dirty = False
             self.write_preview()
         if self._tick % AUTOSAVE_TICKS == 0:
             self.save_map()
 
+    def update_pose(self):
+        try:
+            t = self.tf_buf.lookup_transform('map', 'base_footprint', RclTime())
+            x = t.transform.translation.x
+            y = t.transform.translation.y
+            if not self.traj or (x - self.traj[-1][0]) ** 2 + (y - self.traj[-1][1]) ** 2 > 0.0025:
+                self.traj.append((x, y))
+        except Exception:
+            pass
+
+    def render_preview(self, m, ppm_path):
+        """Color preview: map + trajectory (red) + robot position (blue)."""
+        w, h, res = m.info.width, m.info.height, m.info.resolution
+        ox, oy = m.info.origin.position.x, m.info.origin.position.y
+        data = np.array(m.data, dtype=np.int8).reshape((h, w))
+        img = np.full((h, w), 205, dtype=np.uint8)
+        img[(data >= 0) & (data <= 25)] = 254   # free
+        img[data >= 55] = 0                     # occupied (gmapping=100, carto>=55)
+        img = np.flipud(img)
+        rgb = np.stack([img, img, img], axis=-1)
+
+        def px(x, y):
+            c = int((x - ox) / res)
+            r = h - 1 - int((y - oy) / res)
+            return r, c
+
+        for (x, y) in self.traj:
+            r, c = px(x, y)
+            if 0 <= r < h and 0 <= c < w:
+                rgb[max(0, r - 1):r + 2, max(0, c - 1):c + 2] = (220, 40, 40)
+        if self.traj:
+            r, c = px(*self.traj[-1])
+            if 0 <= r < h and 0 <= c < w:
+                rgb[max(0, r - 2):r + 3, max(0, c - 2):c + 3] = (0, 90, 255)
+
+        tmp = ppm_path + '.tmp'
+        with open(tmp, 'wb') as f:
+            f.write('P6\n{} {}\n255\n'.format(w, h).encode())
+            f.write(rgb.astype(np.uint8).tobytes())
+        os.replace(tmp, ppm_path)
+
     def render_pgm(self, m, pgm_path):
         w, h = m.info.width, m.info.height
         data = np.array(m.data, dtype=np.int8).reshape((h, w))
         img = np.full((h, w), 205, dtype=np.uint8)
-        img[data == 0] = 254
-        img[data == 100] = 0
+        img[(data >= 0) & (data <= 25)] = 254   # free
+        img[data >= 55] = 0                     # occupied (gmapping=100, carto>=55)
         img = np.flipud(img)
         tmp = pgm_path + '.tmp'
         with open(tmp, 'wb') as f:
@@ -161,7 +244,7 @@ class SlamSupervisor(Node):
         if self.last_map is None:
             return
         try:
-            self.render_pgm(self.last_map, os.path.join(MAPS_DIR, 'live_preview.pgm'))
+            self.render_preview(self.last_map, os.path.join(MAPS_DIR, 'live_preview.ppm'))
         except Exception as e:
             self.get_logger().warn('preview failed: {}'.format(e))
 
@@ -175,8 +258,8 @@ class SlamSupervisor(Node):
         ox, oy = m.info.origin.position.x, m.info.origin.position.y
         data = np.array(m.data, dtype=np.int8).reshape((h, w))
         img = np.full((h, w), 205, dtype=np.uint8)
-        img[data == 0] = 254
-        img[data == 100] = 0
+        img[(data >= 0) & (data <= 25)] = 254   # free
+        img[data >= 55] = 0                     # occupied (gmapping=100, carto>=55)
         img = np.flipud(img)
         with open(os.path.join(self.session, 'map.pgm'), 'wb') as f:
             f.write('P5\n{} {}\n255\n'.format(w, h).encode())

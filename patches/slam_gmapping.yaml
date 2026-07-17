@@ -1,0 +1,51 @@
+/slam_gmapping:
+  ros__parameters:
+    angularUpdate: 0.25         # 转 0.25rad 就更新 (原 0.5)
+    astep: 0.05
+    base_frame: base_footprint
+    map_frame: map
+    odom_frame: odom
+    delta: 0.05
+    iterations: 5
+    kernelSize: 1
+    lasamplerange: 0.005
+    lasamplestep: 0.005
+    linearUpdate: 0.5           # 走 0.5m 就更新 (原 1.0)
+    llsamplerange: 0.01
+    llsamplestep: 0.01
+    lsigma: 0.075
+    lskip: 0
+    lstep: 0.05
+    map_update_interval: 2.0    # /map 2s 刷新 (原 5.0) — 屏幕预览更实时
+    maxRange: 10.0              # A1 户外实际有效 (原 6.0)
+    maxUrange: 8.0              # 建图使用距离 (原 4.0, 户外太短)
+    minimum_score: 100.0        # 拒绝烂匹配, 防地图传送跳变 (原 0.0!!)
+    occ_thresh: 0.25
+    ogain: 3.0
+    particles: 50               # 户外稀疏特征多给粒子 (原 30)
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: 1000
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+      /tf:
+        publisher:
+          depth: 100
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+    resampleThreshold: 0.5
+    sigma: 0.05
+    srr: 0.15                   # 里程计误差模型放宽 (编码器不可靠)
+    srt: 0.3
+    str: 0.15
+    stt: 0.3
+    temporalUpdate: 1.0
+    transform_publish_period: 0.05
+    use_sim_time: false
+    xmax: 10.0
+    xmin: -10.0
+    ymax: 10.0
+    ymin: -10.0

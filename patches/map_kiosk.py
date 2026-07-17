@@ -18,8 +18,8 @@ import time
 import tkinter as tk
 
 C = 'rosmaster_ros2'
-SRC = '/root/rosmaster_maps/live_preview.pgm'
-LOCAL = '/tmp/kiosk_map.pgm'
+SRC = '/root/rosmaster_maps/live_preview.ppm'
+LOCAL = '/tmp/kiosk_map.ppm'
 POLL_MS = 500
 WAYFIRE_INI = os.path.expanduser('~/.config/wayfire.ini')
 IDLE_BACKUP = '/tmp/kiosk_idle_backup.txt'
