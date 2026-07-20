@@ -63,8 +63,27 @@ The gamepad must be in **Xbox 360 emulation mode** (X-input). Plug the **USB 2.4
 | **Start** | 7 | Manual LED mode override — 手动切换 LED 模式 |
 | **B** | 1 | Toggle buzzer — 开关蜂鸣器 |
 | **X** | 2 | **Global racing toggle** — 全局飙车开关：任何状态按一次直接进入最高速并停止建图，再按一次回到未激活 |
-| **Y** | 3 | **Toggle SLAM algo** — 切换建图算法：蓝闪3下=gmapping，黄闪3下=cartographer（下一次建图生效） |
+| **Y** | 3 | **Cycle SLAM algorithm** — 循环切换：蓝=GMapping，琥珀=Cartographer，绿=SLAM Toolbox，紫红=RTAB-Map（下一次建图生效） |
 | **A** | 0 | (unused / 未使用) |
+
+### SLAM Selection / SLAM 算法选择
+
+Each Y press advances one step and flashes the corresponding color three
+times. Pressing Y during a mapping session selects the next session's
+algorithm; it does not interrupt the current map.
+
+每按一次 Y 前进一个算法，并以对应颜色闪烁三次。建图过程中按 Y 只选择下一次
+会话的算法，不会中断当前地图。
+
+| Color / 颜色 | Algorithm / 算法 | Output / 输出 |
+|---|---|---|
+| Blue / 蓝 | GMapping | `YYYYmmdd_HHMMSS_gmapping/` |
+| Amber / 琥珀黄 | Cartographer | `YYYYmmdd_HHMMSS_cartographer/` |
+| Green / 绿 | SLAM Toolbox | `YYYYmmdd_HHMMSS_slam_toolbox/` |
+| Magenta / 紫红 | RTAB-Map 2D LiDAR | `YYYYmmdd_HHMMSS_rtabmap/` + `rtabmap.db` |
+
+The Raspberry Pi display status bar shows `算法: <name>` while mapping.
+建图时树莓派屏幕底部文字区会显示 `算法: <名称>`。
 
 ### Speed Gears & LED / 速度档位与 LED
 
@@ -170,6 +189,7 @@ Changes from original / 相对原版的修改:
 - Default steering sensitivity = lowest (1/4) — 默认最低转向灵敏度
 - Global X racing override with X-to-inactive toggle — X 可覆盖任何状态进入飙车，再按回到未激活
 - Reverse steering inversion for intuitive backing — 倒车时自动反转左右转向
+- Four-way Y SLAM selection with distinct colors — Y 循环选择四种 SLAM，并用不同颜色区分
 
 The driver is also patched (`patches/Ackman_driver_R2_patched.py` on Pi at `/home/pi/rosmaster_tools/`):
 - `/RGBLight` index 7 → stop current effect, then solid red via `set_colorful_lamps(0xFF, 255, 0, 0)`

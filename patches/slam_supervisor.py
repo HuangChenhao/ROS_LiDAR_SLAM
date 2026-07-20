@@ -3,11 +3,11 @@
 # SLAM session supervisor for ROSMaster R2
 #
 # Listens to /MappingState (from patched joy_ctrl):
-#   True  (active + gear 1/2) -> start lidar + gmapping, create session folder
+#   True  (active + gear 1/2) -> start lidar + selected SLAM, create session folder
 #                                named by SCAN START time, autosave map every 30s
 #   False (red/inactive or gear 3) -> save final map, stop lidar (motor off) + gmapping
 #
-# Sessions: /root/rosmaster_maps/<YYYYmmdd_HHMMSS>/  (start-time named)
+# Sessions: /root/rosmaster_maps/<YYYYmmdd_HHMMSS_algorithm>/
 # Autosave protects against hard power-off (last <=30s of mapping lost at most).
 
 import os
@@ -15,6 +15,7 @@ import time
 import signal
 import subprocess
 import shutil
+import json
 
 import numpy as np
 import serial
@@ -37,6 +38,14 @@ LIDAR_PORT = '/dev/rplidar'
 MIN_START_FREE_BYTES = 2 * 1024 ** 3
 MIN_RUNTIME_FREE_BYTES = 1 * 1024 ** 3
 SCAN_START_TIMEOUT_TICKS = 30  # 15 seconds at PREVIEW_SEC=0.5
+ALGORITHMS = ('gmapping', 'cartographer', 'slam_toolbox', 'rtabmap')
+ALGO_DISPLAY = {
+    'gmapping': 'GMapping',
+    'cartographer': 'Cartographer',
+    'slam_toolbox': 'SLAM Toolbox',
+    'rtabmap': 'RTAB-Map 2D LiDAR',
+}
+LIVE_STATUS = os.path.join(MAPS_DIR, 'live_status.json')
 
 
 class SlamSupervisor(Node):
@@ -49,6 +58,7 @@ class SlamSupervisor(Node):
         qos2.durability = DurabilityPolicy.TRANSIENT_LOCAL
         self.create_subscription(String, '/SlamAlgo', self.algo_cb, qos2)
         self.algo = 'gmapping'
+        self.active_algo = None
         self.create_subscription(OccupancyGrid, '/map', self.map_cb, 1)
         self.create_subscription(LaserScan, '/scan', self.scan_cb, qos_profile_sensor_data)
         self.mapping = False
@@ -67,7 +77,11 @@ class SlamSupervisor(Node):
         self.create_timer(PREVIEW_SEC, self.tick)
         os.makedirs(MAPS_DIR, exist_ok=True)
         # kill any orphan lidar/gmapping from previous supervisor instance
-        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping|cartographer' 2>/dev/null; true"])
+        subprocess.call([
+            'bash', '-c',
+            "pkill -9 -f 'sllidar|slam_gmapping|cartographer|slam_toolbox|rtabmap' "
+            "2>/dev/null; true"
+        ])
         time.sleep(1)
         self.lidar_ser = None
         self.lidar_motor_off()
@@ -99,10 +113,11 @@ class SlamSupervisor(Node):
             time.sleep(0.75)
 
     def algo_cb(self, msg):
-        if msg.data in ('gmapping', 'cartographer') and msg.data != self.algo:
+        if msg.data in ALGORITHMS and msg.data != self.algo:
             self.algo = msg.data
             if self.mapping:
                 self.get_logger().info('SLAM algo -> {} (applies to NEXT session)'.format(self.algo))
+                self.write_live_status()
             else:
                 self.get_logger().info('SLAM algo -> {}'.format(self.algo))
 
@@ -122,6 +137,22 @@ class SlamSupervisor(Node):
         if self.mapping:
             self.scan_count += 1
 
+    def write_live_status(self):
+        if not self.mapping or self.active_algo is None:
+            return
+        status = {
+            'algorithm': self.active_algo,
+            'algorithm_display': ALGO_DISPLAY[self.active_algo],
+            'selected_next': self.algo,
+            'session': os.path.basename(self.session) if self.session else '',
+            'scan_count': self.scan_count,
+            'started': self.start_ts,
+        }
+        tmp = LIVE_STATUS + '.tmp'
+        with open(tmp, 'w') as f:
+            json.dump(status, f, ensure_ascii=False)
+        os.replace(tmp, LIVE_STATUS)
+
     def start_mapping(self, retry=False):
         free = shutil.disk_usage(MAPS_DIR).free
         if free < MIN_START_FREE_BYTES:
@@ -129,10 +160,15 @@ class SlamSupervisor(Node):
                 'mapping refused: only {:.2f} GiB free (need 2 GiB)'.format(free / 1024 ** 3))
             return
         self.start_ts = time.strftime('%Y%m%d_%H%M%S')
-        self.session = os.path.join(MAPS_DIR, self.start_ts)
+        self.active_algo = self.algo
+        session_name = '{}_{}'.format(self.start_ts, self.active_algo)
+        self.session = os.path.join(MAPS_DIR, session_name)
         os.makedirs(self.session, exist_ok=True)
         with open(os.path.join(self.session, 'metadata.txt'), 'w') as f:
-            f.write('scan_start: {}\nalgo: {}\n'.format(self.start_ts, self.algo))
+            f.write(
+                'session: {}\nscan_start: {}\nalgo: {}\nalgo_display: {}\n'.format(
+                    session_name, self.start_ts, self.active_algo,
+                    ALGO_DISPLAY[self.active_algo]))
         self.last_map = None
         self.scan_count = 0
         if not retry:
@@ -141,9 +177,18 @@ class SlamSupervisor(Node):
         self.nodes_log = open(os.path.join(self.session, 'nodes.log'), 'w')
         self.traj = []
         bag_path = os.path.join(self.session, 'bag')
-        if self.algo == 'cartographer':
+        if self.active_algo == 'cartographer':
             slam_cmd = ('ros2 launch yahboomcar_nav cartographer_launch.py '
                         'configuration_basename:=rosmaster_carto.lua')
+        elif self.active_algo == 'slam_toolbox':
+            slam_cmd = (
+                'ros2 run slam_toolbox async_slam_toolbox_node --ros-args '
+                '--params-file /root/rosmaster_tools/slam_toolbox_r2.yaml')
+        elif self.active_algo == 'rtabmap':
+            slam_cmd = (
+                'ros2 run rtabmap_slam rtabmap --ros-args '
+                '--params-file /root/rosmaster_tools/rtabmap_r2.yaml '
+                '-p database_path:={}/rtabmap.db'.format(self.session))
         else:
             slam_cmd = 'ros2 launch slam_gmapping slam_gmapping.launch.py'
         lidar_proc = subprocess.Popen(
@@ -163,7 +208,9 @@ class SlamSupervisor(Node):
         ])
         self.mapping = True
         self._tick = 0
-        self.get_logger().info('MAPPING START ({}) -> session {}'.format(self.algo, self.start_ts))
+        self.write_live_status()
+        self.get_logger().info(
+            'MAPPING START ({}) -> session {}'.format(self.active_algo, session_name))
 
     def stop_mapping(self):
         self.get_logger().info('MAPPING STOP -> saving final map...')
@@ -180,7 +227,11 @@ class SlamSupervisor(Node):
                 os.killpg(p.pid, signal.SIGKILL)
             except Exception:
                 pass
-        subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping|cartographer' 2>/dev/null; true"])
+        subprocess.call([
+            'bash', '-c',
+            "pkill -9 -f 'sllidar|slam_gmapping|cartographer|slam_toolbox|rtabmap' "
+            "2>/dev/null; true"
+        ])
         self.procs = []
         if self.nodes_log is not None:
             try:
@@ -195,6 +246,10 @@ class SlamSupervisor(Node):
                 os.remove(os.path.join(MAPS_DIR, 'live_preview.' + ext))
             except OSError:
                 pass
+        try:
+            os.remove(LIVE_STATUS)
+        except OSError:
+            pass
         if self.traj and self.session and os.path.isdir(self.session):
             try:
                 with open(os.path.join(self.session, 'trajectory.csv'), 'w') as f:
@@ -212,12 +267,15 @@ class SlamSupervisor(Node):
             except Exception:
                 pass
             self.get_logger().warn('incomplete session kept for recovery: {}'.format(self.session))
+        self.active_algo = None
         self.get_logger().info('lidar + SLAM stopped, motor off')
 
     def tick(self):
         if not self.mapping:
             return
         self._tick += 1
+        if self._tick % 2 == 0:
+            self.write_live_status()
         if self._tick == SCAN_START_TIMEOUT_TICKS and self.scan_count == 0:
             if self.startup_retries < 1:
                 self.startup_retries += 1

@@ -18,12 +18,20 @@ from rclpy.qos import QoSProfile, DurabilityPolicy
 
 # LED effects: 0=off, 1=flowing, 2=marquee, 3=breathing, 4=gradient, 5=starlight, 6=battery
 # 7 = solid red (custom, patched into Ackman_driver_R2.py) — means joy control INACTIVE
+# 8..11 = custom three-blink algorithm colors handled by the patched driver.
 GEAR_LED = {
     1: (3, 'breathing'),    # 0.17 m/s — mapping (calm breathing)
     2: (1, 'flowing'),      # 0.33 m/s — mapping fast (flowing)
     3: (2, 'marquee'),      # MAX speed (marquee)
 }
 INACTIVE_LED = 7  # solid red
+SLAM_ALGOS = ('gmapping', 'cartographer', 'slam_toolbox', 'rtabmap')
+SLAM_LED = {
+    'gmapping': 8,       # blue
+    'cartographer': 9,   # amber
+    'slam_toolbox': 10,  # green
+    'rtabmap': 11,       # magenta
+}
 
 class JoyTeleop(Node):
     def __init__(self, name):
@@ -37,8 +45,8 @@ class JoyTeleop(Node):
         self.angular_Gear = 1.0 / 4  # default lowest steering sensitivity
         self.racing = False
         self.racing_time = 0.0
-        self.slam_algo = 'gmapping'  # or 'cartographer', toggled by Y
-        self.algo_time = 0.0
+        self.slam_algo_index = 0
+        self.slam_algo = SLAM_ALGOS[self.slam_algo_index]
         self._last_buttons = []
 
         self.pub_goal = self.create_publisher(GoalID, "move_base/cancel", 10)
@@ -80,7 +88,7 @@ class JoyTeleop(Node):
         self.get_logger().info('SLAM algo -> {}'.format(self.slam_algo))
         if blink:
             b = Int32()
-            b.data = 8 if self.slam_algo == 'gmapping' else 9
+            b.data = SLAM_LED[self.slam_algo]
             self.pub_RGBLight.publish(b)
             # after blink (~1.6s in driver), restore current LED state
             m = Int32()
@@ -176,13 +184,13 @@ class JoyTeleop(Node):
             for _ in range(3):
                 self.pub_RGBLight.publish(msg)
 
-        # Y (3) = toggle SLAM algorithm: blue blink x3 = gmapping, yellow x3 = cartographer
+        # Y (3) cycles SLAM:
+        # blue=GMapping, amber=Cartographer, green=SLAM Toolbox,
+        # magenta=RTAB-Map 2D LiDAR.
         if self.pressed(joy_data, 3):
-            now = time.time()
-            if now - self.algo_time > 1.5:
-                self.algo_time = now
-                self.slam_algo = 'cartographer' if self.slam_algo == 'gmapping' else 'gmapping'
-                self.publish_algo(blink=True)
+            self.slam_algo_index = (self.slam_algo_index + 1) % len(SLAM_ALGOS)
+            self.slam_algo = SLAM_ALGOS[self.slam_algo_index]
+            self.publish_algo(blink=True)
 
         # X (2) = global racing override:
         #   any state -> racing active (max speed, mapping OFF)

@@ -100,10 +100,17 @@ class yahboomcar_driver(Node):
 			for i in range(3):
 				self.car.set_colorful_lamps(0xFF, 255, 0, 0)
 				_t.sleep(0.05)
-		elif msg.data == 8 or msg.data == 9:
-			# 8 = blink blue x3 (gmapping), 9 = blink yellow x3 (cartographer)
+		elif msg.data in (8, 9, 10, 11):
+			# Three-blink SLAM selection:
+			# 8=GMapping blue, 9=Cartographer amber,
+			# 10=SLAM Toolbox green, 11=RTAB-Map magenta.
 			import time as _t
-			r, g, b = (0, 80, 255) if msg.data == 8 else (255, 160, 0)
+			r, g, b = {
+				8: (0, 80, 255),
+				9: (255, 160, 0),
+				10: (0, 255, 80),
+				11: (200, 0, 255),
+			}[msg.data]
 			for i in range(3): self.car.set_colorful_effect(0, 6, parm=1)
 			_t.sleep(0.1)
 			for i in range(3):

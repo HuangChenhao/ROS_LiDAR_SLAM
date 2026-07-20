@@ -1,0 +1,41 @@
+rtabmap:
+  ros__parameters:
+    use_sim_time: false
+    frame_id: base_footprint
+    map_frame_id: map
+    odom_frame_id: odom
+    publish_tf: true
+    subscribe_scan: true
+    subscribe_scan_cloud: false
+    subscribe_depth: false
+    subscribe_rgb: false
+    subscribe_rgbd: false
+    subscribe_stereo: false
+    subscribe_user_data: false
+    approx_sync: false
+    queue_size: 20
+    qos_scan: 2
+    qos_odom: 1
+    wait_for_transform: 0.2
+
+    # Pure 2D LiDAR graph-SLAM using the EKF odom transform as the motion guess.
+    "Reg/Strategy": "1"
+    "Reg/Force3DoF": "true"
+    "Mem/IncrementalMemory": "true"
+    "Mem/InitWMWithAllNodes": "false"
+    "RGBD/OptimizeFromGraphEnd": "true"
+    "RGBD/ProximityBySpace": "true"
+    "RGBD/ProximityPathMaxNeighbors": "10"
+    "Rtabmap/DetectionRate": "4.0"
+
+    "Grid/CellSize": "0.05"
+    "Grid/Sensor": "0"
+    "Grid/RangeMax": "6.0"
+    "Grid/Scan2dUnknownSpaceFilled": "true"
+    "Icp/RangeMin": "0.15"
+    "Icp/RangeMax": "6.0"
+    "Icp/PointToPlane": "false"
+    "Icp/VoxelSize": "0.03"
+    "Icp/MaxCorrespondenceDistance": "0.15"
+    "Icp/MaxTranslation": "0.5"
+    "Icp/MaxRotation": "0.6"

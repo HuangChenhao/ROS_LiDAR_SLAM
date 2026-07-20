@@ -9,7 +9,7 @@ Yahboom ROSMaster R2 (Ackermann steering) running ROS2 Foxy on Raspberry Pi 5.
 - **Global racing override** — X enters racing from any state; X again returns directly to inactive
 - **Natural reverse steering** — left/right steering is inverted automatically while reversing
 - **LED gear indicator** — LED effect auto-changes with speed gear
-- **Dual SLAM** — switch between gmapping and Cartographer with the Y button
+- **Four-way SLAM** — Y cycles GMapping, Cartographer, SLAM Toolbox, and RTAB-Map 2D LiDAR
 - **Gear-driven mapping** — gears 1/2 map; gear 3, racing mode, and inactive mode stop LiDAR
 - **Session recording** — map, trajectory, metadata, logs, and rosbag saved together
 - **Live map kiosk** — full-screen map preview on the Raspberry Pi display
@@ -24,16 +24,31 @@ Yahboom ROSMaster R2 (Ackermann steering) running ROS2 Foxy on Raspberry Pi 5.
    state to enter racing mode directly
 3. Left stick = drive, Right stick = steer
 4. **LB** = cycle speed gear; gears 1/2 enable mapping and gear 3 disables it
-5. **Y** = switch the SLAM algorithm for the next mapping session
+5. **Y** = select the SLAM algorithm for the next mapping session:
+   blue=GMapping, amber=Cartographer, green=SLAM Toolbox, magenta=RTAB-Map
 6. Press **Back** again, select gear 3, or enter racing mode to save and stop mapping
 7. In racing mode, press **X** again to stop and return to the inactive state
 
-Mapping sessions are stored in `/root/rosmaster_maps/YYYYmmdd_HHMMSS/` inside
+Mapping sessions are stored in
+`/root/rosmaster_maps/YYYYmmdd_HHMMSS_algorithm/` inside
 the container. Each complete session contains `map.pgm`, `map.yaml`,
 `trajectory.csv`, `metadata.txt`, node logs, and a ROS2 bag.
 The bag includes raw and fused odometry/IMU, LiDAR, TF, velocity commands,
 mapping state, SLAM selection, and diagnostics so sensor-fusion problems can
 be diagnosed after a drive.
+
+## SLAM Algorithms
+
+| Y color | Algorithm | Sensor path | Notes |
+|---|---|---|---|
+| Blue | GMapping | LiDAR + EKF odometry | Particle-filter baseline |
+| Amber | Cartographer | LiDAR + EKF odometry | Submaps and pose-graph optimization |
+| Green | SLAM Toolbox | LiDAR + EKF odometry | ROS2-native asynchronous pose graph with robust loss |
+| Magenta | RTAB-Map 2D LiDAR | LiDAR ICP + EKF odometry | Graph SLAM; also saves `rtabmap.db` |
+
+The on-screen status bar shows the running algorithm. If Y is pressed during
+mapping, the current session continues safely and the status bar also shows
+the algorithm selected for the next session.
 
 ## Files
 
@@ -48,6 +63,8 @@ be diagnosed after a drive.
 | `patches/ros2_bringup.sh` | Reliable container and ROS2 startup script |
 | `patches/slam_gmapping.yaml` | Tuned gmapping configuration |
 | `patches/rosmaster_carto.lua` | Tuned Cartographer configuration |
+| `patches/slam_toolbox_r2.yaml` | R2-tuned asynchronous SLAM Toolbox configuration |
+| `patches/rtabmap_r2.yaml` | R2-tuned RTAB-Map 2D LiDAR/ICP configuration |
 | `patches/ekf_r2.yaml` | R2 sensor-fusion configuration using wheel velocity plus IMU yaw/yaw-rate |
 | `patches/map_kiosk.py` | Raspberry Pi live-map display |
 | `systemd/rosmaster-ros2.service` | Versioned boot service |
@@ -72,6 +89,10 @@ Validated on Raspberry Pi 5 with RPLidar A1:
 - ROS2 driver, EKF, IMU, TF, joystick, and supervisor startup
 - gmapping map generation and graceful shutdown
 - Cartographer map generation and graceful shutdown
+- SLAM Toolbox map generation and graceful shutdown
+- RTAB-Map 2D LiDAR map/database generation and graceful shutdown
+- four-color Y selection and algorithm-labeled session folders
+- live display status including the running algorithm
 - RPLidar scan rate around 7.6 Hz
 - raw/fused odometry and IMU recording at around 10 Hz
 - stationary fused odometry with zero position drift after rejecting absolute wheel-pose jumps

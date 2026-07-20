@@ -16,10 +16,13 @@ import shutil
 import subprocess
 import time
 import tkinter as tk
+import json
 
 C = 'rosmaster_ros2'
 SRC = '/root/rosmaster_maps/live_preview.ppm'
 LOCAL = '/tmp/kiosk_map.ppm'
+STATUS_SRC = '/root/rosmaster_maps/live_status.json'
+STATUS_LOCAL = '/tmp/kiosk_status.json'
 POLL_MS = 500
 WAYFIRE_INI = os.path.expanduser('~/.config/wayfire.ini')
 IDLE_BACKUP = '/tmp/kiosk_idle_backup.txt'
@@ -41,6 +44,19 @@ def fetch_preview():
         os.remove(LOCAL)
     ok = docker('cp', '{}:{}'.format(C, SRC), LOCAL)
     return ok and os.path.exists(LOCAL) and os.path.getsize(LOCAL) > 0
+
+
+def fetch_status():
+    """Return supervisor status; an empty dict is safe during file rotation."""
+    try:
+        if os.path.exists(STATUS_LOCAL):
+            os.remove(STATUS_LOCAL)
+        if not docker('cp', '{}:{}'.format(C, STATUS_SRC), STATUS_LOCAL):
+            return {}
+        with open(STATUS_LOCAL, encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 
 def set_keep_awake(on):
@@ -83,6 +99,7 @@ class Kiosk:
                                font=('DejaVu Sans Mono', 14))
         self.status.pack(side='bottom', fill='x')
         self.img = None
+        self.slam_status = {}
         self.showing = False
         self.root.withdraw()
         self.sw = self.root.winfo_screenwidth()
@@ -93,6 +110,7 @@ class Kiosk:
     def poll(self):
         try:
             if fetch_preview():
+                self.slam_status = fetch_status()
                 self.show()
             else:
                 self.hide()
@@ -109,8 +127,15 @@ class Kiosk:
                 img = img.zoom(f)
             self.img = img
             self.label.configure(image=self.img)
-            self.status.configure(text=' 建图中 LIVE  {}x{}  {}'.format(
-                w, h, time.strftime('%H:%M:%S')))
+            algo = self.slam_status.get('algorithm_display', '未知算法')
+            selected = self.slam_status.get('selected_next')
+            running = self.slam_status.get('algorithm')
+            next_text = ''
+            if selected and running and selected != running:
+                next_text = '  |  下次: {}'.format(selected)
+            self.status.configure(
+                text=' 建图中 LIVE  |  算法: {}  |  {}x{}  |  {}{}'.format(
+                    algo, w, h, time.strftime('%H:%M:%S'), next_text))
         except Exception:
             return
         if not self.showing:

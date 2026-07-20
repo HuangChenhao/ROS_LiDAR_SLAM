@@ -1,7 +1,7 @@
 #!/bin/bash
-# ROSMaster R2 ROS2 boot script (v4 — reliable gear-driven SLAM)
-# Boot default: driver + joy + slam_supervisor ONLY. No lidar, no gmapping.
-# Lidar + gmapping are started/stopped by slam_supervisor based on /MappingState
+# ROSMaster R2 ROS2 boot script (v5 — reliable multi-SLAM)
+# Boot default: driver + joy + slam_supervisor ONLY. No lidar or SLAM.
+# Lidar + selected SLAM are started/stopped by slam_supervisor based on /MappingState
 # (gear 1/2 active = mapping ON; red/inactive or gear 3 = OFF).
 
 set -Eeuo pipefail
@@ -38,6 +38,8 @@ docker cp "$TOOLS/yahboom_joy_R2_patched.py" "$C:$JOY_DST"
 docker cp "$TOOLS/Ackman_driver_R2_patched.py" "$C:$DRV_DST"
 docker exec "$C" mkdir -p /root/rosmaster_tools /root/rosmaster_maps
 docker cp "$TOOLS/slam_supervisor.py" "$C:/root/rosmaster_tools/slam_supervisor.py"
+docker cp "$TOOLS/slam_toolbox_r2.yaml" "$C:/root/rosmaster_tools/slam_toolbox_r2.yaml"
+docker cp "$TOOLS/rtabmap_r2.yaml" "$C:/root/rosmaster_tools/rtabmap_r2.yaml"
 docker cp "$TOOLS/rosmaster_carto.lua" "$C:/root/yahboomcar_ros2_ws/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params/rosmaster_carto.lua"
 docker cp "$TOOLS/slam_gmapping.yaml" "$C:/root/yahboomcar_ros2_ws/software/library_ws/install/slam_gmapping/share/slam_gmapping/params/slam_gmapping.yaml"
 docker cp "$TOOLS/ekf_r2.yaml" "$C:$EKF_DST"
@@ -77,4 +79,4 @@ for node in /driver_node /joy_ctrl /robot_state_publisher /slam_supervisor; do
     fi
 done
 
-echo "bringup v4 done"
+echo "bringup v5 done"
