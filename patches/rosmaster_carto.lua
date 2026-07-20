@@ -20,8 +20,10 @@ options = {
   num_point_clouds = 0,
   lookup_transform_timeout_sec = 0.2,
   submap_publish_period_sec = 0.3,
-  pose_publish_period_sec = 5e-3,
-  trajectory_publish_period_sec = 30e-3,
+  -- 50 Hz is sufficient for control/visualization; the previous 200 Hz
+  -- flooded /tf and rosbag without improving the 7.6 Hz LiDAR estimate.
+  pose_publish_period_sec = 20e-3,
+  trajectory_publish_period_sec = 50e-3,
   rangefinder_sampling_ratio = 1.,
   odometry_sampling_ratio = 1.,
   fixed_frame_pose_sampling_ratio = 1.,
@@ -39,10 +41,10 @@ TRAJECTORY_BUILDER_2D.use_imu_data = false
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.3
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(25.)
-TRAJECTORY_BUILDER_2D.motion_filter.max_time_seconds = 0.3
-TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters = 0.1
-TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.5)
-TRAJECTORY_BUILDER_2D.submaps.num_range_data = 60
+TRAJECTORY_BUILDER_2D.motion_filter.max_time_seconds = 0.25
+TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters = 0.05
+TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.3)
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 45
 
 -- 回环检测
 POSE_GRAPH.optimize_every_n_nodes = 30

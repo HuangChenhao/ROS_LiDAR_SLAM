@@ -14,6 +14,7 @@ import os
 import time
 import signal
 import subprocess
+import shutil
 
 import numpy as np
 import serial
@@ -21,17 +22,21 @@ import rclpy
 from rclpy.node import Node
 from rclpy.time import Time as RclTime
 from tf2_ros import Buffer, TransformListener
-from rclpy.qos import QoSProfile, DurabilityPolicy
+from rclpy.qos import QoSProfile, DurabilityPolicy, qos_profile_sensor_data
 from std_msgs.msg import Bool, String
 from nav_msgs.msg import OccupancyGrid
+from sensor_msgs.msg import LaserScan
 
 ENV = ("source /opt/ros/foxy/setup.bash && "
        "source /root/yahboomcar_ros2_ws/yahboomcar_ws/install/setup.bash && "
-       "export ROBOT_TYPE=r2 RPLIDAR_TYPE=a1")
+       "export ROBOT_TYPE=r2 RPLIDAR_TYPE=a1 TZ=Europe/Berlin")
 MAPS_DIR = '/root/rosmaster_maps'
 PREVIEW_SEC = 0.5      # kiosk refresh poll — follows gmapping /map rate
 AUTOSAVE_TICKS = 60    # full session autosave every ~30s
 LIDAR_PORT = '/dev/rplidar'
+MIN_START_FREE_BYTES = 2 * 1024 ** 3
+MIN_RUNTIME_FREE_BYTES = 1 * 1024 ** 3
+SCAN_START_TIMEOUT_TICKS = 30  # 15 seconds at PREVIEW_SEC=0.5
 
 
 class SlamSupervisor(Node):
@@ -45,16 +50,20 @@ class SlamSupervisor(Node):
         self.create_subscription(String, '/SlamAlgo', self.algo_cb, qos2)
         self.algo = 'gmapping'
         self.create_subscription(OccupancyGrid, '/map', self.map_cb, 1)
+        self.create_subscription(LaserScan, '/scan', self.scan_cb, qos_profile_sensor_data)
         self.mapping = False
         self.session = None
         self.start_ts = None
         self.procs = []
+        self.nodes_log = None
         self.last_map = None
         self.traj = []
         self.tf_buf = Buffer()
         self.tf_listener = TransformListener(self.tf_buf, self)
         self._tick = 0
         self._map_dirty = False
+        self.scan_count = 0
+        self.startup_retries = 0
         self.create_timer(PREVIEW_SEC, self.tick)
         os.makedirs(MAPS_DIR, exist_ok=True)
         # kill any orphan lidar/gmapping from previous supervisor instance
@@ -78,14 +87,16 @@ class SlamSupervisor(Node):
             self.get_logger().warn('cannot stop lidar motor: {}'.format(e))
 
     def lidar_release(self):
-        """Release the serial port so sllidar_node can open it."""
+        """Explicitly enable the A1 motor, then release the serial port."""
         if self.lidar_ser is not None:
             try:
+                self.lidar_ser.dtr = False
+                time.sleep(0.25)
                 self.lidar_ser.close()
             except Exception:
                 pass
             self.lidar_ser = None
-            time.sleep(0.5)
+            time.sleep(0.75)
 
     def algo_cb(self, msg):
         if msg.data in ('gmapping', 'cartographer') and msg.data != self.algo:
@@ -107,15 +118,27 @@ class SlamSupervisor(Node):
             self.last_map = msg
             self._map_dirty = True
 
-    def start_mapping(self):
+    def scan_cb(self, _msg):
+        if self.mapping:
+            self.scan_count += 1
+
+    def start_mapping(self, retry=False):
+        free = shutil.disk_usage(MAPS_DIR).free
+        if free < MIN_START_FREE_BYTES:
+            self.get_logger().error(
+                'mapping refused: only {:.2f} GiB free (need 2 GiB)'.format(free / 1024 ** 3))
+            return
         self.start_ts = time.strftime('%Y%m%d_%H%M%S')
         self.session = os.path.join(MAPS_DIR, self.start_ts)
         os.makedirs(self.session, exist_ok=True)
         with open(os.path.join(self.session, 'metadata.txt'), 'w') as f:
             f.write('scan_start: {}\nalgo: {}\n'.format(self.start_ts, self.algo))
         self.last_map = None
+        self.scan_count = 0
+        if not retry:
+            self.startup_retries = 0
         self.lidar_release()
-        log = open(os.path.join(self.session, 'nodes.log'), 'w')
+        self.nodes_log = open(os.path.join(self.session, 'nodes.log'), 'w')
         self.traj = []
         bag_path = os.path.join(self.session, 'bag')
         if self.algo == 'cartographer':
@@ -123,14 +146,21 @@ class SlamSupervisor(Node):
                         'configuration_basename:=rosmaster_carto.lua')
         else:
             slam_cmd = 'ros2 launch slam_gmapping slam_gmapping.launch.py'
-        self.procs = [
-            subprocess.Popen(['bash', '-c', ENV + ' && ros2 launch sllidar_ros2 sllidar_launch.py'],
-                             preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
+        lidar_proc = subprocess.Popen(
+            ['bash', '-c', ENV + ' && ros2 launch sllidar_ros2 sllidar_launch.py'],
+            preexec_fn=os.setsid, stdout=self.nodes_log, stderr=subprocess.STDOUT)
+        self.procs = [lidar_proc]
+        # Give USB serial and the A1 motor time to settle before SLAM subscribes.
+        time.sleep(2.0)
+        self.procs.extend([
             subprocess.Popen(['bash', '-c', ENV + ' && ' + slam_cmd],
-                             preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
-            subprocess.Popen(['bash', '-c', ENV + ' && ros2 bag record -o {} /scan /odom /tf /tf_static /imu/data_raw'.format(bag_path)],
-                             preexec_fn=os.setsid, stdout=log, stderr=subprocess.STDOUT),
-        ]
+                              preexec_fn=os.setsid, stdout=self.nodes_log, stderr=subprocess.STDOUT),
+            subprocess.Popen(['bash', '-c', ENV + ' && ros2 bag record -o {} '
+                              '/scan /odom /odom_raw /tf /tf_static '
+                              '/imu/data /imu/data_raw /cmd_vel '
+                              '/MappingState /SlamAlgo /diagnostics'.format(bag_path)],
+                              preexec_fn=os.setsid, stdout=self.nodes_log, stderr=subprocess.STDOUT),
+        ])
         self.mapping = True
         self._tick = 0
         self.get_logger().info('MAPPING START ({}) -> session {}'.format(self.algo, self.start_ts))
@@ -152,6 +182,12 @@ class SlamSupervisor(Node):
                 pass
         subprocess.call(['bash', '-c', "pkill -9 -f 'sllidar|slam_gmapping|cartographer' 2>/dev/null; true"])
         self.procs = []
+        if self.nodes_log is not None:
+            try:
+                self.nodes_log.close()
+            except Exception:
+                pass
+            self.nodes_log = None
         time.sleep(1)
         self.lidar_motor_off()
         for ext in ('ppm', 'pgm'):
@@ -167,18 +203,38 @@ class SlamSupervisor(Node):
                         f.write('{:.3f},{:.3f}\n'.format(x, y))
             except Exception:
                 pass
-        # drop session folder if it never produced a map (avoids junk from mis-toggles)
+        # Keep incomplete sessions: their rosbag and logs can recover or diagnose a failed map.
         if self.session and not os.path.exists(os.path.join(self.session, 'map.pgm')):
-            import shutil
-            shutil.rmtree(self.session, ignore_errors=True)
-            self.get_logger().info('empty session removed: {}'.format(self.session))
-            self.session = None
-        self.get_logger().info('lidar + gmapping stopped, motor off')
+            try:
+                with open(os.path.join(self.session, 'metadata.txt'), 'a') as f:
+                    f.write('scan_end: {}\nstatus: incomplete_no_map\n'.format(
+                        time.strftime('%Y%m%d_%H%M%S')))
+            except Exception:
+                pass
+            self.get_logger().warn('incomplete session kept for recovery: {}'.format(self.session))
+        self.get_logger().info('lidar + SLAM stopped, motor off')
 
     def tick(self):
         if not self.mapping:
             return
         self._tick += 1
+        if self._tick == SCAN_START_TIMEOUT_TICKS and self.scan_count == 0:
+            if self.startup_retries < 1:
+                self.startup_retries += 1
+                self.get_logger().warn('no /scan after 15s — restarting LiDAR + SLAM once')
+                self.stop_mapping()
+                self.start_mapping(retry=True)
+            else:
+                self.get_logger().error('no /scan after retry — stopping mapping for safety')
+                self.stop_mapping()
+            return
+        if self._tick % 20 == 0:
+            free = shutil.disk_usage(MAPS_DIR).free
+            if free < MIN_RUNTIME_FREE_BYTES:
+                self.get_logger().error(
+                    'disk safety stop: only {:.2f} GiB free'.format(free / 1024 ** 3))
+                self.stop_mapping()
+                return
         self.update_pose()
         if self._map_dirty or (self._tick % 2 == 0):  # re-render on new map or every 1s (traj moves)
             self._map_dirty = False
@@ -256,20 +312,16 @@ class SlamSupervisor(Node):
             return
         w, h, res = m.info.width, m.info.height, m.info.resolution
         ox, oy = m.info.origin.position.x, m.info.origin.position.y
-        data = np.array(m.data, dtype=np.int8).reshape((h, w))
-        img = np.full((h, w), 205, dtype=np.uint8)
-        img[(data >= 0) & (data <= 25)] = 254   # free
-        img[data >= 55] = 0                     # occupied (gmapping=100, carto>=55)
-        img = np.flipud(img)
-        with open(os.path.join(self.session, 'map.pgm'), 'wb') as f:
-            f.write('P5\n{} {}\n255\n'.format(w, h).encode())
-            f.write(img.tobytes())
-        with open(os.path.join(self.session, 'map.yaml'), 'w') as f:
+        self.render_pgm(m, os.path.join(self.session, 'map.pgm'))
+        yaml_path = os.path.join(self.session, 'map.yaml')
+        yaml_tmp = yaml_path + '.tmp'
+        with open(yaml_tmp, 'w') as f:
             f.write('image: map.pgm\nresolution: {}\norigin: [{}, {}, 0.0]\n'
                     'negate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n'.format(res, ox, oy))
+        os.replace(yaml_tmp, yaml_path)
         if final:
             with open(os.path.join(self.session, 'metadata.txt'), 'a') as f:
-                f.write('scan_end: {}\nmap: {}x{} res={}\n'.format(
+                f.write('scan_end: {}\nstatus: complete\nmap: {}x{} res={}\n'.format(
                     time.strftime('%Y%m%d_%H%M%S'), w, h, res))
             self.get_logger().info('final map saved: {}x{}'.format(w, h))
 

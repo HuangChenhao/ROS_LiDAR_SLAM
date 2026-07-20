@@ -31,14 +31,15 @@ class JoyTeleop(Node):
         self.Joy_active = False
         self.Buzzer_active = False
         self.RGBLight_index = 0
-        self.cancel_time = time.time()
+        self.cancel_time = 0.0
         self.user_name = getpass.getuser()
         self.linear_Gear_idx = 1  # 1=slow, 2=med, 3=fast
         self.angular_Gear = 1.0 / 4  # default lowest steering sensitivity
         self.racing = False
-        self.racing_time = time.time()
+        self.racing_time = 0.0
         self.slam_algo = 'gmapping'  # or 'cartographer', toggled by Y
-        self.algo_time = time.time()
+        self.algo_time = 0.0
+        self._last_buttons = []
 
         self.pub_goal = self.create_publisher(GoalID, "move_base/cancel", 10)
         self.pub_cmdVel = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -92,8 +93,12 @@ class JoyTeleop(Node):
             self.pub_RGBLight.publish(m)
 
     def update_mapping_state(self):
-        """Mapping ON when active and NOT racing. Red/inactive or racing -> OFF (lidar stops)."""
-        state = bool(self.Joy_active and not self.racing)
+        """Mapping ON only in active mapping gears 1/2."""
+        state = bool(
+            self.Joy_active
+            and not self.racing
+            and self.linear_Gear_idx in (1, 2)
+        )
         msg = Bool()
         msg.data = state
         self.pub_MapState.publish(msg)
@@ -130,6 +135,12 @@ class JoyTeleop(Node):
             return joy_data.buttons[idx]
         return 0
 
+    def pressed(self, joy_data, idx):
+        """True once on the rising edge, even when joy_node auto-repeats."""
+        current = self.btn(joy_data, idx)
+        previous = self._last_buttons[idx] if idx < len(self._last_buttons) else 0
+        return current == 1 and previous == 0
+
     def ax(self, joy_data, idx):
         if idx < len(joy_data.axes):
             return joy_data.axes[idx]
@@ -138,7 +149,10 @@ class JoyTeleop(Node):
     def buttonCallback(self, joy_data):
         if not isinstance(joy_data, Joy):
             return
-        self.user_r2(joy_data)
+        try:
+            self.user_r2(joy_data)
+        finally:
+            self._last_buttons = list(joy_data.buttons)
 
     def user_r2(self, joy_data):
         """R2 Ackermann joy control
@@ -151,11 +165,11 @@ class JoyTeleop(Node):
           buttons[8]=Guide, [9]=L3, [10]=R3
         """
         # Back (6) = toggle joy active
-        if self.btn(joy_data, 6) == 1:
+        if self.pressed(joy_data, 6):
             self.cancel_nav()
 
         # Start (7) = cycle LED manually (override gear LED)
-        if self.btn(joy_data, 7) == 1:
+        if self.pressed(joy_data, 7):
             self.RGBLight_index = (self.RGBLight_index + 1) % 7
             msg = Int32()
             msg.data = self.RGBLight_index
@@ -163,32 +177,43 @@ class JoyTeleop(Node):
                 self.pub_RGBLight.publish(msg)
 
         # Y (3) = toggle SLAM algorithm: blue blink x3 = gmapping, yellow x3 = cartographer
-        if self.btn(joy_data, 3) == 1:
+        if self.pressed(joy_data, 3):
             now = time.time()
             if now - self.algo_time > 1.5:
                 self.algo_time = now
                 self.slam_algo = 'cartographer' if self.slam_algo == 'gmapping' else 'gmapping'
                 self.publish_algo(blink=True)
 
-        # X (2) = racing mode toggle: max speed + starlight LED + mapping OFF
-        if self.btn(joy_data, 2) == 1:
-            now = time.time()
-            if self.Joy_active and now - self.racing_time > 1:
-                self.racing_time = now
-                self.racing = not self.racing
-                if self.racing:
-                    msg = Int32()
-                    msg.data = 5  # starlight
-                    for _ in range(3):
-                        self.pub_RGBLight.publish(msg)
-                    self.get_logger().info('RACING ON: max speed, starlight LED, mapping OFF')
-                else:
-                    self.set_gear_led(self.linear_Gear_idx)
-                    self.get_logger().info('RACING OFF: back to gear {}/3'.format(self.linear_Gear_idx))
-                self.update_mapping_state()
+        # X (2) = global racing override:
+        #   any state -> racing active (max speed, mapping OFF)
+        #   racing   -> fully inactive (stop command, red LED)
+        if self.pressed(joy_data, 2):
+            Joy_ctrl = Bool()
+            if not self.racing:
+                self.racing = True
+                self.Joy_active = True
+                Joy_ctrl.data = True
+                msg = Int32()
+                msg.data = 5  # starlight
+                for _ in range(3):
+                    self.pub_JoyState.publish(Joy_ctrl)
+                    self.pub_cmdVel.publish(Twist())
+                    self.pub_RGBLight.publish(msg)
+                self.get_logger().info(
+                    'RACING ON (global override): max speed, mapping OFF')
+            else:
+                self.racing = False
+                self.Joy_active = False
+                Joy_ctrl.data = False
+                for _ in range(3):
+                    self.pub_JoyState.publish(Joy_ctrl)
+                    self.pub_cmdVel.publish(Twist())
+                self.set_inactive_led()
+                self.get_logger().info('RACING OFF -> Joy INACTIVE')
+            self.update_mapping_state()
 
         # B (1) = buzzer toggle
-        if self.btn(joy_data, 1) == 1:
+        if self.pressed(joy_data, 1):
             Buzzer_ctrl = Bool()
             self.Buzzer_active = not self.Buzzer_active
             Buzzer_ctrl.data = self.Buzzer_active
@@ -196,7 +221,7 @@ class JoyTeleop(Node):
                 self.pub_Buzzer.publish(Buzzer_ctrl)
 
         # LB (4) = cycle speed gear (1/3 -> 2/3 -> 3/3) + auto LED (only when active)
-        if self.btn(joy_data, 4) == 1:
+        if self.pressed(joy_data, 4):
             if self.racing:
                 self.racing = False
                 self.get_logger().info('RACING OFF (gear change)')
@@ -208,7 +233,7 @@ class JoyTeleop(Node):
             self.update_mapping_state()
 
         # RB (5) = angular gear cycle
-        if self.btn(joy_data, 5) == 1:
+        if self.pressed(joy_data, 5):
             if self.angular_Gear == 1.0:
                 self.angular_Gear = 1.0 / 4
             elif self.angular_Gear == 1.0 / 4:
@@ -226,6 +251,10 @@ class JoyTeleop(Node):
             gear_speed = min(self.gear_map.get(self.linear_Gear_idx, 0.17), self.xspeed_limit)
         xlinear_speed = self.filter_data(self.ax(joy_data, 1)) * gear_speed
         angular_speed = self.filter_data(self.ax(joy_data, 3)) * self.angular_speed_limit * self.angular_Gear
+        # Reverse steering compensation: joystick left/right follows the
+        # vehicle's travel direction instead of the front-wheel angle.
+        if xlinear_speed < 0:
+            angular_speed = -angular_speed
 
         xlinear_speed = max(-self.xspeed_limit, min(self.xspeed_limit, xlinear_speed))
         angular_speed = max(-self.angular_speed_limit, min(self.angular_speed_limit, angular_speed))

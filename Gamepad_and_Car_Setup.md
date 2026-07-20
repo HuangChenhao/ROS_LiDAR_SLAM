@@ -51,7 +51,7 @@ The gamepad must be in **Xbox 360 emulation mode** (X-input). Plug the **USB 2.4
 | Axis | Function / 功能 |
 |---|---|
 | Left Stick Y (`axes[1]`) | Forward / Backward — 前进/后退 |
-| Right Stick X (`axes[3]`) | Steering — 转向 |
+| Right Stick X (`axes[3]`) | Steering; automatically reversed while backing up — 转向；倒车时自动反向以保持直觉一致 |
 
 ### Buttons / 按键
 
@@ -62,7 +62,7 @@ The gamepad must be in **Xbox 360 emulation mode** (X-input). Plug the **USB 2.4
 | **RB** | 5 | Cycle angular gear (1/4→1/2→3/4→1) — 切换转向灵敏度 |
 | **Start** | 7 | Manual LED mode override — 手动切换 LED 模式 |
 | **B** | 1 | Toggle buzzer — 开关蜂鸣器 |
-| **X** | 2 | **Racing mode** — 飙车模式：最高速 + 星光灯 + 暂停建图（LB/Back 退出） |
+| **X** | 2 | **Global racing toggle** — 全局飙车开关：任何状态按一次直接进入最高速并停止建图，再按一次回到未激活 |
 | **Y** | 3 | **Toggle SLAM algo** — 切换建图算法：蓝闪3下=gmapping，黄闪3下=cartographer（下一次建图生效） |
 | **A** | 0 | (unused / 未使用) |
 
@@ -144,6 +144,10 @@ ros2 run yahboomcar_ctrl yahboom_joy_R2 --ros-args \
 5. **Change gear / 换挡** — Press LB to cycle speed gears. LED reflects current gear.
    按 LB 切换速度档位，LED 自动变化。
 
+6. **Racing shortcut / 飙车快捷键** — Press X from any state to enter racing
+   immediately without starting LiDAR; press X again to stop and return to inactive.
+   任意状态按 X 都会立即进入飙车，不会先启动雷达；再按一次 X 停车并回到未激活。
+
 ---
 
 ## Patched Files / 修改的文件
@@ -164,6 +168,8 @@ Changes from original / 相对原版的修改:
 - Solid red LED when inactive (custom `/RGBLight` index 7) — 未激活时红灯常亮（自定义编号 7）
 - Absolute gear speeds: 0.17 / 0.33 / 1.0 m/s — 绝对档位速度
 - Default steering sensitivity = lowest (1/4) — 默认最低转向灵敏度
+- Global X racing override with X-to-inactive toggle — X 可覆盖任何状态进入飙车，再按回到未激活
+- Reverse steering inversion for intuitive backing — 倒车时自动反转左右转向
 
 The driver is also patched (`patches/Ackman_driver_R2_patched.py` on Pi at `/home/pi/rosmaster_tools/`):
 - `/RGBLight` index 7 → stop current effect, then solid red via `set_colorful_lamps(0xFF, 255, 0, 0)`

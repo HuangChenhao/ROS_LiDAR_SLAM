@@ -1,0 +1,17 @@
+[Unit]
+Description=ROSMaster R2 ROS2 Bringup + Gamepad Control
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/pi/rosmaster_tools/ros2_bringup.sh
+RemainAfterExit=yes
+TimeoutStartSec=180
+StandardOutput=append:/home/pi/rosmaster_tools/ros2_bringup.log
+StandardError=append:/home/pi/rosmaster_tools/ros2_bringup.log
+
+[Install]
+WantedBy=multi-user.target
