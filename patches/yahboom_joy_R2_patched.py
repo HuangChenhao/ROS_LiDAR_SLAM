@@ -32,6 +32,7 @@ SLAM_LED = {
     'slam_toolbox': 10,  # green
     'rtabmap': 11,       # magenta
 }
+ALGO_REMINDER_INTERVAL = 10.0
 
 class JoyTeleop(Node):
     def __init__(self, name):
@@ -48,6 +49,9 @@ class JoyTeleop(Node):
         self.slam_algo_index = 0
         self.slam_algo = SLAM_ALGOS[self.slam_algo_index]
         self._last_buttons = []
+        self._mapping_active = False
+        self._mapping_algo = None
+        self._next_algo_reminder = 0.0
 
         self.pub_goal = self.create_publisher(GoalID, "move_base/cancel", 10)
         self.pub_cmdVel = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -60,6 +64,10 @@ class JoyTeleop(Node):
         _qos2 = QoSProfile(depth=1)
         _qos2.durability = DurabilityPolicy.TRANSIENT_LOCAL
         self.pub_SlamAlgo = self.create_publisher(String, "SlamAlgo", _qos2)
+        _qos3 = QoSProfile(depth=1)
+        _qos3.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.pub_SpeedGear = self.create_publisher(Int32, "SpeedGear", _qos3)
+        self._algo_reminder_timer = self.create_timer(0.25, self._algo_reminder_cb)
 
         self.sub_Joy = self.create_subscription(Joy, 'joy', self.buttonCallback, 1)
 
@@ -87,18 +95,25 @@ class JoyTeleop(Node):
         self.pub_SlamAlgo.publish(msg)
         self.get_logger().info('SLAM algo -> {}'.format(self.slam_algo))
         if blink:
-            b = Int32()
-            b.data = SLAM_LED[self.slam_algo]
-            self.pub_RGBLight.publish(b)
-            # after blink (~1.6s in driver), restore current LED state
-            m = Int32()
-            if not self.Joy_active:
-                m.data = 7  # red
-            elif self.racing:
-                m.data = 5  # starlight
-            else:
-                m.data = GEAR_LED.get(self.linear_Gear_idx, (3, ''))[0]
-            self.pub_RGBLight.publish(m)
+            self.show_algo_led(self.slam_algo)
+
+    def show_algo_led(self, algo):
+        """Request a non-blocking 1.5 s algorithm-color reminder."""
+        color = Int32()
+        color.data = SLAM_LED[algo]
+        self.pub_RGBLight.publish(color)
+
+    def _algo_reminder_cb(self):
+        """During mapping, remind the driver of the active algorithm every 10 s."""
+        if not self._mapping_active or self._mapping_algo is None:
+            return
+        now = time.monotonic()
+        if now < self._next_algo_reminder:
+            return
+        self.show_algo_led(self._mapping_algo)
+        self._next_algo_reminder = now + ALGO_REMINDER_INTERVAL
+        self.get_logger().info(
+            'mapping reminder LED -> {} (1.5s)'.format(self._mapping_algo))
 
     def update_mapping_state(self):
         """Mapping ON only in active mapping gears 1/2."""
@@ -107,6 +122,21 @@ class JoyTeleop(Node):
             and not self.racing
             and self.linear_Gear_idx in (1, 2)
         )
+        was_mapping = self._mapping_active
+        self._mapping_active = state
+        if state and not was_mapping:
+            # Y changes the next session while mapping. Keep reminding the
+            # algorithm captured at this session's start, not the next choice.
+            self._mapping_algo = self.slam_algo
+            self._next_algo_reminder = time.monotonic() + ALGO_REMINDER_INTERVAL
+        elif not state:
+            self._mapping_algo = None
+            self._next_algo_reminder = 0.0
+        # Publish the exact gear before MappingState so a newly started session
+        # can put it in its folder name and metadata. Code 4 means X racing.
+        gear = Int32()
+        gear.data = 4 if self.racing else self.linear_Gear_idx
+        self.pub_SpeedGear.publish(gear)
         msg = Bool()
         msg.data = state
         self.pub_MapState.publish(msg)

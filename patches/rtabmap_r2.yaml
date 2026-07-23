@@ -13,29 +13,58 @@ rtabmap:
     subscribe_stereo: false
     subscribe_user_data: false
     approx_sync: false
-    queue_size: 20
+    queue_size: 30
     qos_scan: 2
     qos_odom: 1
-    wait_for_transform: 0.2
+    wait_for_transform: 0.3
 
-    # Pure 2D LiDAR graph-SLAM using the EKF odom transform as the motion guess.
     "Reg/Strategy": "1"
     "Reg/Force3DoF": "true"
     "Mem/IncrementalMemory": "true"
     "Mem/InitWMWithAllNodes": "false"
+    "Mem/STMSize": "20"
     "RGBD/OptimizeFromGraphEnd": "true"
+    "RGBD/OptimizeMaxError": "2.5"
+    "RGBD/NeighborLinkRefining": "true"
     "RGBD/ProximityBySpace": "true"
-    "RGBD/ProximityPathMaxNeighbors": "10"
-    "Rtabmap/DetectionRate": "4.0"
+    "RGBD/ProximityByTime": "false"
+    "RGBD/ProximityPathMaxNeighbors": "15"
+    "RGBD/ProximityMaxGraphDepth": "0"
+    "RGBD/ProximityMaxPaths": "3"
+    "RGBD/ProximityPathFilteringRadius": "0.5"
+    "RGBD/ProximityPathRawPosesUsed": "true"
+    "RGBD/ProximityOdomGuess": "true"
+    # The car normally returns through a corridor in the opposite direction.
+    # The 45-degree default rejects that revisit before ICP can evaluate it.
+    "RGBD/ProximityAngle": "180"
+    "RGBD/LocalRadius": "15.0"
+    "RGBD/LoopCovLimited": "true"
+    "RGBD/LinearUpdate": "0.08"
+    "RGBD/AngularUpdate": "0.08"
+    "Rtabmap/DetectionRate": "3.0"
+    "Rtabmap/LoopThr": "0.11"
+    "Rtabmap/PublishStats": "true"
+
+    "Optimizer/Strategy": "1"
+    "Optimizer/Iterations": "50"
+    # Robust switch vertices produced hundreds of negative-Hessian covariance
+    # warnings during the recorded loop. OptimizeMaxError still rejects bad
+    # constraints without leaving the graph optimizer saturated.
+    "Optimizer/Robust": "false"
 
     "Grid/CellSize": "0.05"
     "Grid/Sensor": "0"
-    "Grid/RangeMax": "6.0"
+    "Grid/RangeMax": "8.0"
     "Grid/Scan2dUnknownSpaceFilled": "true"
+    "GridGlobal/FullUpdate": "false"
+    "GridGlobal/UpdateError": "0.05"
     "Icp/RangeMin": "0.15"
-    "Icp/RangeMax": "6.0"
+    "Icp/RangeMax": "8.0"
     "Icp/PointToPlane": "false"
-    "Icp/VoxelSize": "0.03"
-    "Icp/MaxCorrespondenceDistance": "0.15"
-    "Icp/MaxTranslation": "0.5"
-    "Icp/MaxRotation": "0.6"
+    "Icp/VoxelSize": "0.04"
+    "Icp/MaxCorrespondenceDistance": "0.35"
+    "Icp/CorrespondenceRatio": "0.16"
+    "Icp/Iterations": "50"
+    "Icp/Epsilon": "0.0001"
+    "Icp/MaxTranslation": "2.0"
+    "Icp/MaxRotation": "3.14"

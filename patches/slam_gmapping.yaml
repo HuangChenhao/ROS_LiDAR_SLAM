@@ -1,51 +1,46 @@
 /slam_gmapping:
   ros__parameters:
-    angularUpdate: 0.12         # 更频繁吸收转弯扫描，约 7 度
-    astep: 0.05
-    base_frame: base_footprint
-    map_frame: map
-    odom_frame: odom
-    delta: 0.05
-    iterations: 5
-    kernelSize: 1
-    lasamplerange: 0.005
-    lasamplestep: 0.005
-    linearUpdate: 0.2           # 低速建图时约每 1.2 秒更新一次
-    llsamplerange: 0.01
-    llsamplestep: 0.01
-    lsigma: 0.075
-    lskip: 0
-    lstep: 0.05
-    map_update_interval: 1.0
-    maxRange: 10.0              # A1 户外实际有效 (原 6.0)
-    maxUrange: 6.0              # 实测 95% 有效回波在 3.3m 内，过滤远距离噪声
-    minimum_score: 50.0         # 稀疏户外扫描下避免过度拒绝匹配
-    occ_thresh: 0.25
-    ogain: 3.0
-    particles: 60               # 为稀疏户外扫描保留更多假设
-    qos_overrides:
-      /parameter_events:
-        publisher:
-          depth: 1000
-          durability: volatile
-          history: keep_last
-          reliability: reliable
-      /tf:
-        publisher:
-          depth: 100
-          durability: volatile
-          history: keep_last
-          reliability: reliable
-    resampleThreshold: 0.5
-    sigma: 0.05
-    srr: 0.15                   # 里程计误差模型放宽 (编码器不可靠)
-    srt: 0.3
-    str: 0.15
-    stt: 0.3
-    temporalUpdate: 0.5
-    transform_publish_period: 0.05
     use_sim_time: false
-    xmax: 10.0
-    xmin: -10.0
-    ymax: 10.0
-    ymin: -10.0
+    base_frame: base_footprint
+    odom_frame: odom
+    map_frame: map
+
+    # RPLidar A1: reject near-body returns and noisy long-range outdoor hits.
+    maxRange: 8.0
+    maxUrange: 6.0
+    lskip: 0
+
+    # Accept enough scans at both 0.17 m/s and 0.33 m/s.
+    linearUpdate: 0.08
+    angularUpdate: 0.08
+    temporalUpdate: 0.50
+    map_update_interval: 1.0
+    transform_publish_period: 0.05
+
+    delta: 0.05
+    xmin: -20.0
+    ymin: -20.0
+    xmax: 20.0
+    ymax: 20.0
+    occ_thresh: 0.25
+
+    particles: 80
+    resampleThreshold: 0.5
+    minimumScore: 55.0
+    iterations: 8
+    kernelSize: 1
+    sigma: 0.05
+    lsigma: 0.075
+    ogain: 3.0
+    lstep: 0.05
+    astep: 0.05
+    llsamplerange: 0.05
+    llsamplestep: 0.01
+    lasamplerange: 0.02
+    lasamplestep: 0.005
+
+    # EKF odometry is now valid; retain moderate Ackermann/slip uncertainty.
+    srr: 0.06
+    srt: 0.12
+    str: 0.06
+    stt: 0.12

@@ -17,6 +17,7 @@ import subprocess
 import time
 import tkinter as tk
 import json
+import math
 
 C = 'rosmaster_ros2'
 SRC = '/root/rosmaster_maps/live_preview.ppm'
@@ -121,21 +122,38 @@ class Kiosk:
     def show(self):
         try:
             img = tk.PhotoImage(file=LOCAL)
-            w, h = img.width(), img.height()
-            f = max(1, min(self.sw // max(w, 1), (self.sh - 40) // max(h, 1)))
-            if f > 1:
-                img = img.zoom(f)
+            raw_w, raw_h = img.width(), img.height()
+            # Always fit the complete live map inside the display. The old
+            # code only zoomed small maps and left a 1120x1024 GMapping map at
+            # native size, so the newest cells and robot marker left screen.
+            available_w = max(1, self.sw - 12)
+            available_h = max(1, self.sh - 52)
+            fit = min(available_w / max(raw_w, 1),
+                      available_h / max(raw_h, 1))
+            if fit < 1.0:
+                shrink = max(1, int(math.ceil(1.0 / fit)))
+                img = img.subsample(shrink, shrink)
+            else:
+                grow = max(1, int(math.floor(fit)))
+                if grow > 1:
+                    img = img.zoom(grow, grow)
+            shown_w, shown_h = img.width(), img.height()
             self.img = img
             self.label.configure(image=self.img)
-            algo = self.slam_status.get('algorithm_display', '未知算法')
+            algo = self.slam_status.get('algorithm_display', 'Unknown')
             selected = self.slam_status.get('selected_next')
             running = self.slam_status.get('algorithm')
+            sensors = 'OK' if self.slam_status.get('sensors_ok') else 'FAULT'
+            voltage = self.slam_status.get('voltage', 0.0)
+            jumps = self.slam_status.get('pose_jumps', 0)
             next_text = ''
             if selected and running and selected != running:
-                next_text = '  |  下次: {}'.format(selected)
+                next_text = '  |  Next: {}'.format(selected)
             self.status.configure(
-                text=' 建图中 LIVE  |  算法: {}  |  {}x{}  |  {}{}'.format(
-                    algo, w, h, time.strftime('%H:%M:%S'), next_text))
+                text=' MAPPING LIVE  |  SLAM: {}  |  Gear: {}  |  Sensors: {} {:.1f}V  |  Jumps: {}  |  {}x{} -> {}x{}  |  {}{}'.format(
+                    algo, self.slam_status.get('gear_display', '?'), sensors,
+                    voltage, jumps, raw_w, raw_h, shown_w, shown_h,
+                    time.strftime('%H:%M:%S'), next_text))
         except Exception:
             return
         if not self.showing:

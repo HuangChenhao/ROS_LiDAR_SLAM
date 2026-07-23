@@ -10,11 +10,13 @@ Yahboom ROSMaster R2 (Ackermann steering) running ROS2 Foxy on Raspberry Pi 5.
 - **Natural reverse steering** — left/right steering is inverted automatically while reversing
 - **LED gear indicator** — LED effect auto-changes with speed gear
 - **Four-way SLAM** — Y cycles GMapping, Cartographer, SLAM Toolbox, and RTAB-Map 2D LiDAR
+- **Loop-closure finalization** — graph-SLAM backends optimize and republish the corrected map before the final files are saved
+- **Algorithm LED reminder** — while mapping, the active algorithm color appears for 1.5 seconds every 10 seconds
 - **Gear-driven mapping** — gears 1/2 map; gear 3, racing mode, and inactive mode stop LiDAR
-- **Session recording** — map, trajectory, metadata, logs, and rosbag saved together
-- **Live map kiosk** — full-screen map preview on the Raspberry Pi display
+- **Session recording** — timestamp, algorithm, exact speed-gear events, map, optimized graph/path, logs, and rosbag saved together
+- **Live map kiosk** — full map is continuously fit and centered on the Raspberry Pi display
 - **Auto-start on boot** — systemd service launches container + all nodes
-- **Recovery guards** — incomplete bags are retained, low disk stops mapping safely, and LiDAR gets one automatic retry
+- **Recovery guards** — serial ownership is enforced, sensor health gates SLAM, incomplete bags are retained, low disk stops mapping safely, and LiDAR gets one automatic retry
 - **USB hotplug recovery** — the gamepad node automatically returns after dongle reconnection
 
 ## Quick Start
@@ -30,12 +32,17 @@ Yahboom ROSMaster R2 (Ackermann steering) running ROS2 Foxy on Raspberry Pi 5.
 7. In racing mode, press **X** again to stop and return to the inactive state
 
 Mapping sessions are stored in
-`/root/rosmaster_maps/YYYYmmdd_HHMMSS_algorithm/` inside
+`/root/rosmaster_maps/YYYYmmdd_HHMMSS_algorithm_gearN/` inside
 the container. Each complete session contains `map.pgm`, `map.yaml`,
-`trajectory.csv`, `metadata.txt`, node logs, and a ROS2 bag.
-The bag includes raw and fused odometry/IMU, LiDAR, TF, velocity commands,
-mapping state, SLAM selection, and diagnostics so sensor-fusion problems can
-be diagnosed after a drive.
+`trajectory.csv`, optional `trajectory_optimized.csv`/`pose_graph_edges.csv`,
+`gear_events.csv`, `metadata.txt`, node logs, and a ROS2 bag.
+The bag includes raw and fused odometry/IMU, measured and commanded velocity,
+LiDAR, TF, chassis voltage/firmware, mapping state, SLAM selection, speed gear,
+and optimized graph/path topics, plus
+diagnostics so sensor-fusion and serial failures can be diagnosed after a drive.
+The supervisor waits 0.5 seconds after a mapping-start request so the independent
+algorithm, gear, and mapping-state topics are merged before a backend is chosen;
+this prevents a folder label from disagreeing with the process that was started.
 
 ## SLAM Algorithms
 
@@ -46,9 +53,16 @@ be diagnosed after a drive.
 | Green | SLAM Toolbox | LiDAR + EKF odometry | ROS2-native asynchronous pose graph with robust loss |
 | Magenta | RTAB-Map 2D LiDAR | LiDAR ICP + EKF odometry | Graph SLAM; also saves `rtabmap.db` |
 
-The on-screen status bar shows the running algorithm. If Y is pressed during
+The on-screen status bar shows the running algorithm and exact speed gear, and
+large maps are scaled down so the complete map remains centered. If Y is pressed during
 mapping, the current session continues safely and the status bar also shows
 the algorithm selected for the next session.
+
+Cartographer, SLAM Toolbox, and RTAB-Map use explicit pose-graph loop closure
+and receive a final optimization window before the map is written. GMapping
+uses particle-filter scan-to-map correlation and cannot globally rewrite old
+poses, so it is best kept as the fast baseline rather than the preferred
+algorithm for long closed-loop routes.
 
 ## Files
 
@@ -65,8 +79,12 @@ the algorithm selected for the next session.
 | `patches/rosmaster_carto.lua` | Tuned Cartographer configuration |
 | `patches/slam_toolbox_r2.yaml` | R2-tuned asynchronous SLAM Toolbox configuration |
 | `patches/rtabmap_r2.yaml` | R2-tuned RTAB-Map 2D LiDAR/ICP configuration |
-| `patches/ekf_r2.yaml` | R2 sensor-fusion configuration using wheel velocity plus IMU yaw/yaw-rate |
+| `patches/ekf_r2.yaml` | R2 sensor fusion using wheel velocity/steering plus IMU yaw rate |
 | `patches/map_kiosk.py` | Raspberry Pi live-map display |
+| `patches/rosmaster_odom.py` | Stable Ackermann odometry with first-sample and callback-gap rejection |
+| `patches/robot_healthcheck.py` | Startup validation of serial, IMU, raw odometry, and EKF output |
+| `patches/yahboomcar_bringup_R2_launch.py` | Respawning driver stack without duplicate joint-state publishers |
+| `patches/cartographer_launch.py` | Cartographer launch with explicit LiDAR, odometry, and IMU remaps |
 | `systemd/rosmaster-ros2.service` | Versioned boot service |
 | `daemon.sh` | Mac→Pi remote command daemon |
 | `remote_commands.sh` | Current daemon command (overwritten per task) |
@@ -80,7 +98,9 @@ the algorithm selected for the next session.
 - **Timezone**: `Europe/Berlin` is exported into the container so session names match the Pi clock
 
 The supervisor requires at least 2 GiB free space to start a mapping session
-and stops an active session if free space falls below 1 GiB.
+and stops an active session if free space falls below 1 GiB. It also stops and
+labels a session if the selected SLAM process exits or if `/map` stops updating
+for 10 seconds while the vehicle is moving, avoiding a silent dead session.
 
 ## Verified on Robot
 
@@ -91,11 +111,15 @@ Validated on Raspberry Pi 5 with RPLidar A1:
 - Cartographer map generation and graceful shutdown
 - SLAM Toolbox map generation and graceful shutdown
 - RTAB-Map 2D LiDAR map/database generation and graceful shutdown
+- exact gear-labelled sessions and race-free algorithm selection
+- Cartographer optimized pose-graph trajectory export and display
 - four-color Y selection and algorithm-labeled session folders
 - live display status including the running algorithm
 - RPLidar scan rate around 7.6 Hz
 - raw/fused odometry and IMU recording at around 10 Hz
 - stationary fused odometry with zero position drift after rejecting absolute wheel-pose jumps
+- chassis serial, IMU gravity norm, firmware version, and odometry are checked before startup succeeds
+- legacy desktop control is disabled so it cannot steal `/dev/myserial` from ROS2
 - Cartographer TF output reduced from about 200 Hz to about 65 Hz total
 - rosbag, map, metadata, log, and trajectory output
 - no duplicate static TF publishers after service restart

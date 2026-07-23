@@ -1,16 +1,11 @@
-### ROSMaster R2 planar odometry fusion
-#
-# Historical bags showed impossible /odom pose jumps of 10-21 m in 0.1 s.
-# Fuse wheel/driver velocities instead of its absolute pose so the EKF cannot
-# copy a pose reset into odom. IMU yaw and yaw rate stabilize Ackermann turns.
 ekf_filter_node:
   ros__parameters:
     use_sim_time: false
     frequency: 30.0
-    sensor_timeout: 0.2
+    sensor_timeout: 0.3
     two_d_mode: true
     transform_time_offset: 0.0
-    transform_timeout: 0.0
+    transform_timeout: 0.05
     publish_tf: true
     publish_acceleration: false
     print_diagnostics: true
@@ -20,6 +15,8 @@ ekf_filter_node:
     base_link_frame: base_footprint
     world_frame: odom
 
+    # Use only measured forward velocity and Ackermann-derived yaw rate.
+    # The vendor absolute pose is intentionally ignored.
     odom0: /odom_raw
     odom0_config: [false, false, false,
                    false, false, false,
@@ -27,23 +24,24 @@ ekf_filter_node:
                    false, false, true,
                    false, false, false]
     odom0_queue_size: 20
-    odom0_nodelay: false
+    odom0_nodelay: true
     odom0_differential: false
     odom0_relative: false
-    odom0_twist_rejection_threshold: 5.0
+    odom0_twist_rejection_threshold: 3.0
 
+    # Fuse gyro yaw rate, but not magnetometer-free absolute yaw. This avoids
+    # feeding Madgwick drift back into the odom frame as an absolute heading.
     imu0: /imu/data
     imu0_config: [false, false, false,
-                  false, false, true,
+                  false, false, false,
                   false, false, false,
                   false, false, true,
                   false, false, false]
     imu0_queue_size: 20
-    imu0_nodelay: false
+    imu0_nodelay: true
     imu0_differential: false
-    imu0_relative: true
-    imu0_pose_rejection_threshold: 5.0
-    imu0_twist_rejection_threshold: 5.0
-    imu0_remove_gravitational_acceleration: true
+    imu0_relative: false
+    imu0_twist_rejection_threshold: 2.0
+    imu0_remove_gravitational_acceleration: false
 
     use_control: false

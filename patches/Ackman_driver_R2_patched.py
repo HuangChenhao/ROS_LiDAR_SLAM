@@ -4,8 +4,8 @@
 #public lib
 import sys
 import math
-import random
-import threading
+import os
+import time
 from math import pi
 from time import sleep
 from Rosmaster_Lib import Rosmaster
@@ -15,7 +15,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String,Float32,Int32,Bool
 from geometry_msgs.msg import Twist
-from sensor_msgs.msg import Imu,MagneticField, JointState
+from sensor_msgs.msg import Imu, JointState
 from rclpy.clock import Clock
 
 #from dynamic_reconfigure.server import Server
@@ -65,7 +65,6 @@ class yahboomcar_driver(Node):
 		self.staPublisher = self.create_publisher(JointState,"joint_states",100)
 		self.velPublisher = self.create_publisher(Twist,"vel_raw",50)
 		self.imuPublisher = self.create_publisher(Imu,"imu/data_raw",100)
-		self.magPublisher = self.create_publisher(MagneticField,"imu/mag",100)
 
 		#create timer
 		self.timer = self.create_timer(0.1, self.pub_data)
@@ -74,6 +73,18 @@ class yahboomcar_driver(Node):
 		self.edition = Float32()
 		self.edition.data = 1.0
 		self.car.create_receive_threading()
+		self._started_at = time.monotonic()
+		self._last_cmd_at = self._started_at
+		self._last_telemetry_change = self._started_at
+		self._last_telemetry = None
+		self._watchdog_stopped = False
+		self._wheel_position = 0.0
+		self._last_publish_at = self._started_at
+		self._edition_publish_tick = 0
+		self._steady_led = 7
+		self._led_blink_color = None
+		self._led_blink_phase = -1
+		self._led_next_step = 0.0
 	#callback function
 	def cmd_vel_callback(self,msg):
         # 小车运动控制，订阅者回调函数
@@ -86,40 +97,58 @@ class yahboomcar_driver(Node):
 		vy = msg.linear.y*1.0
 		angular = msg.angular.z*1.0    # wait for change
 		self.car.set_car_motion(vx, vy, angular)
+		self._last_cmd_at = time.monotonic()
+		self._watchdog_stopped = False
 		# self.car.set_car_motion(vx*1.8, vy, angular)
 		# self.get_logger().info("cmd_vel_callback: vx = {}, vy = {}, angular = {},".format(vx, vy, angular))
         #print(self.nav_use_rotvel)
 	def RGBLightcallback(self,msg):
         # 流水灯控制，服务端回调函数 RGBLight control
 		if not isinstance(msg, Int32): return
-		# print ("RGBLight: ", msg.data)
-		if msg.data == 7:
-			import time as _t
-			for i in range(3): self.car.set_colorful_effect(0, 6, parm=1)
-			_t.sleep(0.1)
-			for i in range(3):
-				self.car.set_colorful_lamps(0xFF, 255, 0, 0)
-				_t.sleep(0.05)
-		elif msg.data in (8, 9, 10, 11):
-			# Three-blink SLAM selection:
-			# 8=GMapping blue, 9=Cartographer amber,
-			# 10=SLAM Toolbox green, 11=RTAB-Map magenta.
-			import time as _t
-			r, g, b = {
+		code = int(msg.data)
+		if code in (8, 9, 10, 11):
+			self._led_blink_color = {
 				8: (0, 80, 255),
 				9: (255, 160, 0),
 				10: (0, 255, 80),
 				11: (200, 0, 255),
-			}[msg.data]
-			for i in range(3): self.car.set_colorful_effect(0, 6, parm=1)
-			_t.sleep(0.1)
-			for i in range(3):
-				self.car.set_colorful_lamps(0xFF, r, g, b)
-				_t.sleep(0.28)
-				self.car.set_colorful_lamps(0xFF, 0, 0, 0)
-				_t.sleep(0.18)
+			}[code]
+			self._led_blink_phase = -1
+			self._led_next_step = time.monotonic()
+			return
+
+		# A normal state/gear LED immediately cancels an in-progress reminder.
+		self._led_blink_color = None
+		self._steady_led = code
+		self._apply_steady_led(code)
+
+	def _apply_steady_led(self, code):
+		if code == 7:
+			for _ in range(3): self.car.set_colorful_effect(0, 6, parm=1)
+			time.sleep(0.1)
+			for _ in range(3): self.car.set_colorful_lamps(0xFF, 255, 0, 0)
 		else:
-			for i in range(3): self.car.set_colorful_effect(msg.data, 6, parm=1)
+			for _ in range(3): self.car.set_colorful_effect(code, 6, parm=1)
+
+	def _update_algorithm_led(self, now_mono):
+		"""Advance one reminder phase without sleeping or concurrent serial I/O."""
+		if self._led_blink_color is None or now_mono < self._led_next_step:
+			return
+		if self._led_blink_phase == -1:
+			for _ in range(3): self.car.set_colorful_effect(0, 6, parm=1)
+			self._led_blink_phase = 0
+			self._led_next_step = now_mono + 0.10
+		elif self._led_blink_phase < 6:
+			if self._led_blink_phase % 2 == 0:
+				self.car.set_colorful_lamps(0xFF, *self._led_blink_color)
+				self._led_next_step = now_mono + 0.28
+			else:
+				self.car.set_colorful_lamps(0xFF, 0, 0, 0)
+				self._led_next_step = now_mono + 0.18
+			self._led_blink_phase += 1
+		else:
+			self._led_blink_color = None
+			self._apply_steady_led(self._steady_led)
 	def Buzzercallback(self,msg):
 		if not isinstance(msg, Bool): return
 		if msg.data:
@@ -134,7 +163,6 @@ class yahboomcar_driver(Node):
 		twist = Twist()
 		battery = Float32()
 		edition = Float32()
-		mag = MagneticField()
 		state = JointState()
 		state.header.stamp = time_stamp.to_msg()
 		state.header.frame_id = "joint_states"
@@ -152,31 +180,46 @@ class yahboomcar_driver(Node):
 		# self.get_logger().info("ax = {}, ay = {}, az = {} ".format(ax,ay,az))
 		gx, gy, gz = self.car.get_gyroscope_data()
 		# self.get_logger().info("gx = {}, gy = {}, gz = {} ".format(gx,gy,gz))
-		mx, my, mz = self.car.get_magnetometer_data()
-		# self.get_logger().info("mx = {}, my = {}, mz = {} ".format(mx,my,mz))
-		mx = mx * 1.0
-		my = my * 1.0
-		mz = mz * 1.0
 		vx, vy, angular = self.car.get_motion_data()
+		now_mono = time.monotonic()
+		self._update_algorithm_led(now_mono)
+		telemetry = (battery.data, ax, ay, az, gx, gy, gz, vx, vy, angular)
+		if telemetry != self._last_telemetry:
+			self._last_telemetry = telemetry
+			self._last_telemetry_change = now_mono
+		accel_norm = math.sqrt(ax * ax + ay * ay + az * az)
+		if now_mono - self._started_at > 3.0:
+			if battery.data < 1.0 or accel_norm < 2.0:
+				self.get_logger().fatal(
+					'no valid serial telemetry (voltage={:.1f}, accel_norm={:.2f})'.format(
+						battery.data, accel_norm))
+				self.car.set_car_motion(0.0, 0.0, 0.0)
+				os._exit(2)
+			if now_mono - self._last_telemetry_change > 2.5:
+				self.get_logger().fatal('serial telemetry stopped changing for 2.5s')
+				self.car.set_car_motion(0.0, 0.0, 0.0)
+				os._exit(3)
+		if now_mono - self._last_cmd_at > 0.5 and not self._watchdog_stopped:
+			self.car.set_car_motion(0.0, 0.0, 0.0)
+			self._watchdog_stopped = True
 		# self.get_logger().info("get_motion_data: vx = {}, vy = {}, angular = {},".format(vx, vy, angular))
 		
 		# 发布陀螺仪的数据
 		# Publish gyroscope data
 		imu.header.stamp = time_stamp.to_msg()
 		imu.header.frame_id = self.imu_link
+		imu.orientation.w = 1.0
+		imu.orientation_covariance[0] = -1.0
 		imu.linear_acceleration.x = ax*1.0
 		imu.linear_acceleration.y = ay*1.0
 		imu.linear_acceleration.z = az*1.0
 		imu.angular_velocity.x = gx*1.0
 		imu.angular_velocity.y = gy*1.0
 		imu.angular_velocity.z = gz*1.0
+		for i in (0, 4, 8):
+			imu.angular_velocity_covariance[i] = 0.0004
+			imu.linear_acceleration_covariance[i] = 0.04
 
-		mag.header.stamp = time_stamp.to_msg()
-		mag.header.frame_id = self.imu_link
-		mag.magnetic_field.x = mx*1.0
-		mag.magnetic_field.y = my*1.0
-		mag.magnetic_field.z = mz*1.0
-		
 		# 将小车当前的线速度和角速度发布出去
 		# Publish the current linear vel and angular vel of the car
 		twist.linear.x = vx*1.0    #velocity in axis 
@@ -191,16 +234,23 @@ class yahboomcar_driver(Node):
 		# rospy.loginfo("battery: {}".format(battery))
 		# rospy.loginfo("vx: {}, vy: {}, angular: {}".format(twist.linear.x, twist.linear.y, twist.angular.z))
 		self.imuPublisher.publish(imu)
-		self.magPublisher.publish(mag)
 		self.volPublisher.publish(battery)
-		self.EdiPublisher.publish(edition)
+		self._edition_publish_tick += 1
+		if self._edition_publish_tick >= 10:
+			self._edition_publish_tick = 0
+			self.EdiPublisher.publish(edition)
 		
 		#turn to radis
 		steer_radis = vy*1000.0*3.1416/180.0
-		state.position = [0.0, 0.0, steer_radis, 0.0, steer_radis, 0.0]
-		if not vx == angular == 0:
-			i = random.uniform(-3.14, 3.14)
-			state.position = [i, i, steer_radis, i, steer_radis, i]
+		dt = max(0.0, min(0.2, now_mono - self._last_publish_at))
+		self._last_publish_at = now_mono
+		wheel_speed = vx / 0.0325
+		self._wheel_position = math.atan2(
+			math.sin(self._wheel_position + wheel_speed * dt),
+			math.cos(self._wheel_position + wheel_speed * dt))
+		state.position = [self._wheel_position, self._wheel_position,
+			steer_radis, self._wheel_position, steer_radis, self._wheel_position]
+		state.velocity = [wheel_speed, wheel_speed, 0.0, wheel_speed, 0.0, wheel_speed]
 		self.staPublisher.publish(state)
 			
 def main():
