@@ -2,6 +2,9 @@
 
 Yahboom ROSMaster R2 (Ackermann steering) running ROS2 Foxy on Raspberry Pi 5.
 
+<img width="970" height="600" alt="image" src="https://github.com/user-attachments/assets/3168bf38-5a0a-41bb-ac9f-d82c93a987c3" />
+
+
 ## Features
 
 - **ROS2 Foxy** in Docker (`yahboomtechnology/ros-foxy:4.0.7R2`)
