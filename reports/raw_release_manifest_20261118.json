@@ -1,0 +1,566 @@
+{
+  "release_tag": "v2.1.0-research",
+  "repository": "HuangChenhao/ROS_LiDAR_SLAM",
+  "created_date": "2026-11-18",
+  "archives": [
+    {
+      "dataset": "ros1_export",
+      "source_path": "rosmaster_export_current_full.tar.gz",
+      "asset_name": "rosmaster_export_current_full.tar.gz",
+      "bytes": 27294,
+      "sha256": "720ada53ff691b3d94ef0874eec00deb09b6b47e3676de217c4e5f62e99c7e43",
+      "extract_to": ".",
+      "member_files": 37,
+      "members": [
+        {
+          "path": "rosmaster_export_current_full/docker_logs_rosmaster_slam.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164745.yaml",
+          "bytes": 196,
+          "sha256": "f634cd8fd17c707472d4b54fd202747854344255c2e7abdbc04b3c4e32571544"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164745.pcd",
+          "bytes": 6165,
+          "sha256": "0f05653c72b20d2e8b2d52a7b53fb5c8485826f3b646a2efd807fdfa53befa35"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164725.pgm",
+          "bytes": 640052,
+          "sha256": "456be89554fbe54f5c7b16bf472eecb0d318c3333a13674a4271a1b8be683e99"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/autosave.log",
+          "bytes": 2390,
+          "sha256": "19e7dcb1fa4723682f2c40f39cb2456baa29f58838b5ead36ceba2dcb13550d4"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164725.pcd",
+          "bytes": 6165,
+          "sha256": "0f05653c72b20d2e8b2d52a7b53fb5c8485826f3b646a2efd807fdfa53befa35"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_051314.pcd",
+          "bytes": 3130,
+          "sha256": "3b5e5c4b4f1a881d0dbd99165eb4a7297ac5033c40aa5bf94be94c3bbe063fbb"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_051314.pgm",
+          "bytes": 640052,
+          "sha256": "9eff6d191f3e90d32c259cb30cfc2f135dc6be076c4dad035acd9edf00044ffa"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_051314.yaml",
+          "bytes": 199,
+          "sha256": "1ce3a97f4b5c7c9785e1c776c56e9eac04d1d674b28013c6197fbdcc0af91437"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/my_map.yaml",
+          "bytes": 178,
+          "sha256": "3c06d816d6cbb83f62403a45cbca033734816165e219d84b91e48fc9410804cb"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/my_map.pcd",
+          "bytes": 3059,
+          "sha256": "2b27c52574b6878b6d0dda30ab48f1f964a159ab97a68c68a6f8dc1dc6b345dc"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_045543.pgm",
+          "bytes": 640052,
+          "sha256": "d4fd67040f654313d223f74e7912bdc3b4d0880a117ba9e91dbb0e7023c6bee9"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164745.pgm",
+          "bytes": 640052,
+          "sha256": "456be89554fbe54f5c7b16bf472eecb0d318c3333a13674a4271a1b8be683e99"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_045543.pcd",
+          "bytes": 3626,
+          "sha256": "678457bc6eee76e22d0092fa63edc70a0edd84d8371544d78816263a963213dc"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/outdoor_map_20260616_045543.yaml",
+          "bytes": 199,
+          "sha256": "203600f3900c1a0e1a0cb7a0aaf1fcb14425bdc4b82d78f5be6c503f9297fbf2"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/my_map.pgm",
+          "bytes": 640052,
+          "sha256": "bd81dac859c93da34c5c82c9d2d898e8180d01443752a2a76e9e0c5f29bf5dcb"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_maps/slam_map_20260615_164725.yaml",
+          "bytes": 196,
+          "sha256": "721706e3a75bae4007db1e848a3da80e6d495b9b69df55c78495d11d80601969"
+        },
+        {
+          "path": "rosmaster_export_current_full/temp/Mcnamu_driver.py",
+          "bytes": 9096,
+          "sha256": "404b9237e9d5616a85c4512e21ff32b69ebee68d9d1cde87f8a8e1e011d369e0"
+        },
+        {
+          "path": "rosmaster_export_current_full/temp/Mcnamu_driver.py.bak_sign_test",
+          "bytes": 8033,
+          "sha256": "7cdab2a25df47c2a3766b48b303c867620e3d830f427b70a290e52bce1e76ee2"
+        },
+        {
+          "path": "rosmaster_export_current_full/docker_ps_a.txt",
+          "bytes": 2234,
+          "sha256": "911e47447f34c3593f6405d920ff1ef827d4aa3915e83ae88926e4c5b4344c20"
+        },
+        {
+          "path": "rosmaster_export_current_full/docker_ps.txt",
+          "bytes": 261,
+          "sha256": "409e7ee5e60f150ed42a44e6edbe5f71c4534b2659966db9419d9445f6f5a272"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_rosmaster_slam_logs/01_roscore.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_rosmaster_slam_logs/03_gmapping.log",
+          "bytes": 1629,
+          "sha256": "f377c75f9372d93d05189bf939413f8989b82fa2b677e60c1c4d3a0247bc9b2b"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_rosmaster_slam_logs/05_yahboom_joy.log",
+          "bytes": 31,
+          "sha256": "dfce759f0b4cfc83c63a9c77e03dda378771207102efd0216fa1974739923c57"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_rosmaster_slam_logs/02_laser_bringup.log",
+          "bytes": 6040,
+          "sha256": "c7bac6984d11136ad0d8a17879097fa09eef3900ed6b75901153de4d33465c9f"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_rosmaster_slam_logs/04_joy_node.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "rosmaster_export_current_full/container_Mcnamu_driver.py",
+          "bytes": 9096,
+          "sha256": "404b9237e9d5616a85c4512e21ff32b69ebee68d9d1cde87f8a8e1e011d369e0"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_slam_autosave.sh",
+          "bytes": 1352,
+          "sha256": "d607ddee1db4e2b730d82b9b91880d82888fdb1c3dff2497b146cc01ee854bda"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_container_enter.sh",
+          "bytes": 331,
+          "sha256": "49ee30c9a9b4dd65357444f7c626054ba0f5d91f717c9e5bc8be6d82539b0857"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_map_to_pcd.sh",
+          "bytes": 3399,
+          "sha256": "17226c0b2d7dc450b83a7d5c642e783737b3bb5c519874974ab398096f82645e"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_slam_stop.sh",
+          "bytes": 288,
+          "sha256": "374740f561b5652a805042cb3342e0919b7b2188422460f7f5392a12729b71a9"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_joy_start.sh",
+          "bytes": 1430,
+          "sha256": "7a54889028db9cc338a26e6a5d10581b5ca24e3e53a80ce71674a8443b01f113"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_slam_start.sh",
+          "bytes": 3758,
+          "sha256": "e3e068196ce4450f5696b9c6b884ad6b46740ddaf23bea21a891b46c605a8d1a"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_slam_status.sh",
+          "bytes": 842,
+          "sha256": "f89566158c62362f4a9427b9f59b2438a8acac93b854d14dc827929115883cc7"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_motion_probe.sh",
+          "bytes": 2203,
+          "sha256": "b886f7aa629d103b0de050817db865a5ab83ea90833176dfbb4d7891cd0135e6"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_slam_snapshot_slices.sh",
+          "bytes": 1705,
+          "sha256": "117b7498cf46ee6a70d1fa2157137022b7a7bc714b2b8699ff2d62404f9d0f0d"
+        },
+        {
+          "path": "rosmaster_export_current_full/rosmaster_tools/rosmaster_map_save.sh",
+          "bytes": 1497,
+          "sha256": "035eaad81f376648bdb673a0c99b753899e4c5db2a95fe0f4caa1ec50a025bbc"
+        }
+      ],
+      "local_mismatches": [],
+      "download_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/download/v2.1.0-research/rosmaster_export_current_full.tar.gz"
+    },
+    {
+      "dataset": "ros2_20260722",
+      "source_path": "scan_archives/20260722_latest/latest_scans_20260722.tar",
+      "asset_name": "latest_scans_20260722.tar",
+      "bytes": 283084800,
+      "sha256": "67aaac29e9a6fc92588ddcb5c2091c358e37fcd2d0c0ff4e100dff34151488d2",
+      "extract_to": "scan_archives/20260722_latest",
+      "member_files": 40,
+      "members": [
+        {
+          "path": "20260722_004356_gmapping/trajectory.csv",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "20260722_004356_gmapping/bag/metadata.yaml",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "20260722_004356_gmapping/bag/bag_0.db3",
+          "bytes": 74829824,
+          "sha256": "c7494fd032933b10e7512ac518669e36a3659bd0721f9c16507d7cbffe0573fb"
+        },
+        {
+          "path": "20260722_004356_gmapping/map.pgm",
+          "bytes": 1146897,
+          "sha256": "e4c13cf5086ae5643a7c8f0e7bc14a27fbc0728eaab1a476af89e779b3eac88c"
+        },
+        {
+          "path": "20260722_004356_gmapping/map.yaml",
+          "bytes": 140,
+          "sha256": "73da349b5a5fb0d70d0b4cbe54897d7c4a7c186c42b1d89496ea1bfb8a7c1da0"
+        },
+        {
+          "path": "20260722_004356_gmapping/metadata.txt",
+          "bytes": 301,
+          "sha256": "f5797c2d5cca600727243813a9e7e970443b823959df8a562b6e4d6213f2aa00"
+        },
+        {
+          "path": "20260722_004356_gmapping/nodes.log",
+          "bytes": 106122,
+          "sha256": "64b39ef33d3eeb3a39d83a5167f87bb9b6fac01635ad938d3999b74959e1ffb0"
+        },
+        {
+          "path": "20260722_003828_cartographer/trajectory.csv",
+          "bytes": 6575,
+          "sha256": "1d6d50b5a5e04e6836c50c6fbe4ff04299cf587236a81367c8c49774c3877aae"
+        },
+        {
+          "path": "20260722_003828_cartographer/bag/metadata.yaml",
+          "bytes": 7317,
+          "sha256": "3ad257f4afcbf7953bada9d71bb13e2efc609180fd883acb1f53b4c49281f904"
+        },
+        {
+          "path": "20260722_003828_cartographer/bag/bag_0.db3",
+          "bytes": 35958784,
+          "sha256": "2d05c453679e14c4671b0dfbc79273f9200e226aad1955a82c9916ba70c25c0e"
+        },
+        {
+          "path": "20260722_003828_cartographer/map.pgm",
+          "bytes": 379231,
+          "sha256": "11b4f686ba7d776bd193167570fc35c143edec3c48c83bbc862526253c1d8b46"
+        },
+        {
+          "path": "20260722_003828_cartographer/map.yaml",
+          "bytes": 153,
+          "sha256": "b7473f0779bd9a9bbd98cf416a8a63fdda72f4e45cd4548207c2ac70c3bd4aba"
+        },
+        {
+          "path": "20260722_003828_cartographer/metadata.txt",
+          "bytes": 331,
+          "sha256": "927feb4a1865c38cd8f4f8ff141897fdab9fd034e4bd40a4a5f70e05be599c9c"
+        },
+        {
+          "path": "20260722_003828_cartographer/nodes.log",
+          "bytes": 421925,
+          "sha256": "ff8b90fba3d421106f13bdf7873bc04754d4f7e4387fac3b8211bcedc5ebad51"
+        },
+        {
+          "path": "20260722_003335_rtabmap/trajectory.csv",
+          "bytes": 6226,
+          "sha256": "dea7b6d6cda41e56549d04a39f5a8d0f2e79423eebd7d5fa474bbf2ebc15baf1"
+        },
+        {
+          "path": "20260722_003335_rtabmap/bag/metadata.yaml",
+          "bytes": 6707,
+          "sha256": "aec781952bc83f99545b4665d343257bb11c95210a21e2625c63ab09baf733fd"
+        },
+        {
+          "path": "20260722_003335_rtabmap/bag/bag_0.db3",
+          "bytes": 31563776,
+          "sha256": "3f016694b37b81f2f86de88a9da9727f3d94719d97cd41573d3965b38dbb53ce"
+        },
+        {
+          "path": "20260722_003335_rtabmap/map.pgm",
+          "bytes": 332361,
+          "sha256": "038b76d79011309bf5ab202fa70c25cde18df82a46451fecf8bbac4f7cff323b"
+        },
+        {
+          "path": "20260722_003335_rtabmap/map.yaml",
+          "bytes": 153,
+          "sha256": "f24be31c78aca33f2a57375a52e66b133ef8a85908099d0f2a9cb328f1082d49"
+        },
+        {
+          "path": "20260722_003335_rtabmap/rtabmap.db",
+          "bytes": 61689856,
+          "sha256": "cbb428c150890a177843237654e346766276dd096c321c006561c76879f6d3e3"
+        },
+        {
+          "path": "20260722_003335_rtabmap/metadata.txt",
+          "bytes": 330,
+          "sha256": "83c1a8a85424ebd194a8da7b5a55670ca87044655a4228f8f69dd2376f9dca6e"
+        },
+        {
+          "path": "20260722_003335_rtabmap/nodes.log",
+          "bytes": 285882,
+          "sha256": "e748ded914e3c2248b4df7fbb27cff77c156420a0fb2f442abfdc32ab5c63307"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/trajectory.csv",
+          "bytes": 43,
+          "sha256": "12107013e4d663d9faf8bd2d285cdfedb9b447c241155397f7915e5ff7fd6d91"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/bag/metadata.yaml",
+          "bytes": 7914,
+          "sha256": "1180dd7ca13ec092cff6c8be266c2290ffaa88a7afa11bb71bc6464282430a3e"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/bag/bag_0.db3",
+          "bytes": 6733824,
+          "sha256": "a324199e1c72a9238867c233c0388b5820dbb56f8391e0b7e2651f1cbba1f0fc"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/map.pgm",
+          "bytes": 21732,
+          "sha256": "c81c76e76dcaffd7b9de7f2deb0ddd29b460d8cce58cf859a5a3157a408793b7"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/map.yaml",
+          "bytes": 152,
+          "sha256": "c24e7601dbabda8cae35fb7c5b2626049ae3a47b0366cface97e4b2f7a270938"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/metadata.txt",
+          "bytes": 331,
+          "sha256": "494e74f2ce283757f11cb82bf645000d5f5ac7cbb8c0dd49a332c27df55a18d0"
+        },
+        {
+          "path": "20260722_003226_slam_toolbox/nodes.log",
+          "bytes": 3496,
+          "sha256": "9be36fc36ea6acd0c09d0fb0cfefb097a81fc9b22d84b8942e41f368e4872856"
+        },
+        {
+          "path": "20260722_002239_cartographer/trajectory.csv",
+          "bytes": 13860,
+          "sha256": "2074a44f82f3db1444a167dfad06c320e172b66f7b169d56c9acfb8be8182bfa"
+        },
+        {
+          "path": "20260722_002239_cartographer/bag/metadata.yaml",
+          "bytes": 7322,
+          "sha256": "34fad8381defa2ebd51aca14f18cbe6430130899854029ee4775a419763f5603"
+        },
+        {
+          "path": "20260722_002239_cartographer/bag/bag_0.db3",
+          "bytes": 68472832,
+          "sha256": "b4b6314a0d9cd19dae8c44aff6f847aa13c58bb3a685b65d384b484faf52d5d7"
+        },
+        {
+          "path": "20260722_002239_cartographer/map.pgm",
+          "bytes": 425069,
+          "sha256": "7b32979059a6cc7c5d174c6d80c98d1630fc16dbd30cfa34b54d6ea450d7bc16"
+        },
+        {
+          "path": "20260722_002239_cartographer/map.yaml",
+          "bytes": 153,
+          "sha256": "03a5a1d0f7e1d93fc24b63f32e3563112b49d3baca2ab0eb006fb7ed1227902f"
+        },
+        {
+          "path": "20260722_002239_cartographer/metadata.txt",
+          "bytes": 331,
+          "sha256": "da32039853f757e3e0f2ad3c036e6c732847701f10afa8fc71ed22c8bc584317"
+        },
+        {
+          "path": "20260722_002239_cartographer/nodes.log",
+          "bytes": 594194,
+          "sha256": "0f6a9afe7aa07bbf3d4a587beb70582b44423bd5ac4f2e02f0649e7896c0e88e"
+        },
+        {
+          "path": "20260722_002022_rtabmap/bag/metadata.yaml",
+          "bytes": 310,
+          "sha256": "6b1e02e2aab41f734d1a59f1f6c8dfbcbf94ac529ca81fb05f0b30b563533baa"
+        },
+        {
+          "path": "20260722_002022_rtabmap/bag/bag_0.db3",
+          "bytes": 16384,
+          "sha256": "711d879f500d23a33c7e40d018b21fe4053aae26abe0d0949af65e02d567bb38"
+        },
+        {
+          "path": "20260722_002022_rtabmap/metadata.txt",
+          "bytes": 281,
+          "sha256": "1d7a99a61710c2e8a7f3d9852355e16a52c2f47d0fd11b096bc8a93721e1334b"
+        },
+        {
+          "path": "20260722_002022_rtabmap/nodes.log",
+          "bytes": 1745,
+          "sha256": "923eb41b709137101a3169bfc69c2e6c168facf7ed31a59e8ecdd9e61776cec0"
+        }
+      ],
+      "local_mismatches": [],
+      "download_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/download/v2.1.0-research/latest_scans_20260722.tar"
+    },
+    {
+      "dataset": "validation_20260723",
+      "source_path": "scan_archives/slam_validation_20260723.tar",
+      "asset_name": "slam_validation_20260723.tar",
+      "bytes": 35461120,
+      "sha256": "84150d17eda2410eadc89e8b26fd64ad878379c8bc1e97c769017a825afbb42d",
+      "extract_to": "scan_archives/20260723_validation",
+      "member_files": 27,
+      "members": [
+        {
+          "path": "20260723_230953_rtabmap_gear1/gear_events.csv",
+          "bytes": 27,
+          "sha256": "517770d598908f396f7915412f1e628c533f34674da90179e4460006ac6047f0"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/trajectory.csv",
+          "bytes": 16,
+          "sha256": "5ff216c0edea66f0168dbd57eeb922aa2b03552300e3f2b233bf9eedf4aa0255"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/bag/metadata.yaml",
+          "bytes": 4720,
+          "sha256": "143f3fd8d16ec2ff58b1fe54b49d056a9f12369d1d1f6374b45697aaf5c7e62a"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/bag/bag_0.db3",
+          "bytes": 10612736,
+          "sha256": "ef9ee836baa7ca5f82451b7fcb56e1e0a553e7633a695a01ed957c559d254fce"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/map.pgm",
+          "bytes": 47375,
+          "sha256": "654f5cede7da68e2e98933f0363f4938bf9d57e9a20db5feb1c8571f9455b361"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/map.yaml",
+          "bytes": 150,
+          "sha256": "28f050b6fa105c7bc91b05082ccb4d39f5123e984d9ed475e545d48bd7accff0"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/rtabmap.db",
+          "bytes": 5750784,
+          "sha256": "517de5af50b98fbb325f79ca2e074e8caeca3f03e0aaae52801ee4c4ef223e2b"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/metadata.txt",
+          "bytes": 381,
+          "sha256": "a1a432f8b1d6946385f6fbf1d691a8b7bcb3f1e9611a8f13144b854c7278ee20"
+        },
+        {
+          "path": "20260723_230953_rtabmap_gear1/nodes.log",
+          "bytes": 50747,
+          "sha256": "9cfe57857a35e53c7a263f4939feba99de6b4c49060e46844b143bbd6dde500d"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/gear_events.csv",
+          "bytes": 27,
+          "sha256": "0e4faae3cb13d28baf5a960f8c642c0407d3e9e89faebc1d3050fa58f4e5025b"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/trajectory.csv",
+          "bytes": 30,
+          "sha256": "59817f59130c8931694c28126f4fea4663ca55eaf777c94b41cd1b5f0a780a1e"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/bag/metadata.yaml",
+          "bytes": 8056,
+          "sha256": "8dd2528a5eb5a77a631e3784cdddc6620143721dbbc0825bb1bfcab401c0cd1c"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/bag/bag_0.db3",
+          "bytes": 10440704,
+          "sha256": "14cfddbb5fe33ac0aca3dcebc05d0700cf8d9ab9f8d9092ea54b148c6eca912e"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/map.pgm",
+          "bytes": 7157,
+          "sha256": "97039463ea1e87875b2631fec3766c5d28278e32b11c3434091c33bda327f413"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/trajectory_optimized.csv",
+          "bytes": 1913,
+          "sha256": "cbea65f90d7ee05eaac3ab3ee8f0ef8bcaa1bead16d7f5e5b126478b649ad803"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/pose_graph_edges.csv",
+          "bytes": 3804,
+          "sha256": "1dd68befeda7aa959dbb1910390893e44c3231291bf6c55009fc25aa012efb1e"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/map.yaml",
+          "bytes": 140,
+          "sha256": "b1fa25d1ee2de08d60487776e6ee4294a0a604d080d8681f103fe27033503938"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/metadata.txt",
+          "bytes": 396,
+          "sha256": "f39d4239379360cfd644c146ba1059b06113c4032330ece92f01134c3d1c0f52"
+        },
+        {
+          "path": "20260723_231330_cartographer_gear2/nodes.log",
+          "bytes": 25095,
+          "sha256": "033afe4c0c401b8ac8d5e40ae0aa5c1f3108e63a7d5e2259e983632f25022732"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/gear_events.csv",
+          "bytes": 27,
+          "sha256": "517770d598908f396f7915412f1e628c533f34674da90179e4460006ac6047f0"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/trajectory.csv",
+          "bytes": 16,
+          "sha256": "5ff216c0edea66f0168dbd57eeb922aa2b03552300e3f2b233bf9eedf4aa0255"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/bag/metadata.yaml",
+          "bytes": 9271,
+          "sha256": "4e9a649bd6daa55d7449d8456a730553443aaab4e0b47f323b6bccbdea4846a9"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/bag/bag_0.db3",
+          "bytes": 8462336,
+          "sha256": "04f1049aa601ae4a9ad1af11b7fa3c021ddac72bc3344db35cf78e90cf3fcba8"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/map.pgm",
+          "bytes": 2665,
+          "sha256": "377dcbc198353ee254473a2140fa8d7c1a01af1959e5953cbdc90adf36333d6e"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/map.yaml",
+          "bytes": 153,
+          "sha256": "d662530771fa6f3b0b32b8920cfca0e7e3d2d8bd9b20aa59015566d5b8b438cc"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/metadata.txt",
+          "bytes": 380,
+          "sha256": "f44c0eb70ecbe61cc421668c99c225bbd7e341418c100daa60ba08016e9814ad"
+        },
+        {
+          "path": "20260723_231526_slam_toolbox_gear1/nodes.log",
+          "bytes": 3807,
+          "sha256": "71bafd2234f059adf3da3073059a3d72d54cab6c927439c12053abcc818c5363"
+        }
+      ],
+      "local_mismatches": [],
+      "download_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/download/v2.1.0-research/slam_validation_20260723.tar"
+    }
+  ]
+}

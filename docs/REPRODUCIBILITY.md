@@ -15,29 +15,31 @@
 | 审计快照 | `reports/` | SQLite 统计、会话总表、原始文件校验清单 |
 | 运行代码 | `patches/`、`systemd/` | 原线上 ROS2 部署入口 |
 | 后续研究代码 | `research/` | 结束流程、激光回放和 RGB-D 配置快照 |
-| 原始 bag、数据库、PGM/PCD 与压缩包 | 保留在本地，未加入本次提交 | 完整重算、地图恢复与算法回放 |
+| 原始 bag、数据库、PGM/PCD 与压缩包 | [Release 附件](DATASET.md)，按清单恢复 | 完整重算、地图恢复与算法回放 |
 
-原始文件相对路径、字节数和 SHA-256 见[数据清单](../reports/raw_data_manifest_20261117.json)。清单用于核对文件，不是下载地址。PNG 预览用于展示，不能代替包含分辨率、原点和占据值的完整导航地图。
+原始归档和成员的相对路径、字节数、下载地址与 SHA-256 见[发布清单](../reports/raw_release_manifest_20261118.json)。旧[本地盘点清单](../reports/raw_data_manifest_20261117.json)还包含分析环境的 SQLite 缓存；其来源区别见[数据说明](DATASET.md)。PNG 预览不能代替包含分辨率、原点和占据值的完整导航地图。
 
 ## 3. 在普通电脑上复查
 
 在仓库根目录运行，无需 ROS 或机器人：
 
 ```bash
+python tools/download_raw_data.py --extract
 python -m pip install -r requirements-analysis.txt
-python -B tools/audit_experiments.py --audit-date 2026-11-17
+python -B tools/audit_experiments.py --audit-date 2026-11-18
 python -B research/optimization/test_finalization.py
+python -B -m unittest discover -s tools/tests
 ```
 
-审计写入 `audit_output/20261117/`，拒绝覆盖已有目录。再次核对时指定新目录：
+原始数据来自同一仓库的 v2.1.0-research Release，下载后核对摘要再恢复。审计写入 `audit_output/20261118/`，拒绝覆盖已有目录。再次核对时指定新目录：
 
 ```bash
-python -B tools/audit_experiments.py --audit-date 2026-11-17 --out audit_output/recheck_01
+python -B tools/audit_experiments.py --audit-date 2026-11-18 --out audit_output/recheck_01
 ```
 
-只克隆本仓库时，脚本仍可复查日志、轨迹和元数据。未恢复原始数据库时，它会明确记录 `raw SQLite data absent locally`；输出的原始数据覆盖范围将小于仓库中已保存的完整审计快照。
+只克隆代码而未下载附件时，脚本仍可复查日志、轨迹和元数据，但会明确记录 `raw SQLite data absent locally`。恢复附件后可重算完整会话统计。GitHub 自动生成的 Source code ZIP 不包含独立原始附件。
 
-恢复原始文件时，应按清单放回 `scan_archives/` 对应目录，并同时保留 SQLite 的 WAL/SHM 侧文件；停止采集后再核对。脚本以只读连接打开数据库，WAL 模式可能触及本地共享内存侧文件。核对期间不会发布 ROS 话题。
+恢复工具会校验每个成员并拒绝覆盖不同内容的现有文件。原始传输归档中的数据库已核对，当前本地 WAL 均为空，分析生成的 SHM 缓存不作为采集附件；未来非空 WAL 必须共同归档。SQLite 审计以只读连接打开数据库，WAL 模式可能触及本地共享内存侧文件。核对期间不会发布 ROS 话题。
 
 ## 4. 本次检查结果与边界
 
@@ -45,6 +47,9 @@ python -B tools/audit_experiments.py --audit-date 2026-11-17 --out audit_output/
 - 累计数据库时间跨度约 2019.828 秒，`/scan` 消息 14,882 条，与原索引交叉核对一致。
 - 结束流程研究模块的 4 项单元测试通过，覆盖响应记录、超时、图文件缺失和取消幂等性。
 - 已验证无原始数据时，审计会明确记录缺失，仍能识别日志中的后端异常。
+- 数据恢复工具另有 4 项检查：重复恢复、目录穿越、已有文件冲突和链接成员拒绝；使用原始归档恢复后重新核对消息统计。
+
+[恢复验证记录](../reports/restoration_verification_20261118.json)保存实际恢复的 104 个文件成员、9 个 bag 的复查统计和 8 项单元测试结果。
 
 盘点环境为 Python 3.13.9 / Windows。数据库可读不证明传感器同步或建图精度；单元测试通过不代表后续研究代码已完成机器人实测。
 
@@ -61,3 +66,5 @@ python -B tools/audit_experiments.py --audit-date 2026-11-17 --out audit_output/
 每次实验关联 Git 提交、未提交改动、容器镜像摘要、后端包版本、实际 SLAM/EKF/TF 配置和 SHA-256，并记录路线、起终点、实际速度、成功标准与失败原因。
 
 历史会话没有当前研究代码中的 `finalization.json` 和配置校验快照；不能用现在的参数文件冒充当时的精确配置。旧 `metadata_status` 标签、服务响应和闭环精度也应分别核验。
+
+完整的发布节点、改动原因和问题状态见[版本演进](VERSION_HISTORY.md)、[更新日志](../CHANGELOG.md)和[问题台账](ISSUES_AND_FIXES.md)。后续记录使用[版本模板](templates/VERSION_CHANGE.md)及[实验模板](templates/EXPERIMENT_RECORD.md)。

@@ -1,5 +1,7 @@
 # ROSMaster R2 — 当前问题与修复计划
 
+> 历史 ROS1 诊断笔记（2026-07-02），保留原始观察、假设和方案。当前问题状态及后续修订见[问题台账](docs/ISSUES_AND_FIXES.md)和[版本演进](docs/VERSION_HISTORY.md)；例如固件/编码器原因仍需按证据区分。
+
 > 基于 Yahboom 官方 PDF 教程 (GitHub ROSMASTER-R2-main) 与实际代码库对比分析
 >
 > 更新日期: 2026年7月2日

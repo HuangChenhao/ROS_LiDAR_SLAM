@@ -1,0 +1,32 @@
+{
+  "captured_date": "2026-11-18",
+  "releases": [
+    {
+      "tag_name": "v2.0.0-ros2-mapping",
+      "name": "ROS LiDAR SLAM — ROS 2 Release",
+      "published_at": "2026-07-24T09:51:02Z",
+      "prerelease": false,
+      "draft": false,
+      "html_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/tag/v2.0.0-ros2-mapping",
+      "id": 359211746
+    },
+    {
+      "tag_name": "v1.0.0-ros1-alpha",
+      "name": "ROS-1 test release, will be updated to ROS-2 after this release",
+      "published_at": "2026-07-03T08:47:21Z",
+      "prerelease": false,
+      "draft": false,
+      "html_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/tag/v1.0.0-ros1-alpha",
+      "id": 348500052
+    },
+    {
+      "tag_name": "v0.1.0-demo_test",
+      "name": "First try of running LiDAR SLAM on Rosmaster R2",
+      "published_at": "2026-06-29T20:44:25Z",
+      "prerelease": true,
+      "draft": false,
+      "html_url": "https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/tag/v0.1.0-demo_test",
+      "id": 346497650
+    }
+  ]
+}

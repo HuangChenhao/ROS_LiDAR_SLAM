@@ -1,5 +1,7 @@
 # ROSMaster R2 — ROS 问题总结与 ROS2 迁移指南
 
+> 历史迁移笔记，描述 2026-07-02 的 ROS1 阶段。当前 ROS2 实现和验证范围见[版本演进](docs/VERSION_HISTORY.md)与[问题台账](docs/ISSUES_AND_FIXES.md)。文中的原因推测和平台绝对化比较不作为当前已验证结论。
+
 > 最后更新: 2026-07-02  
 > 硬件: Yahboom ROSMaster R2 (Ackermann 2轮转向), Raspberry Pi 5, RPLidar A1  
 > 当前环境: ROS1 Melodic (Docker: `yahboomtechnology/ros-melodic:4.0.1`)

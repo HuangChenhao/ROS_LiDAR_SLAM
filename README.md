@@ -11,7 +11,11 @@
 ![RPLIDAR A1](https://img.shields.io/badge/Sensor-RPLIDAR_A1-078A85)
 ![Platform](https://img.shields.io/badge/Chassis-Ackermann-44546A)
 
+[![Research Release](https://img.shields.io/badge/Release-v2.1.0--research-9254DE)](https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/tag/v2.1.0-research)
+
 **[实验与结论](docs/EXPERIMENTS.md) · [研究报告提纲](docs/REPORT_OUTLINE.md) · [机器人操作](docs/ROBOT_SETUP.md) · [复查实验](docs/REPRODUCIBILITY.md)**
+
+**[版本更新](CHANGELOG.md) · [版本演进](docs/VERSION_HISTORY.md) · [问题与修复](docs/ISSUES_AND_FIXES.md) · [原始数据下载](docs/DATASET.md)**
 
 <img src="https://github.com/user-attachments/assets/3168bf38-5a0a-41bb-ac9f-d82c93a987c3" alt="ROSMASTER R2 项目展示" width="780">
 
@@ -31,6 +35,8 @@
 </table>
 
 统计来自 2026-07-22、07-23 的本地原始数据核对：8 个 bag 非空，包含行驶、故障及静止验证时段。完整数据口径见[实验盘点](docs/EXPERIMENTS.md)。
+
+**研究快照：[v2.1.0-research](https://github.com/HuangChenhao/ROS_LiDAR_SLAM/releases/tag/v2.1.0-research)。** Release 提供三份原始归档、SHA-256 和恢复入口；代码继承 v2.0.0 的运行实现，本次补齐数据与版本/问题档案，未新增实车精度结论。
 
 ## 研究目标
 
@@ -133,15 +139,19 @@ flowchart LR
 
 **看代码：**运行补丁集中在 [`patches/`](patches/)，机器人操作见[部署与操作说明](docs/ROBOT_SETUP.md)；[`research/`](research/)保存后续研究辅助工具，与运行入口分开说明。
 
-**查数据：**仓库收录轻量日志、轨迹、预览与审计结果。原始数据库和压缩包保留在本地，通过[数据校验清单](reports/raw_data_manifest_20261117.json)关联；未上传的原始文件在审计时会明确标为缺失。
+**查数据：**仓库收录轻量日志、轨迹、预览与审计结果。全部 9 个 ROS2 bag、地图和数据库通过 [Release 原始归档](docs/DATASET.md)下载，并可按[发布清单](reports/raw_release_manifest_20261118.json)校验和恢复。
 
 ```bash
+python tools/download_raw_data.py --extract
 python -m pip install -r requirements-analysis.txt
-python -B tools/audit_experiments.py --audit-date 2026-11-17
+python -B tools/audit_experiments.py --audit-date 2026-11-18
 python -B research/optimization/test_finalization.py
+python -B -m unittest discover -s tools/tests
 ```
 
 本次完整本地审计中，9 个 bag 数据库的结构检查通过；结束流程研究模块的 4 项单元测试通过。命令的依赖、输出位置与数据缺失行为见[复查说明](docs/REPRODUCIBILITY.md)。
+
+详细更新不只列功能：每个阶段还记录触发问题、改动提交、验证会话与剩余限制，参见[版本演进](docs/VERSION_HISTORY.md)和 [24 项问题台账](docs/ISSUES_AND_FIXES.md)。
 
 ## 下一阶段
 

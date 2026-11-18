@@ -1,5 +1,7 @@
 # ROSMaster R2 Gamepad & Car Setup Guide / 手柄与小车设置指南
 
+> 本文保留多个开发阶段的操作说明。当前版本演进和已知问题见[版本记录](docs/VERSION_HISTORY.md)与[问题台账](docs/ISSUES_AND_FIXES.md)；“STM32 固件限制”等早期判断尚不能作为当前根因结论。
+
 ## Overview / 概述
 
 This document describes the Yahboom ROSMaster R2 setup with ROS2 Foxy, including gamepad control, LED gear indicators, and SLAM mapping.

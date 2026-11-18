@@ -1,0 +1,25 @@
+{
+  "verified_date": "2026-11-18",
+  "python_version": "3.13.9",
+  "method": "Restore original archives into checkout with the published helper, then run the offline audit",
+  "archives_verified": 3,
+  "archive_file_members": 104,
+  "matching_existing_members": 48,
+  "restored_missing_members": 56,
+  "archive_digests": {
+    "rosmaster_export_current_full.tar.gz": "720ada53ff691b3d94ef0874eec00deb09b6b47e3676de217c4e5f62e99c7e43",
+    "latest_scans_20260722.tar": "67aaac29e9a6fc92588ddcb5c2091c358e37fcd2d0c0ff4e100dff34151488d2",
+    "slam_validation_20260723.tar": "84150d17eda2410eadc89e8b26fd64ad878379c8bc1e97c769017a825afbb42d"
+  },
+  "totals": {
+    "sessions": 9,
+    "bags_available": 9,
+    "nonempty_bags": 8,
+    "bag_duration_s": 2019.827584181,
+    "raw_scan_messages": 14882
+  },
+  "all_bag_quick_checks": "ok",
+  "ros1_map_exports": 5,
+  "finalization_unit_tests_passed": 4,
+  "restoration_unit_tests_passed": 4
+}
