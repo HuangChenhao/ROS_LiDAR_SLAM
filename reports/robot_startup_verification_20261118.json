@@ -1,0 +1,144 @@
+{
+  "observed_at": "2026-11-18T16:47:15.270015+01:00",
+  "issue_id": "SLAM-025",
+  "authorized_action": "Restore script execute permission, restart ROS2 service, and perform static checks",
+  "startup_script": {
+    "path": "/home/pi/rosmaster_tools/ros2_bringup.sh",
+    "mode_before": "0644",
+    "mode_after": "0744",
+    "sha256": "05ebadfa4a33ba72bb6174d0037de26b06d05fa9d2eba38bd92ff74dd51298c9",
+    "content_changed": false
+  },
+  "service": {
+    "active_state": "active",
+    "sub_state": "exited",
+    "result": "success",
+    "exec_main_status": 0,
+    "enabled": true
+  },
+  "startup_health_check": {
+    "checks": {
+      "filtered_imu_live": true,
+      "firmware_seen": true,
+      "fused_odom_live": true,
+      "odom_raw_live": true,
+      "raw_imu_live": true,
+      "voltage_valid": true
+    },
+    "firmware_version": 3.5,
+    "median_acceleration_norm": 9.862,
+    "median_voltage_v": 10.6,
+    "ok": true,
+    "samples": {
+      "edition": 4,
+      "imu": 40,
+      "imu_raw": 40,
+      "odom": 40,
+      "odom_raw": 40,
+      "voltage": 41
+    }
+  },
+  "static_observation": {
+    "duration_s": 10.005,
+    "nodes": [
+      "_ros2cli_daemon_0",
+      "base_node",
+      "driver_node",
+      "ekf_filter_node",
+      "imu_filter_madgwick",
+      "joy_ctrl",
+      "robot_state_publisher",
+      "slam_supervisor",
+      "static_transform_publisher_2VFE3omd1yGyazBN",
+      "transform_listener_impl_555611107b70"
+    ],
+    "topic_rates_hz": {
+      "/vel_raw": 10.0,
+      "/imu/data_raw": 10.002,
+      "/voltage": 10.0,
+      "/odom_raw": 10.0,
+      "/imu/data": 10.001,
+      "/odom": 9.999,
+      "/SpeedGear": 0.0,
+      "/MappingState": 0.0,
+      "/SlamAlgo": 0.0,
+      "/edition": 1.0
+    },
+    "message_counts": {
+      "/vel_raw": 100,
+      "/imu/data_raw": 100,
+      "/voltage": 100,
+      "/odom_raw": 100,
+      "/imu/data": 100,
+      "/odom": 100,
+      "/SpeedGear": 1,
+      "/MappingState": 1,
+      "/SlamAlgo": 1,
+      "/edition": 10
+    },
+    "latest_voltage_v": 10.600000381469727,
+    "firmware_version": 3.5,
+    "acceleration_norm_median": {
+      "/imu/data_raw": 9.867244878178212,
+      "/imu/data": 9.867244878178212
+    },
+    "position_observations": {
+      "/odom_raw": {
+        "samples": 100,
+        "max_distance_from_first_m": 0.0,
+        "span_x_m": 0.0,
+        "span_y_m": 0.0
+      },
+      "/odom": {
+        "samples": 100,
+        "max_distance_from_first_m": 0.0,
+        "span_x_m": 0.0,
+        "span_y_m": 0.0
+      }
+    },
+    "transforms": {
+      "odom->base_footprint": {
+        "ok": true,
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quaternion_norm": 1.0
+      },
+      "base_link->laser": {
+        "ok": true,
+        "translation": [
+          0.0435,
+          5.258e-05,
+          0.11
+        ],
+        "quaternion_norm": 1.0
+      },
+      "base_footprint->base_link": {
+        "ok": true,
+        "translation": [
+          0.0,
+          0.0,
+          0.0215
+        ],
+        "quaternion_norm": 1.0
+      }
+    },
+    "measured_peak_abs_linear_mps": 0.0,
+    "mapping_enabled": false,
+    "scan_publishers": 0
+  },
+  "gamepad": {
+    "js0_present": false,
+    "joydev_module_loaded": true,
+    "input_enumeration_contains_gamepad": false,
+    "status": "Gamepad input not present; startup loop waits for a device"
+  },
+  "scope_limits": [
+    "No driving test",
+    "No live mapping or LiDAR/camera activation",
+    "No whole-robot power-cycle verification",
+    "Live deployed script differs from the repository patches version; only its permission changed"
+  ]
+}

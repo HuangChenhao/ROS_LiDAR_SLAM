@@ -39,6 +39,16 @@
 
 ## 3. 启动与状态
 
+systemd 直接执行主机上的启动脚本，部署后先确认执行权限和语法：
+
+```bash
+chmod u+x /home/pi/rosmaster_tools/ros2_bringup.sh
+test -x /home/pi/rosmaster_tools/ros2_bringup.sh
+bash -n /home/pi/rosmaster_tools/ros2_bringup.sh
+```
+
+已有一次 `203/EXEC` 权限故障的[修复与静态验证记录](STARTUP_REPAIR_20261118.md)。重启会改变驱动与遥控状态，需要由操作者确认后执行。
+
 原部署由 systemd 启动容器和节点；手工排查时可在机器人主机上查看：
 
 ```bash

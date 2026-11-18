@@ -151,7 +151,7 @@ python -B -m unittest discover -s tools/tests
 
 本次完整本地审计中，9 个 bag 数据库的结构检查通过；结束流程研究模块的 4 项单元测试通过。命令的依赖、输出位置与数据缺失行为见[复查说明](docs/REPRODUCIBILITY.md)。
 
-详细更新不只列功能：每个阶段还记录触发问题、改动提交、验证会话与剩余限制，参见[版本演进](docs/VERSION_HISTORY.md)和 [24 项问题台账](docs/ISSUES_AND_FIXES.md)。
+详细更新不只列功能：每个阶段还记录触发问题、改动提交、验证会话与剩余限制，参见[版本演进](docs/VERSION_HISTORY.md)和 [25 项问题台账](docs/ISSUES_AND_FIXES.md)。新增的[在线启动修复](docs/STARTUP_REPAIR_20261118.md)记录了实际小车的权限故障、处理和静态传感器验证。
 
 ## 下一阶段
 
