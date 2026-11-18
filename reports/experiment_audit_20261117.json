@@ -1,0 +1,773 @@
+{
+  "audit_date": "2026-11-17",
+  "scope": "local workspace; no live robot or remote repository accessed",
+  "sessions": [
+    {
+      "session": "20260722_002022_rtabmap",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_002022_rtabmap",
+        "scan_start": "20260722_002022",
+        "algo": "rtabmap",
+        "algo_display": "RTAB-Map 2D LiDAR",
+        "loop_closure": "explicit_pose_graph_icp",
+        "scan_end": "20260722_002032",
+        "status": "incomplete_no_map",
+        "stop_reason": "sensor_health_lost",
+        "pose_jumps": "0",
+        "trajectory_endpoint_distance_m": "0.000"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 0.0,
+        "message_count": 0,
+        "metadata_message_count": 0,
+        "metadata_duration_s": 0.0,
+        "topic_counts": {},
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      }
+    },
+    {
+      "session": "20260722_002239_cartographer",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_002239_cartographer",
+        "scan_start": "20260722_002239",
+        "algo": "cartographer",
+        "algo_display": "Cartographer",
+        "loop_closure": "explicit_pose_graph",
+        "final_optimization": "requested",
+        "scan_end": "20260722_003202",
+        "status": "complete",
+        "map": "679x626 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_endpoint_distance_m": "1.317"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 1005,
+        "path_m": 86.06758247345877,
+        "endpoint_separation_m": 1.316896730955013
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 559.091390167,
+        "message_count": 130168,
+        "metadata_message_count": 130168,
+        "metadata_duration_s": 559.091390167,
+        "topic_counts": {
+          "/odom_raw": 5583,
+          "/MappingState": 1,
+          "/SlamAlgo": 0,
+          "/tf_static": 11064,
+          "/diagnostics": 1109,
+          "/imu/data": 5583,
+          "/odom": 5585,
+          "/vel_raw": 5583,
+          "/scan": 4071,
+          "/tf": 37535,
+          "/voltage": 5583,
+          "/edition": 559,
+          "/imu/data_raw": 5581,
+          "/cmd_vel": 42331
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 679,
+        "height": 626,
+        "occupied_black_pixels": 10686,
+        "unknown_205_pixels": 315375,
+        "free_254_pixels": 98993
+      }
+    },
+    {
+      "session": "20260722_003226_slam_toolbox",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_003226_slam_toolbox",
+        "scan_start": "20260722_003226",
+        "algo": "slam_toolbox",
+        "algo_display": "SLAM Toolbox",
+        "loop_closure": "explicit_pose_graph",
+        "final_optimization": "requested",
+        "scan_end": "20260722_003328",
+        "status": "complete",
+        "map": "171x127 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_endpoint_distance_m": "0.145"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 3,
+        "path_m": 0.14481708759373513,
+        "endpoint_separation_m": 0.1448067677976415
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 57.571918447,
+        "message_count": 11003,
+        "metadata_message_count": 11003,
+        "metadata_duration_s": 57.571918447,
+        "topic_counts": {
+          "/tf_static": 1125,
+          "/tf": 1340,
+          "/scan": 420,
+          "/odom_raw": 569,
+          "/odom": 570,
+          "/vel_raw": 569,
+          "/imu/data": 569,
+          "/SlamAlgo": 2,
+          "/diagnostics": 113,
+          "/edition": 58,
+          "/MappingState": 2,
+          "/imu/data_raw": 569,
+          "/cmd_vel": 4528,
+          "/voltage": 569
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": true,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 171,
+        "height": 127,
+        "occupied_black_pixels": 197,
+        "unknown_205_pixels": 18984,
+        "free_254_pixels": 2536
+      }
+    },
+    {
+      "session": "20260722_003335_rtabmap",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_003335_rtabmap",
+        "scan_start": "20260722_003335",
+        "algo": "rtabmap",
+        "algo_display": "RTAB-Map 2D LiDAR",
+        "loop_closure": "explicit_pose_graph_icp",
+        "final_optimization": "requested",
+        "scan_end": "20260722_003803",
+        "status": "complete",
+        "map": "579x574 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_endpoint_distance_m": "8.963"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 444,
+        "path_m": 37.603294002878734,
+        "endpoint_separation_m": 8.963971664390735
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 264.041223028,
+        "message_count": 55028,
+        "metadata_message_count": 55028,
+        "metadata_duration_s": 264.041223028,
+        "topic_counts": {
+          "/tf": 10235,
+          "/scan": 1942,
+          "/odom_raw": 2639,
+          "/odom": 2639,
+          "/imu/data": 2639,
+          "/diagnostics": 523,
+          "/voltage": 2639,
+          "/cmd_vel": 21002,
+          "/tf_static": 5224,
+          "/SlamAlgo": 1,
+          "/MappingState": 3,
+          "/edition": 264,
+          "/vel_raw": 2639,
+          "/imu/data_raw": 2639
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 629,
+        "probability_search_fatal": false,
+        "loop_related_lines": [
+          "[WARN] [1784673223.096271108] [rtabmap]: There is no image subscription, bag-of-words loop closure detection will be disabled..."
+        ]
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 579,
+        "height": 574,
+        "occupied_black_pixels": 2803,
+        "unknown_205_pixels": 143407,
+        "free_254_pixels": 186136
+      },
+      "rtabmap_database": {
+        "link_types": {
+          "0": 620
+        },
+        "nodes": 928
+      }
+    },
+    {
+      "session": "20260722_003828_cartographer",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_003828_cartographer",
+        "scan_start": "20260722_003828",
+        "algo": "cartographer",
+        "algo_display": "Cartographer",
+        "loop_closure": "explicit_pose_graph",
+        "final_optimization": "requested",
+        "scan_end": "20260722_004324",
+        "status": "complete",
+        "map": "548x692 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_endpoint_distance_m": "0.902"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 491,
+        "path_m": 82.81803592295995,
+        "endpoint_separation_m": 0.90224830285238
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 291.581609529,
+        "message_count": 69978,
+        "metadata_message_count": 69978,
+        "metadata_duration_s": 291.581609529,
+        "topic_counts": {
+          "/tf": 19058,
+          "/odom_raw": 2912,
+          "/vel_raw": 2912,
+          "/odom": 2911,
+          "/imu/data": 2912,
+          "/diagnostics": 578,
+          "/cmd_vel": 24715,
+          "/tf_static": 5711,
+          "/SlamAlgo": 1,
+          "/MappingState": 2,
+          "/edition": 292,
+          "/scan": 2150,
+          "/imu/data_raw": 2912,
+          "/voltage": 2912
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 548,
+        "height": 692,
+        "occupied_black_pixels": 8431,
+        "unknown_205_pixels": 289023,
+        "free_254_pixels": 81762
+      }
+    },
+    {
+      "session": "20260722_004356_gmapping",
+      "group": "20260722_latest",
+      "metadata": {
+        "session": "20260722_004356_gmapping",
+        "scan_start": "20260722_004356",
+        "algo": "gmapping",
+        "algo_display": "GMapping",
+        "loop_closure": "implicit_particle_scan_to_map"
+      },
+      "metadata_nul_bytes": 157,
+      "trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 624.350527479,
+        "message_count": 131285,
+        "metadata_message_count": null,
+        "metadata_duration_s": 0.0,
+        "topic_counts": {
+          "/voltage": 6196,
+          "/tf": 23994,
+          "/scan": 4607,
+          "/odom_raw": 6191,
+          "/vel_raw": 6192,
+          "/odom": 6190,
+          "/imu/data": 6192,
+          "/diagnostics": 1237,
+          "/tf_static": 12163,
+          "/SlamAlgo": 1,
+          "/MappingState": 2,
+          "/edition": 624,
+          "/imu/data_raw": 6191,
+          "/cmd_vel": 51505
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 1120,
+        "height": 1024,
+        "occupied_black_pixels": 9053,
+        "unknown_205_pixels": 1026362,
+        "free_254_pixels": 111465
+      }
+    },
+    {
+      "session": "20260723_230953_rtabmap_gear1",
+      "group": "20260723_validation",
+      "metadata": {
+        "session": "20260723_230953_rtabmap_gear1",
+        "scan_start": "20260723_230953",
+        "algo": "rtabmap",
+        "algo_display": "RTAB-Map 2D LiDAR",
+        "loop_closure": "explicit_pose_graph_icp",
+        "start_gear": "gear1",
+        "final_optimization": "requested",
+        "scan_end": "20260723_231132",
+        "status": "complete",
+        "map": "185x256 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_source": "live_tf",
+        "trajectory_endpoint_distance_m": "0.000"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 1,
+        "path_m": 0,
+        "endpoint_separation_m": 0.0
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 94.259928266,
+        "message_count": 12043,
+        "metadata_message_count": 12043,
+        "metadata_duration_s": 94.259928266,
+        "topic_counts": {
+          "/trajectory_node_list": 0,
+          "/tf": 3574,
+          "/scan": 705,
+          "/odom": 939,
+          "/slam_toolbox/graph_visualization": 0,
+          "/imu/data": 915,
+          "/voltage": 940,
+          "/cmd_vel": 0,
+          "/SpeedGear": 30,
+          "/tf_static": 1804,
+          "/rtabmap/mapPath": 0,
+          "/SlamAlgo": 30,
+          "/MappingState": 30,
+          "/odom_raw": 914,
+          "/diagnostics": 187,
+          "/imu/data_raw": 940,
+          "/edition": 95,
+          "/vel_raw": 940
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": [
+          "[WARN] [1784841001.079269233] [rtabmap]: There is no image subscription, bag-of-words loop closure detection will be disabled..."
+        ]
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 185,
+        "height": 256,
+        "occupied_black_pixels": 92,
+        "unknown_205_pixels": 42016,
+        "free_254_pixels": 5252
+      },
+      "rtabmap_database": {
+        "link_types": {},
+        "nodes": 234
+      }
+    },
+    {
+      "session": "20260723_231330_cartographer_gear2",
+      "group": "20260723_validation",
+      "metadata": {
+        "session": "20260723_231330_cartographer_gear2",
+        "scan_start": "20260723_231330",
+        "algo": "cartographer",
+        "algo_display": "Cartographer",
+        "loop_closure": "explicit_pose_graph",
+        "start_gear": "gear2",
+        "final_optimization": "requested",
+        "scan_end": "20260723_231430",
+        "status": "complete",
+        "map": "94x76 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_source": "cartographer_pose_graph",
+        "trajectory_endpoint_distance_m": "0.001"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 2,
+        "path_m": 0.07981227975693966,
+        "endpoint_separation_m": 0.07981227975693966
+      },
+      "optimized_trajectory": {
+        "samples": 147,
+        "path_m": 0.06814213562373095,
+        "endpoint_separation_m": 0.001414213562373095
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 55.504696318,
+        "message_count": 10104,
+        "metadata_message_count": 10104,
+        "metadata_duration_s": 55.504696318,
+        "topic_counts": {
+          "/vel_raw": 555,
+          "/tf": 3870,
+          "/imu/data": 555,
+          "/voltage": 555,
+          "/imu/data_raw": 555,
+          "/cmd_vel": 0,
+          "/SpeedGear": 31,
+          "/SlamAlgo": 31,
+          "/edition": 56,
+          "/MappingState": 31,
+          "/tf_static": 1110,
+          "/trajectory_node_list": 1110,
+          "/scan": 426,
+          "/odom": 554,
+          "/odom_raw": 554,
+          "/slam_toolbox/graph_visualization": 0,
+          "/diagnostics": 111,
+          "/rtabmap/mapPath": 0
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": true,
+        "pose_graph_edges.csv": true
+      },
+      "map": {
+        "width": 94,
+        "height": 76,
+        "occupied_black_pixels": 216,
+        "unknown_205_pixels": 6259,
+        "free_254_pixels": 669
+      }
+    },
+    {
+      "session": "20260723_231526_slam_toolbox_gear1",
+      "group": "20260723_validation",
+      "metadata": {
+        "session": "20260723_231526_slam_toolbox_gear1",
+        "scan_start": "20260723_231526",
+        "algo": "slam_toolbox",
+        "algo_display": "SLAM Toolbox",
+        "loop_closure": "explicit_pose_graph",
+        "start_gear": "gear1",
+        "final_optimization": "requested",
+        "scan_end": "20260723_231644",
+        "status": "complete",
+        "map": "39x68 res=0.05000000074505806",
+        "stop_reason": "requested",
+        "pose_jumps": "0",
+        "trajectory_source": "live_tf",
+        "trajectory_endpoint_distance_m": "0.000"
+      },
+      "metadata_nul_bytes": 0,
+      "trajectory": {
+        "samples": 1,
+        "path_m": 0,
+        "endpoint_separation_m": 0.0
+      },
+      "optimized_trajectory": {
+        "samples": 0,
+        "path_m": 0,
+        "endpoint_separation_m": null
+      },
+      "bag": {
+        "available": true,
+        "quick_check": {
+          "bag_0.db3": [
+            "ok"
+          ]
+        },
+        "duration_s": 73.426290947,
+        "message_count": 9563,
+        "metadata_message_count": 9563,
+        "metadata_duration_s": 73.426290947,
+        "topic_counts": {
+          "/MappingState": 31,
+          "/SlamAlgo": 31,
+          "/tf_static": 1438,
+          "/SpeedGear": 31,
+          "/cmd_vel": 0,
+          "/scan": 561,
+          "/tf": 2781,
+          "/odom_raw": 733,
+          "/slam_toolbox/graph_visualization": 73,
+          "/imu/data": 733,
+          "/diagnostics": 145,
+          "/rtabmap/mapPath": 0,
+          "/edition": 74,
+          "/trajectory_node_list": 0,
+          "/odom": 733,
+          "/vel_raw": 733,
+          "/imu/data_raw": 733,
+          "/voltage": 733
+        },
+        "camera_topics_with_data": {}
+      },
+      "log": {
+        "negative_hessian_index_warnings": 0,
+        "probability_search_fatal": false,
+        "loop_related_lines": []
+      },
+      "new_evidence_files": {
+        "finalization.json": false,
+        "configuration/sha256.json": false,
+        "map.pbstream": false,
+        "pose_graph.posegraph": false,
+        "trajectory_optimized.csv": false,
+        "pose_graph_edges.csv": false
+      },
+      "map": {
+        "width": 39,
+        "height": 68,
+        "occupied_black_pixels": 80,
+        "unknown_205_pixels": 2128,
+        "free_254_pixels": 444
+      }
+    }
+  ],
+  "historical_map_exports": [
+    {
+      "width": 800,
+      "height": 800,
+      "occupied_black_pixels": 205,
+      "unknown_205_pixels": 629558,
+      "free_254_pixels": 10237,
+      "name": "slam_map_20260615_164725",
+      "pgm_sha256": "456be89554fbe54f5c7b16bf472eecb0d318c3333a13674a4271a1b8be683e99",
+      "pcd_points": 205,
+      "yaml": "image: /root/yahboomcar_ws/src/yahboomcar_nav/maps/slam_map_20260615_164725.pgm\nresolution: 0.050000\norigin: [-20.000000, -20.000000, 0.000000]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n\n"
+    },
+    {
+      "width": 800,
+      "height": 800,
+      "occupied_black_pixels": 101,
+      "unknown_205_pixels": 638588,
+      "free_254_pixels": 1311,
+      "name": "outdoor_map_20260616_051314",
+      "pgm_sha256": "9eff6d191f3e90d32c259cb30cfc2f135dc6be076c4dad035acd9edf00044ffa",
+      "pcd_points": 101,
+      "yaml": "image: /root/yahboomcar_ws/src/yahboomcar_nav/maps/outdoor_map_20260616_051314.pgm\nresolution: 0.050000\norigin: [-20.000000, -20.000000, 0.000000]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n\n"
+    },
+    {
+      "width": 800,
+      "height": 800,
+      "occupied_black_pixels": 118,
+      "unknown_205_pixels": 637723,
+      "free_254_pixels": 2159,
+      "name": "outdoor_map_20260616_045543",
+      "pgm_sha256": "d4fd67040f654313d223f74e7912bdc3b4d0880a117ba9e91dbb0e7023c6bee9",
+      "pcd_points": 118,
+      "yaml": "image: /root/yahboomcar_ws/src/yahboomcar_nav/maps/outdoor_map_20260616_045543.pgm\nresolution: 0.050000\norigin: [-20.000000, -20.000000, 0.000000]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n\n"
+    },
+    {
+      "width": 800,
+      "height": 800,
+      "occupied_black_pixels": 205,
+      "unknown_205_pixels": 629558,
+      "free_254_pixels": 10237,
+      "name": "slam_map_20260615_164745",
+      "pgm_sha256": "456be89554fbe54f5c7b16bf472eecb0d318c3333a13674a4271a1b8be683e99",
+      "pcd_points": 205,
+      "yaml": "image: /root/yahboomcar_ws/src/yahboomcar_nav/maps/slam_map_20260615_164745.pgm\nresolution: 0.050000\norigin: [-20.000000, -20.000000, 0.000000]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n\n"
+    },
+    {
+      "width": 800,
+      "height": 800,
+      "occupied_black_pixels": 98,
+      "unknown_205_pixels": 639050,
+      "free_254_pixels": 852,
+      "name": "my_map",
+      "pgm_sha256": "bd81dac859c93da34c5c82c9d2d898e8180d01443752a2a76e9e0c5f29bf5dcb",
+      "pcd_points": 98,
+      "yaml": "image: /root/yahboomcar_ws/src/yahboomcar_nav/maps/my_map.pgm\nresolution: 0.050000\norigin: [-20.000000, -20.000000, 0.000000]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n\n"
+    }
+  ],
+  "totals": {
+    "sessions": 9,
+    "bags_available": 9,
+    "nonempty_bags": 8,
+    "bag_duration_s": 2019.827584181,
+    "raw_scan_messages": 14882
+  }
+}

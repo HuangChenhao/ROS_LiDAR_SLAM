@@ -1,0 +1,23 @@
+* text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+requirements*.txt text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.lua text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.service text eol=lf
+*.png binary
+*.pgm binary
+*.pcd binary
+*.db3 binary
+*.db binary
+*.tar binary
+*.gz binary
+# Preserve damaged historical metadata exactly as collected.
+scan_archives/**/metadata.txt -text
+scan_archives/**/nodes.log -text

@@ -1,0 +1,10 @@
+session: 20260722_002022_rtabmap
+scan_start: 20260722_002022
+algo: rtabmap
+algo_display: RTAB-Map 2D LiDAR
+loop_closure: explicit_pose_graph_icp
+scan_end: 20260722_002032
+status: incomplete_no_map
+stop_reason: sensor_health_lost
+pose_jumps: 0
+trajectory_endpoint_distance_m: 0.000

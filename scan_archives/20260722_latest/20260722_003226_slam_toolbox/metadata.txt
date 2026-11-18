@@ -1,0 +1,12 @@
+session: 20260722_003226_slam_toolbox
+scan_start: 20260722_003226
+algo: slam_toolbox
+algo_display: SLAM Toolbox
+loop_closure: explicit_pose_graph
+final_optimization: requested
+scan_end: 20260722_003328
+status: complete
+map: 171x127 res=0.05000000074505806
+stop_reason: requested
+pose_jumps: 0
+trajectory_endpoint_distance_m: 0.145

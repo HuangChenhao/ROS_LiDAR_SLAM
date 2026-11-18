@@ -1,0 +1,192 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-07-23-23-13-32-237532-yahboom-6981
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [6997]
+[sllidar_node-1] [INFO] [1784841212.321632405] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.0.0
+[sllidar_node-1] [INFO] [1784841212.372682485] [sllidar_node]: SLLidar S/N: B2B3ECF0C3E09ED4A0EA98F3216B4116
+[sllidar_node-1] [INFO] [1784841212.372738800] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1784841212.372753374] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1784841212.423908826] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1784841212.423963752] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1784841212.652773525] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[INFO] [1784841214.366690481] [rosbag2_storage]: Opened database '/root/rosmaster_maps/20260723_231330_cartographer_gear2/bag/bag_0.db3' for READ_WRITE.
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-07-23-23-13-34-407661-yahboom-7011
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [cartographer_node-1]: process started with pid [7059]
+[INFO] [occupancy_grid_node-2]: process started with pid [7061]
+[cartographer_node-1] [INFO] [1784841214.572792529] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/root/yahboomcar_ros2_ws/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params/rosmaster_carto.lua' for 'rosmaster_carto.lua'.
+[cartographer_node-1] [INFO] [1784841214.575023595] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/map_builder.lua' for 'map_builder.lua'.
+[cartographer_node-1] [INFO] [1784841214.575069188] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/map_builder.lua' for 'map_builder.lua'.
+[cartographer_node-1] [INFO] [1784841214.575600653] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/pose_graph.lua' for 'pose_graph.lua'.
+[cartographer_node-1] [INFO] [1784841214.575629265] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/pose_graph.lua' for 'pose_graph.lua'.
+[cartographer_node-1] [INFO] [1784841214.576116878] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder.lua' for 'trajectory_builder.lua'.
+[cartographer_node-1] [INFO] [1784841214.576148156] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder.lua' for 'trajectory_builder.lua'.
+[cartographer_node-1] [INFO] [1784841214.576506602] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder_2d.lua' for 'trajectory_builder_2d.lua'.
+[cartographer_node-1] [INFO] [1784841214.576532658] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder_2d.lua' for 'trajectory_builder_2d.lua'.
+[cartographer_node-1] [INFO] [1784841214.576942697] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder_3d.lua' for 'trajectory_builder_3d.lua'.
+[cartographer_node-1] [INFO] [1784841214.576967845] [cartographer_ros]: I0723 23:13:34.000000  7059 configuration_file_resolver.cc:41] Found '/opt/ros/foxy/share/cartographer/configuration_files/trajectory_builder_3d.lua' for 'trajectory_builder_3d.lua'.
+[INFO] [1784841214.734152213] [rosbag2_transport]: Listening for topics...
+[INFO] [1784841214.741665638] [rosbag2_transport]: Subscribed to topic '/vel_raw'
+[INFO] [1784841214.744890468] [rosbag2_transport]: Subscribed to topic '/tf'
+[INFO] [1784841214.748955858] [rosbag2_transport]: Subscribed to topic '/imu/data'
+[INFO] [1784841214.754332958] [rosbag2_transport]: Subscribed to topic '/voltage'
+[INFO] [1784841214.759122092] [rosbag2_transport]: Subscribed to topic '/imu/data_raw'
+[INFO] [1784841214.763068463] [rosbag2_transport]: Subscribed to topic '/cmd_vel'
+[INFO] [1784841214.765763717] [rosbag2_transport]: Subscribed to topic '/SpeedGear'
+[INFO] [1784841214.773880775] [rosbag2_transport]: Subscribed to topic '/SlamAlgo'
+[INFO] [1784841214.776276971] [rosbag2_transport]: Subscribed to topic '/edition'
+[INFO] [1784841214.778022313] [rosbag2_transport]: Subscribed to topic '/MappingState'
+[INFO] [1784841214.782008536] [rosbag2_transport]: Subscribed to topic '/tf_static'
+[cartographer_node-1] [INFO] [1784841214.784176287] [cartographer_ros]: I0723 23:13:34.000000  7059 submap_2d.cc:187] Added submap 1
+[cartographer_node-1] [INFO] [1784841214.784422473] [cartographer_ros]: I0723 23:13:34.000000  7059 map_builder_bridge.cc:132] Added trajectory with ID '0'.
+[INFO] [1784841214.789416035] [rosbag2_transport]: Subscribed to topic '/trajectory_node_list'
+[cartographer_node-1] Warning: Invalid frame ID "imu_link" passed to canTransform argument target_frame - frame does not exist
+[cartographer_node-1]          at line 133 in /tmp/binarydeb/ros-foxy-tf2-0.13.13/src/buffer_core.cpp
+[cartographer_node-1] [INFO] [1784841214.857411566] [cartographer_ros]: I0723 23:13:34.000000  7059 ordered_multi_queue.cc:172] All sensor data for trajectory 0 is available starting at '639204380148308186'.
+[INFO] [1784841214.891332821] [rosbag2_transport]: Subscribed to topic '/scan'
+[INFO] [1784841214.893307609] [rosbag2_transport]: Subscribed to topic '/odom'
+[INFO] [1784841214.894827857] [rosbag2_transport]: Subscribed to topic '/odom_raw'
+[INFO] [1784841214.896512013] [rosbag2_transport]: Subscribed to topic '/slam_toolbox/graph_visualization'
+[INFO] [1784841214.898419670] [rosbag2_transport]: Subscribed to topic '/diagnostics'
+[INFO] [1784841214.900473014] [rosbag2_transport]: Subscribed to topic '/rtabmap/mapPath'
+[INFO] [1784841214.900529569] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
+[cartographer_node-1] [INFO] [1784841214.947061831] [cartographer_ros]: I0723 23:13:34.000000  7059 local_trajectory_builder_2d.cc:138] Extrapolator is still initializing.
+[cartographer_node-1] [INFO] [1784841220.852693997] [cartographer_ros]: I0723 23:13:40.000000  7072 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841220.852740071] [cartographer_ros]: I0723 23:13:40.000000  7072 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 0
+[cartographer_node-1] [INFO] [1784841229.054463835] [cartographer_ros]: I0723 23:13:49.000000  7071 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841229.054518409] [cartographer_ros]: I0723 23:13:49.000000  7071 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 0
+[cartographer_node-1] [INFO] [1784841229.799021238] [cartographer_ros]: I0723 23:13:49.000000  7059 collated_trajectory_builder.cc:72] imu rate: 10.00 Hz 1.00e-01 s +/- 1.89e-04 s (pulsed at 100.22% real time)
+[cartographer_node-1] [INFO] [1784841229.799080109] [cartographer_ros]: I0723 23:13:49.000000  7059 collated_trajectory_builder.cc:72] odom rate: 10.00 Hz 1.00e-01 s +/- 5.50e-04 s (pulsed at 100.11% real time)
+[cartographer_node-1] [INFO] [1784841229.799104831] [cartographer_ros]: I0723 23:13:49.000000  7059 collated_trajectory_builder.cc:72] scan rate: 7.69 Hz 1.30e-01 s +/- 4.41e-03 s (pulsed at 100.15% real time)
+[cartographer_node-1] [INFO] [1784841236.054326253] [cartographer_ros]: I0723 23:13:56.000000  7059 submap_2d.cc:187] Added submap 2
+[cartographer_node-1] [INFO] [1784841237.251061516] [cartographer_ros]: I0723 23:13:57.000000  7070 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841237.251099294] [cartographer_ros]: I0723 23:13:57.000000  7070 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 0
+[cartographer_node-1] [INFO] [1784841244.831156060] [cartographer_ros]: I0723 23:14:04.000000  7059 collated_trajectory_builder.cc:72] imu rate: 10.00 Hz 1.00e-01 s +/- 1.19e-04 s (pulsed at 100.27% real time)
+[cartographer_node-1] [INFO] [1784841244.831216357] [cartographer_ros]: I0723 23:14:04.000000  7059 collated_trajectory_builder.cc:72] odom rate: 10.00 Hz 1.00e-01 s +/- 4.67e-04 s (pulsed at 100.02% real time)
+[cartographer_node-1] [INFO] [1784841244.831249876] [cartographer_ros]: I0723 23:14:04.000000  7059 collated_trajectory_builder.cc:72] scan rate: 7.69 Hz 1.30e-01 s +/- 4.49e-03 s (pulsed at 100.34% real time)
+[cartographer_node-1] [INFO] [1784841245.452870047] [cartographer_ros]: I0723 23:14:05.000000  7070 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841245.452911473] [cartographer_ros]: I0723 23:14:05.000000  7070 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 0
+[cartographer_node-1] [INFO] [1784841253.653183797] [cartographer_ros]: I0723 23:14:13.000000  7069 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841253.653233371] [cartographer_ros]: I0723 23:14:13.000000  7069 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 0
+[cartographer_node-1] [INFO] [1784841259.554933630] [cartographer_ros]: I0723 23:14:19.000000  7059 submap_2d.cc:187] Added submap 3
+[cartographer_node-1] [INFO] [1784841259.853506773] [cartographer_ros]: I0723 23:14:19.000000  7059 collated_trajectory_builder.cc:72] imu rate: 10.00 Hz 1.00e-01 s +/- 1.45e-04 s (pulsed at 99.60% real time)
+[cartographer_node-1] [INFO] [1784841259.853561625] [cartographer_ros]: I0723 23:14:19.000000  7059 collated_trajectory_builder.cc:72] odom rate: 10.00 Hz 1.00e-01 s +/- 5.01e-04 s (pulsed at 100.18% real time)
+[cartographer_node-1] [INFO] [1784841259.853590107] [cartographer_ros]: I0723 23:14:19.000000  7059 collated_trajectory_builder.cc:72] scan rate: 7.68 Hz 1.30e-01 s +/- 4.51e-03 s (pulsed at 100.49% real time)
+[cartographer_node-1] [INFO] [1784841259.957447908] [cartographer_ros]: I0723 23:14:19.000000  7069 constraint_builder_2d.cc:266] Node (0, 120) with 103 points on submap (0, 0) differs by translation 0.00 rotation 0.037 with score 88.1%.
+[cartographer_node-1] [INFO] [1784841260.655575161] [cartographer_ros]: I0723 23:14:20.000000  7069 constraint_builder_2d.cc:266] Node (0, 122) with 107 points on submap (0, 0) differs by translation 0.00 rotation 0.043 with score 87.3%.
+[cartographer_node-1] [INFO] [1784841261.455018199] [cartographer_ros]: I0723 23:14:21.000000  7069 constraint_builder_2d.cc:266] Node (0, 124) with 104 points on submap (0, 0) differs by translation 0.00 rotation 0.031 with score 87.6%.
+[cartographer_node-1] [INFO] [1784841261.853461895] [cartographer_ros]: I0723 23:14:21.000000  7069 constraint_builder_2d.cc:281] 3 computations resulted in 3 additional constraints.
+[cartographer_node-1] [INFO] [1784841261.853568803] [cartographer_ros]: I0723 23:14:21.000000  7069 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 3  Min: 0.873172  Max: 0.881329  Mean: 0.876769
+[cartographer_node-1] [0.873172, 0.873988)	             #######	Count: 1 (33.333332%)	Total: 1 (33.333332%)
+[cartographer_node-1] [0.873988, 0.874803)	                    	Count: 0 (0.000000%)	Total: 1 (33.333332%)
+[cartographer_node-1] [0.874803, 0.875619)	                    	Count: 0 (0.000000%)	Total: 1 (33.333332%)
+[cartographer_node-1] [0.875619, 0.876435)	             #######	Count: 1 (33.333332%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.876435, 0.877250)	                    	Count: 0 (0.000000%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.877250, 0.878066)	                    	Count: 0 (0.000000%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.878066, 0.878882)	                    	Count: 0 (0.000000%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.878882, 0.879697)	                    	Count: 0 (0.000000%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.879697, 0.880513)	                    	Count: 0 (0.000000%)	Total: 2 (66.666664%)
+[cartographer_node-1] [0.880513, 0.881329]	             #######	Count: 1 (33.333332%)	Total: 3 (100.000000%)
+[cartographer_node-1] [INFO] [1784841262.256127107] [cartographer_ros]: I0723 23:14:22.000000  7070 constraint_builder_2d.cc:266] Node (0, 126) with 105 points on submap (0, 0) differs by translation 0.00 rotation 0.030 with score 88.3%.
+[cartographer_node-1] [INFO] [1784841263.055224204] [cartographer_ros]: I0723 23:14:23.000000  7069 constraint_builder_2d.cc:266] Node (0, 128) with 102 points on submap (0, 0) differs by translation 0.00 rotation 0.024 with score 88.1%.
+[cartographer_node-1] [INFO] [1784841263.852716102] [cartographer_ros]: I0723 23:14:23.000000  7071 constraint_builder_2d.cc:266] Node (0, 130) with 109 points on submap (0, 0) differs by translation 0.00 rotation 0.029 with score 88.5%.
+[cartographer_node-1] [INFO] [1784841264.552403001] [cartographer_ros]: I0723 23:14:24.000000  7071 constraint_builder_2d.cc:266] Node (0, 132) with 106 points on submap (0, 0) differs by translation 0.00 rotation 0.026 with score 88.1%.
+[cartographer_node-1] [INFO] [1784841265.351623042] [cartographer_ros]: I0723 23:14:25.000000  7070 constraint_builder_2d.cc:266] Node (0, 134) with 105 points on submap (0, 0) differs by translation 0.00 rotation 0.031 with score 87.9%.
+[cartographer_node-1] [INFO] [1784841266.154719983] [cartographer_ros]: I0723 23:14:26.000000  7069 constraint_builder_2d.cc:266] Node (0, 136) with 100 points on submap (0, 0) differs by translation 0.00 rotation 0.028 with score 88.3%.
+[cartographer_node-1] [INFO] [1784841266.957419452] [cartographer_ros]: I0723 23:14:26.000000  7072 constraint_builder_2d.cc:266] Node (0, 138) with 112 points on submap (0, 0) differs by translation 0.00 rotation 0.030 with score 87.9%.
+[cartographer_node-1] [INFO] [1784841267.752497492] [cartographer_ros]: I0723 23:14:27.000000  7072 constraint_builder_2d.cc:266] Node (0, 140) with 103 points on submap (0, 0) differs by translation 0.00 rotation 0.027 with score 87.6%.
+[cartographer_node-1] [INFO] [1784841268.457383960] [cartographer_ros]: I0723 23:14:28.000000  7072 constraint_builder_2d.cc:266] Node (0, 142) with 103 points on submap (0, 0) differs by translation 0.00 rotation 0.036 with score 88.3%.
+[cartographer_node-1] [INFO] [1784841269.254953055] [cartographer_ros]: I0723 23:14:29.000000  7070 constraint_builder_2d.cc:266] Node (0, 144) with 100 points on submap (0, 0) differs by translation 0.00 rotation 0.034 with score 87.6%.
+[cartographer_node-1] [INFO] [1784841270.052583774] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:266] Node (0, 146) with 102 points on submap (0, 0) differs by translation 0.00 rotation 0.029 with score 88.1%.
+[cartographer_node-1] [INFO] [1784841270.052627052] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:281] 11 computations resulted in 11 additional constraints.
+[cartographer_node-1] [INFO] [1784841270.052668089] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 14  Min: 0.873172  Max: 0.884573  Mean: 0.879755
+[cartographer_node-1] [0.873172, 0.874312)	                   #	Count: 1 (7.142857%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.874312, 0.875452)	                    	Count: 0 (0.000000%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.875452, 0.876592)	                ####	Count: 3 (21.428572%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.876592, 0.877732)	                    	Count: 0 (0.000000%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.877732, 0.878872)	                   #	Count: 1 (7.142857%)	Total: 5 (35.714287%)
+[cartographer_node-1] [0.878872, 0.880012)	                   #	Count: 1 (7.142857%)	Total: 6 (42.857143%)
+[cartographer_node-1] [0.880012, 0.881153)	                 ###	Count: 2 (14.285714%)	Total: 8 (57.142857%)
+[cartographer_node-1] [0.881153, 0.882293)	                 ###	Count: 2 (14.285714%)	Total: 10 (71.428574%)
+[cartographer_node-1] [0.882293, 0.883433)	                ####	Count: 3 (21.428572%)	Total: 13 (92.857140%)
+[cartographer_node-1] [0.883433, 0.884573]	                   #	Count: 1 (7.142857%)	Total: 14 (100.000000%)
+[INFO] [1784841270.286298092] [rclcpp]: signal_handler(signal_value=2)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [sllidar_node-1]: sending signal 'SIGINT' to process[sllidar_node-1]
+[cartographer_node-1] [INFO] [1784841270.285996201] [rclcpp]: signal_handler(signal_value=2)
+[INFO] [occupancy_grid_node-2]: sending signal 'SIGINT' to process[occupancy_grid_node-2]
+[INFO] [cartographer_node-1]: sending signal 'SIGINT' to process[cartographer_node-1]
+[occupancy_grid_node-2] [INFO] [1784841270.286037387] [rclcpp]: signal_handler(signal_value=2)
+[occupancy_grid_node-2] [INFO] [1784841270.289264974] [rclcpp]: signal_handler(signal_value=2)
+[cartographer_node-1] [INFO] [1784841270.289619920] [cartographer_ros]: I0723 23:14:30.000000  7059 node.cc:545] Shutdown the subscriber of [scan]
+[cartographer_node-1] [INFO] [1784841270.289650532] [cartographer_ros]: I0723 23:14:30.000000  7059 node.cc:545] Shutdown the subscriber of [imu]
+[cartographer_node-1] [INFO] [1784841270.289660365] [cartographer_ros]: I0723 23:14:30.000000  7059 node.cc:545] Shutdown the subscriber of [odom]
+[cartographer_node-1] [INFO] [1784841270.290188923] [cartographer_ros]: I0723 23:14:30.000000  7059 map_builder_bridge.cc:149] Finishing trajectory with ID '0'...
+[cartographer_node-1] [INFO] [1784841270.294969628] [rclcpp]: signal_handler(signal_value=2)
+[cartographer_node-1] [INFO] [1784841270.300977616] [cartographer_ros]: I0723 23:14:30.000000  7059 map_builder_bridge.cc:158] Running final trajectory optimization...
+[cartographer_node-1] [INFO] [1784841270.301212099] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841270.301262432] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 14  Min: 0.873172  Max: 0.884573  Mean: 0.879755
+[cartographer_node-1] [0.873172, 0.874312)	                   #	Count: 1 (7.142857%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.874312, 0.875452)	                    	Count: 0 (0.000000%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.875452, 0.876592)	                ####	Count: 3 (21.428572%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.876592, 0.877732)	                    	Count: 0 (0.000000%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.877732, 0.878872)	                   #	Count: 1 (7.142857%)	Total: 5 (35.714287%)
+[cartographer_node-1] [0.878872, 0.880012)	                   #	Count: 1 (7.142857%)	Total: 6 (42.857143%)
+[cartographer_node-1] [0.880012, 0.881153)	                 ###	Count: 2 (14.285714%)	Total: 8 (57.142857%)
+[cartographer_node-1] [0.881153, 0.882293)	                 ###	Count: 2 (14.285714%)	Total: 10 (71.428574%)
+[cartographer_node-1] [0.882293, 0.883433)	                ####	Count: 3 (21.428572%)	Total: 13 (92.857140%)
+[cartographer_node-1] [0.883433, 0.884573]	                   #	Count: 1 (7.142857%)	Total: 14 (100.000000%)
+[INFO] [occupancy_grid_node-2]: process has finished cleanly [pid 7061]
+[cartographer_node-1] [INFO] [1784841270.308015127] [cartographer_ros]: I0723 23:14:30.000000  7072 pose_graph_2d.cc:382] Remaining work items in queue: 1
+[cartographer_node-1] [INFO] [1784841270.308069868] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841270.308134147] [cartographer_ros]: I0723 23:14:30.000000  7072 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 14  Min: 0.873172  Max: 0.884573  Mean: 0.879755
+[cartographer_node-1] [0.873172, 0.874312)	                   #	Count: 1 (7.142857%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.874312, 0.875452)	                    	Count: 0 (0.000000%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.875452, 0.876592)	                ####	Count: 3 (21.428572%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.876592, 0.877732)	                    	Count: 0 (0.000000%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.877732, 0.878872)	                   #	Count: 1 (7.142857%)	Total: 5 (35.714287%)
+[cartographer_node-1] [0.878872, 0.880012)	                   #	Count: 1 (7.142857%)	Total: 6 (42.857143%)
+[cartographer_node-1] [0.880012, 0.881153)	                 ###	Count: 2 (14.285714%)	Total: 8 (57.142857%)
+[cartographer_node-1] [0.881153, 0.882293)	                 ###	Count: 2 (14.285714%)	Total: 10 (71.428574%)
+[cartographer_node-1] [0.882293, 0.883433)	                ####	Count: 3 (21.428572%)	Total: 13 (92.857140%)
+[cartographer_node-1] [0.883433, 0.884573]	                   #	Count: 1 (7.142857%)	Total: 14 (100.000000%)
+[cartographer_node-1] [KOptimizing: Done.     
+[cartographer_node-1] [INFO] [1784841270.309934358] [cartographer_ros]: I0723 23:14:30.000000  7069 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841270.309983765] [cartographer_ros]: I0723 23:14:30.000000  7069 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 14  Min: 0.873172  Max: 0.884573  Mean: 0.879755
+[cartographer_node-1] [0.873172, 0.874312)	                   #	Count: 1 (7.142857%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.874312, 0.875452)	                    	Count: 0 (0.000000%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.875452, 0.876592)	                ####	Count: 3 (21.428572%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.876592, 0.877732)	                    	Count: 0 (0.000000%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.877732, 0.878872)	                   #	Count: 1 (7.142857%)	Total: 5 (35.714287%)
+[cartographer_node-1] [0.878872, 0.880012)	                   #	Count: 1 (7.142857%)	Total: 6 (42.857143%)
+[cartographer_node-1] [0.880012, 0.881153)	                 ###	Count: 2 (14.285714%)	Total: 8 (57.142857%)
+[cartographer_node-1] [0.881153, 0.882293)	                 ###	Count: 2 (14.285714%)	Total: 10 (71.428574%)
+[cartographer_node-1] [0.882293, 0.883433)	                ####	Count: 3 (21.428572%)	Total: 13 (92.857140%)
+[cartographer_node-1] [0.883433, 0.884573]	                   #	Count: 1 (7.142857%)	Total: 14 (100.000000%)
+[cartographer_node-1] [KOptimizing: Done.     
+[cartographer_node-1] [INFO] [1784841270.316510793] [cartographer_ros]: I0723 23:14:30.000000  7070 constraint_builder_2d.cc:281] 0 computations resulted in 0 additional constraints.
+[cartographer_node-1] [INFO] [1784841270.316572145] [cartographer_ros]: I0723 23:14:30.000000  7070 constraint_builder_2d.cc:283] Score histogram:
+[cartographer_node-1] Count: 14  Min: 0.873172  Max: 0.884573  Mean: 0.879755
+[cartographer_node-1] [0.873172, 0.874312)	                   #	Count: 1 (7.142857%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.874312, 0.875452)	                    	Count: 0 (0.000000%)	Total: 1 (7.142857%)
+[cartographer_node-1] [0.875452, 0.876592)	                ####	Count: 3 (21.428572%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.876592, 0.877732)	                    	Count: 0 (0.000000%)	Total: 4 (28.571428%)
+[cartographer_node-1] [0.877732, 0.878872)	                   #	Count: 1 (7.142857%)	Total: 5 (35.714287%)
+[cartographer_node-1] [0.878872, 0.880012)	                   #	Count: 1 (7.142857%)	Total: 6 (42.857143%)
+[cartographer_node-1] [0.880012, 0.881153)	                 ###	Count: 2 (14.285714%)	Total: 8 (57.142857%)
+[cartographer_node-1] [0.881153, 0.882293)	                 ###	Count: 2 (14.285714%)	Total: 10 (71.428574%)
+[cartographer_node-1] [0.882293, 0.883433)	                ####	Count: 3 (21.428572%)	Total: 13 (92.857140%)
+[cartographer_node-1] [0.883433, 0.884573]	                   #	Count: 1 (7.142857%)	Total: 14 (100.000000%)
+[INFO] [cartographer_node-1]: process has finished cleanly [pid 7059]
+[sllidar_node-1] [INFO] [1784841270.521298026] [sllidar_node]: Stop motor
+[INFO] [sllidar_node-1]: process has finished cleanly [pid 6997]

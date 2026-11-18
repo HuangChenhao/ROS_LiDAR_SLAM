@@ -25,3 +25,19 @@ logs/*
 # Python cache
 __pycache__/
 *.pyc
+
+# Raw ROS2 data remains local; reviewed summaries and previews are versioned.
+*.db3
+*.db3-wal
+*.db3-shm
+rtabmap.db
+rtabmap.db-wal
+rtabmap.db-shm
+*.tar
+*.tar.gz
+*.pbstream
+*.posegraph
+
+# Local audit outputs and Python environment
+audit_output/
+.venv/

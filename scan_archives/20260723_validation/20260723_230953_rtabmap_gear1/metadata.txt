@@ -1,0 +1,14 @@
+session: 20260723_230953_rtabmap_gear1
+scan_start: 20260723_230953
+algo: rtabmap
+algo_display: RTAB-Map 2D LiDAR
+loop_closure: explicit_pose_graph_icp
+start_gear: gear1
+final_optimization: requested
+scan_end: 20260723_231132
+status: complete
+map: 185x256 res=0.05000000074505806
+stop_reason: requested
+pose_jumps: 0
+trajectory_source: live_tf
+trajectory_endpoint_distance_m: 0.000

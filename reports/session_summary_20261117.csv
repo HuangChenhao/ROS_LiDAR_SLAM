@@ -1,0 +1,10 @@
+﻿session,algorithm,metadata_status,raw_bag_available,bag_duration_s,scan_messages,trajectory_samples,trajectory_path_m,endpoint_separation_m,optimized_trajectory_samples,metadata_nul_bytes,negative_hessian_index_warnings,probability_search_fatal
+20260722_002022_rtabmap,rtabmap,incomplete_no_map,True,0.0,,0,0,,0,0,0,False
+20260722_002239_cartographer,cartographer,complete,True,559.091,4071,1005,86.06758247345877,1.316896730955013,0,0,0,False
+20260722_003226_slam_toolbox,slam_toolbox,complete,True,57.572,420,3,0.14481708759373513,0.1448067677976415,0,0,0,True
+20260722_003335_rtabmap,rtabmap,complete,True,264.041,1942,444,37.603294002878734,8.963971664390735,0,0,629,False
+20260722_003828_cartographer,cartographer,complete,True,291.582,2150,491,82.81803592295995,0.90224830285238,0,0,0,False
+20260722_004356_gmapping,gmapping,,True,624.351,4607,0,0,,0,157,0,False
+20260723_230953_rtabmap_gear1,rtabmap,complete,True,94.26,705,1,0,0.0,0,0,0,False
+20260723_231330_cartographer_gear2,cartographer,complete,True,55.505,426,2,0.07981227975693966,0.07981227975693966,147,0,0,False
+20260723_231526_slam_toolbox_gear1,slam_toolbox,complete,True,73.426,561,1,0,0.0,0,0,0,False

@@ -1,0 +1,81 @@
+rtabmap:
+  ros__parameters:
+    use_sim_time: false
+    frame_id: base_footprint
+    map_frame_id: map
+    odom_frame_id: odom
+    publish_tf: true
+
+    # One graph backend consumes every sensing layer:
+    #   /odom = wheel/steering + IMU yaw-rate EKF
+    #   /scan = RPLidar A1 geometry
+    #   /rgbd_image = synchronized Astra RGB + depth
+    subscribe_scan: true
+    subscribe_scan_cloud: false
+    subscribe_depth: false
+    subscribe_rgb: false
+    subscribe_rgbd: true
+    subscribe_stereo: false
+    subscribe_user_data: false
+    approx_sync: true
+    queue_size: 30
+    qos_scan: 2
+    qos_image: 2
+    qos_odom: 1
+    wait_for_transform: 0.5
+
+    # Visual place recognition proposes closures; RGB-D geometry and the
+    # planar laser jointly register/validate them. Keep the vehicle in 3-DoF.
+    "Reg/Strategy": "2"
+    "Reg/Force3DoF": "true"
+    "Vis/MinInliers": "12"
+    "Vis/MaxDepth": "4.0"
+    "Kp/MaxFeatures": "500"
+
+    "Mem/IncrementalMemory": "true"
+    "Mem/InitWMWithAllNodes": "false"
+    "Mem/STMSize": "20"
+    "RGBD/OptimizeFromGraphEnd": "true"
+    "RGBD/OptimizeMaxError": "2.5"
+    "RGBD/NeighborLinkRefining": "true"
+    "RGBD/ProximityBySpace": "true"
+    "RGBD/ProximityByTime": "false"
+    "RGBD/ProximityPathMaxNeighbors": "15"
+    "RGBD/ProximityMaxGraphDepth": "0"
+    "RGBD/ProximityMaxPaths": "3"
+    "RGBD/ProximityPathFilteringRadius": "0.5"
+    "RGBD/ProximityPathRawPosesUsed": "true"
+    "RGBD/ProximityOdomGuess": "true"
+    "RGBD/ProximityAngle": "180"
+    "RGBD/LocalRadius": "15.0"
+    "RGBD/LoopCovLimited": "true"
+    "RGBD/LinearUpdate": "0.10"
+    "RGBD/AngularUpdate": "0.10"
+    "Rtabmap/DetectionRate": "2.0"
+    "Rtabmap/LoopThr": "0.11"
+    "Rtabmap/PublishStats": "true"
+
+    "Optimizer/Strategy": "1"
+    "Optimizer/Iterations": "50"
+    "Optimizer/Robust": "false"
+
+    # The navigation grid remains laser-derived for clean floor-plane
+    # geometry. Depth is still retained and used for visual registration and
+    # 3-D reconstruction in the RTAB-Map database.
+    "Grid/Sensor": "0"
+    "Grid/CellSize": "0.05"
+    "Grid/RangeMax": "8.0"
+    "Grid/Scan2dUnknownSpaceFilled": "true"
+    "GridGlobal/FullUpdate": "false"
+    "GridGlobal/UpdateError": "0.05"
+
+    "Icp/RangeMin": "0.15"
+    "Icp/RangeMax": "8.0"
+    "Icp/PointToPlane": "false"
+    "Icp/VoxelSize": "0.04"
+    "Icp/MaxCorrespondenceDistance": "0.35"
+    "Icp/CorrespondenceRatio": "0.16"
+    "Icp/Iterations": "50"
+    "Icp/Epsilon": "0.0001"
+    "Icp/MaxTranslation": "2.0"
+    "Icp/MaxRotation": "3.14"

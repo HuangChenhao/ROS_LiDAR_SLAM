@@ -1,0 +1,202 @@
+[
+  {
+    "path": "rosmaster_export_current_full.tar.gz",
+    "bytes": 27294,
+    "sha256": "720ada53ff691b3d94ef0874eec00deb09b6b47e3676de217c4e5f62e99c7e43"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002022_rtabmap/bag/bag_0.db3",
+    "bytes": 16384,
+    "sha256": "711d879f500d23a33c7e40d018b21fe4053aae26abe0d0949af65e02d567bb38"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002022_rtabmap/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002022_rtabmap/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002239_cartographer/bag/bag_0.db3",
+    "bytes": 68472832,
+    "sha256": "b4b6314a0d9cd19dae8c44aff6f847aa13c58bb3a685b65d384b484faf52d5d7"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002239_cartographer/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002239_cartographer/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_002239_cartographer/map.pgm",
+    "bytes": 425069,
+    "sha256": "7b32979059a6cc7c5d174c6d80c98d1630fc16dbd30cfa34b54d6ea450d7bc16"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003226_slam_toolbox/bag/bag_0.db3",
+    "bytes": 6733824,
+    "sha256": "a324199e1c72a9238867c233c0388b5820dbb56f8391e0b7e2651f1cbba1f0fc"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003226_slam_toolbox/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003226_slam_toolbox/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003226_slam_toolbox/map.pgm",
+    "bytes": 21732,
+    "sha256": "c81c76e76dcaffd7b9de7f2deb0ddd29b460d8cce58cf859a5a3157a408793b7"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003335_rtabmap/bag/bag_0.db3",
+    "bytes": 31563776,
+    "sha256": "3f016694b37b81f2f86de88a9da9727f3d94719d97cd41573d3965b38dbb53ce"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003335_rtabmap/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003335_rtabmap/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003335_rtabmap/map.pgm",
+    "bytes": 332361,
+    "sha256": "038b76d79011309bf5ab202fa70c25cde18df82a46451fecf8bbac4f7cff323b"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003335_rtabmap/rtabmap.db",
+    "bytes": 61689856,
+    "sha256": "cbb428c150890a177843237654e346766276dd096c321c006561c76879f6d3e3"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003828_cartographer/bag/bag_0.db3",
+    "bytes": 35958784,
+    "sha256": "2d05c453679e14c4671b0dfbc79273f9200e226aad1955a82c9916ba70c25c0e"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003828_cartographer/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003828_cartographer/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_003828_cartographer/map.pgm",
+    "bytes": 379231,
+    "sha256": "11b4f686ba7d776bd193167570fc35c143edec3c48c83bbc862526253c1d8b46"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_004356_gmapping/bag/bag_0.db3",
+    "bytes": 74829824,
+    "sha256": "c7494fd032933b10e7512ac518669e36a3659bd0721f9c16507d7cbffe0573fb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_004356_gmapping/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_004356_gmapping/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260722_latest/20260722_004356_gmapping/map.pgm",
+    "bytes": 1146897,
+    "sha256": "e4c13cf5086ae5643a7c8f0e7bc14a27fbc0728eaab1a476af89e779b3eac88c"
+  },
+  {
+    "path": "scan_archives/20260722_latest/latest_scans_20260722.tar",
+    "bytes": 283084800,
+    "sha256": "67aaac29e9a6fc92588ddcb5c2091c358e37fcd2d0c0ff4e100dff34151488d2"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_230953_rtabmap_gear1/bag/bag_0.db3",
+    "bytes": 10612736,
+    "sha256": "ef9ee836baa7ca5f82451b7fcb56e1e0a553e7633a695a01ed957c559d254fce"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_230953_rtabmap_gear1/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_230953_rtabmap_gear1/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_230953_rtabmap_gear1/map.pgm",
+    "bytes": 47375,
+    "sha256": "654f5cede7da68e2e98933f0363f4938bf9d57e9a20db5feb1c8571f9455b361"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_230953_rtabmap_gear1/rtabmap.db",
+    "bytes": 5750784,
+    "sha256": "517de5af50b98fbb325f79ca2e074e8caeca3f03e0aaae52801ee4c4ef223e2b"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231330_cartographer_gear2/bag/bag_0.db3",
+    "bytes": 10440704,
+    "sha256": "14cfddbb5fe33ac0aca3dcebc05d0700cf8d9ab9f8d9092ea54b148c6eca912e"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231330_cartographer_gear2/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231330_cartographer_gear2/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231330_cartographer_gear2/map.pgm",
+    "bytes": 7157,
+    "sha256": "97039463ea1e87875b2631fec3766c5d28278e32b11c3434091c33bda327f413"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231526_slam_toolbox_gear1/bag/bag_0.db3",
+    "bytes": 8462336,
+    "sha256": "04f1049aa601ae4a9ad1af11b7fa3c021ddac72bc3344db35cf78e90cf3fcba8"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231526_slam_toolbox_gear1/bag/bag_0.db3-shm",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231526_slam_toolbox_gear1/bag/bag_0.db3-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "scan_archives/20260723_validation/20260723_231526_slam_toolbox_gear1/map.pgm",
+    "bytes": 2665,
+    "sha256": "377dcbc198353ee254473a2140fa8d7c1a01af1959e5953cbdc90adf36333d6e"
+  },
+  {
+    "path": "scan_archives/slam_validation_20260723.tar",
+    "bytes": 35461120,
+    "sha256": "84150d17eda2410eadc89e8b26fd64ad878379c8bc1e97c769017a825afbb42d"
+  }
+]

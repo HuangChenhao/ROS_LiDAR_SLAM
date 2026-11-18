@@ -1,0 +1,43 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-07-23-23-15-28-767684-yahboom-7349
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [7365]
+[sllidar_node-1] [INFO] [1784841329.512719319] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.0.0
+[sllidar_node-1] [INFO] [1784841329.563490597] [sllidar_node]: SLLidar S/N: B2B3ECF0C3E09ED4A0EA98F3216B4116
+[sllidar_node-1] [INFO] [1784841329.563537078] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1784841329.563547338] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1784841329.614689302] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1784841329.614742098] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1784841329.847228649] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[INFO] [1784841330.799793040] [slam_toolbox]: Node using stack size 40000000
+[INFO] [1784841330.831742175] [slam_toolbox]: Using solver plugin solver_plugins::CeresSolver
+[INFO] [1784841330.832189084] [slam_toolbox]: CeresSolver: Using HuberLoss loss function.
+[INFO] [1784841330.832216639] [slam_toolbox]: CeresSolver: Using SCHUR_JACOBI preconditioner.
+[INFO] [1784841330.835402169] [rosbag2_storage]: Opened database '/root/rosmaster_maps/20260723_231526_slam_toolbox_gear1/bag/bag_0.db3' for READ_WRITE.
+[INFO] [1784841330.858655272] [rosbag2_transport]: Listening for topics...
+[INFO] [1784841330.863190789] [rosbag2_transport]: Subscribed to topic '/MappingState'
+[INFO] [1784841330.864812406] [rosbag2_transport]: Subscribed to topic '/SlamAlgo'
+[INFO] [1784841330.867481656] [rosbag2_transport]: Subscribed to topic '/tf_static'
+[INFO] [1784841330.869137385] [rosbag2_transport]: Subscribed to topic '/SpeedGear'
+[INFO] [1784841330.871025910] [rosbag2_transport]: Subscribed to topic '/cmd_vel'
+[INFO] [1784841330.872949658] [rosbag2_transport]: Subscribed to topic '/scan'
+[INFO] [1784841330.875203999] [rosbag2_transport]: Subscribed to topic '/tf'
+[INFO] [1784841330.977546760] [rosbag2_transport]: Subscribed to topic '/odom_raw'
+[INFO] [1784841330.979263248] [rosbag2_transport]: Subscribed to topic '/slam_toolbox/graph_visualization'
+[INFO] [1784841330.980913198] [rosbag2_transport]: Subscribed to topic '/imu/data'
+[INFO] [1784841330.982619297] [rosbag2_transport]: Subscribed to topic '/diagnostics'
+[INFO] [1784841330.984050506] [rosbag2_transport]: Subscribed to topic '/rtabmap/mapPath'
+[INFO] [1784841330.985612234] [rosbag2_transport]: Subscribed to topic '/edition'
+[INFO] [1784841330.986955980] [rosbag2_transport]: Subscribed to topic '/trajectory_node_list'
+[INFO] [1784841330.988535485] [rosbag2_transport]: Subscribed to topic '/odom'
+[INFO] [1784841330.990127269] [rosbag2_transport]: Subscribed to topic '/vel_raw'
+[INFO] [1784841330.991766275] [rosbag2_transport]: Subscribed to topic '/imu/data_raw'
+[INFO] [1784841330.993391559] [rosbag2_transport]: Subscribed to topic '/voltage'
+[INFO] [1784841330.993450688] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1784841331.438742877] [slam_toolbox]: Message Filter dropping message: frame 'laser' at time 1784841329.847 for reason 'Unknown'
+Registering sensor: [Custom Described Lidar]
+[INFO] [1784841404.309499506] [rclcpp]: signal_handler(signal_value=2)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [1784841404.309938045] [rclcpp]: signal_handler(signal_value=2)
+[INFO] [sllidar_node-1]: sending signal 'SIGINT' to process[sllidar_node-1]
+[sllidar_node-1] [INFO] [1784841404.483394790] [sllidar_node]: Stop motor
+[INFO] [sllidar_node-1]: process has finished cleanly [pid 7365]

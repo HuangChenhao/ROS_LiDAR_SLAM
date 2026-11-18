@@ -2,56 +2,80 @@
 
 # ROSMASTER R2 · LiDAR SLAM Lab
 
-### 阿克曼移动机器人的多算法建图与系统实现
+### 阿克曼移动机器人的多算法建图与实验研究
 
-从机器人接入到实车建图，把遥控、传感器、算法切换与实验记录连接起来。
+在真实机器人上接入 SLAM、记录实验、定位问题，并让每一项结论都能回到数据。
 
 ![ROS 2 Foxy](https://img.shields.io/badge/ROS_2-Foxy-22314E?logo=ros)
 ![Raspberry Pi 5](https://img.shields.io/badge/Compute-Raspberry_Pi_5-C51A4A?logo=raspberrypi)
 ![RPLIDAR A1](https://img.shields.io/badge/Sensor-RPLIDAR_A1-078A85)
-![Ackermann](https://img.shields.io/badge/Chassis-Ackermann-44546A)
+![Platform](https://img.shields.io/badge/Chassis-Ackermann-44546A)
 
-**[机器人设置](Gamepad_and_Car_Setup.md) · [问题与修复](R2_Issues_and_Fixes.md) · [研发日志](logs/) · [运行代码](patches/)**
+**[实验与结论](docs/EXPERIMENTS.md) · [研究报告提纲](docs/REPORT_OUTLINE.md) · [机器人操作](docs/ROBOT_SETUP.md) · [复查实验](docs/REPRODUCIBILITY.md)**
 
 <img src="https://github.com/user-attachments/assets/3168bf38-5a0a-41bb-ac9f-d82c93a987c3" alt="ROSMASTER R2 项目展示" width="780">
 
-**A real-robot testbed for LiDAR SLAM, system integration and mapping experiments.**
+**A real-robot SLAM testbed for system integration, mapping and evidence-based diagnosis.**
 
 </div>
 
 ---
 
-## 项目概览
+<table>
+<tr>
+<td align="center" width="25%"><h3>4</h3>激光 SLAM 后端</td>
+<td align="center" width="25%"><h3>9</h3>保留的 ROS2 会话</td>
+<td align="center" width="25%"><h3>33.7 min</h3>非空 bag 累计时段</td>
+<td align="center" width="25%"><h3>14,882</h3>已记录激光帧</td>
+</tr>
+</table>
 
-本项目在 **ROSMASTER R2 阿克曼底盘、Raspberry Pi 5 与 RPLIDAR A1** 上集成四类激光 SLAM，实现手柄驱动的建图启停、算法切换、实时地图显示和会话化记录。
+统计来自 2026-07-22、07-23 的本地原始数据核对：8 个 bag 非空，包含行驶、故障及静止验证时段。完整数据口径见[实验盘点](docs/EXPERIMENTS.md)。
 
-研究重点包括：让传感器与里程计链路正常工作，区分算法估计问题与系统显示问题，并为后续可重复的算法对照保留数据。
+## 研究目标
 
-| 平台 | 建图环境 | 算法 | 交互与记录 |
-|---|---|---|---|
-| ROSMASTER R2 · Raspberry Pi 5 | ROS2 Foxy · Docker · RPLIDAR A1 | GMapping / Cartographer / SLAM Toolbox / RTAB-Map 2D | USB 手柄 · 档位与 LED · 实时地图 · rosbag |
+让 ROSMASTER R2 在 Raspberry Pi 5 上完成激光建图，并建立一套可以切换算法、保存现场、复查问题的实验流程。
 
-## 结果展示
+本项目围绕三个问题展开：**建图系统如何稳定运行？地图异常来自哪里？怎样让算法比较有可靠依据？** 工作涵盖 ROS1 到 ROS2 的迁移、手柄与档位控制、里程计和 IMU 接口、多算法 SLAM、会话记录，以及地图和轨迹的显示。
 
-### 实车建图
+## 实验结果画廊
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/765aeb9e-ba3c-4a5d-96d2-70c6d40a78bb" alt="原项目已公开的建图结果" width="600">
-</p>
+<table>
+<tr>
+<td align="center" width="50%">
+<b>Cartographer · 低速行驶会话</b><br><br>
+<img src="scan_archives/20260722_latest/20260722_002239_cartographer/map_preview.png" alt="Cartographer 00:22:39 会话地图" width="350"><br>
+559.1 s · 4,071 帧扫描 · 679 × 626 栅格
+</td>
+<td align="center" width="50%">
+<b>GMapping · 行驶建图</b><br><br>
+<img src="scan_archives/20260722_latest/20260722_004356_gmapping/map_preview.png" alt="GMapping 00:43:56 会话地图" width="350"><br>
+624.4 s · 4,607 帧扫描 · 1120 × 1024 栅格
+</td>
+</tr>
+<tr>
+<td align="center">
+<b>Cartographer · 较高速度会话</b><br><br>
+<img src="scan_archives/20260722_latest/20260722_003828_cartographer/map_preview.png" alt="Cartographer 00:38:28 会话地图" width="350"><br>
+291.6 s · 2,150 帧扫描 · 548 × 692 栅格
+</td>
+<td align="center">
+<b>RTAB-Map 2D · 问题诊断样例</b><br><br>
+<img src="scan_archives/20260722_latest/20260722_003335_rtabmap/map_preview.png" alt="RTAB-Map 00:33:35 会话地图" width="350"><br>
+264.0 s · 1,942 帧扫描 · 存在优化器告警
+</td>
+</tr>
+</table>
 
-### 点云展示
+地图分辨率约为 0.05 m/格。不同会话的路线、时长和速度不同，这组图展示各次输出与问题现象；算法精度排名需要统一条件的重复实验。
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/aeac49d2-a142-4b11-a576-b5e5772a3d2a" alt="原项目已公开的点云结果展示" width="780">
-</p>
-
-以上沿用原 README 中已经公开的展示图。各次图像对应的采集条件与数据来源需要分别说明，不能仅根据视觉效果做算法精度排名。RGB-D / 视觉 SLAM 仍为后续研究方向。
+**继续查看：[全部会话地图与轨迹](scan_archives/20260722_latest/scan_contact_sheet.png) · [修复后的静止验证](scan_archives/20260723_validation/scan_contact_sheet.png) · [逐次实验总表](reports/session_summary_20261117.csv)**
 
 ## 系统架构
 
 ```mermaid
 flowchart LR
-    Joy[手柄与档位] --> Supervisor[建图会话监督器]
+    Joy[手柄与档位] --> Supervisor[SLAM 会话监督器]
     Wheels[轮速与转向] --> EKF[里程计与 EKF]
     IMU[IMU] --> EKF
     Lidar[RPLIDAR A1] --> SLAM[四类 SLAM 后端]
@@ -60,77 +84,71 @@ flowchart LR
     SLAM --> Map[地图与轨迹]
     Map --> Display[实时屏幕显示]
     Supervisor --> Record[rosbag · 日志 · 元数据]
-    Map --> Save[会话保存与结果导出]
+    Map --> Export[会话保存与结果导出]
 ```
 
-| 实现部分 | 内容 | 代码入口 |
+| 实现部分 | 项目中的工作 | 对应代码 |
 |---|---|---|
-| 底盘与传感器 | 阿克曼里程计、IMU/EKF、启动健康检查 | [里程计](patches/rosmaster_odom.py) · [EKF](patches/ekf_r2.yaml) · [健康检查](patches/robot_healthcheck.py) |
-| 多算法建图 | 同一控制入口选择后端，按算法与档位管理会话 | [SLAM 监督器](patches/slam_supervisor.py) |
-| 遥控与状态 | 手柄、档位、算法颜色和状态灯 | [手柄补丁](patches/yahboom_joy_R2_patched.py) · [驱动补丁](patches/Ackman_driver_R2_patched.py) |
-| 结果展示 | 地图自适应缩放、状态和轨迹显示 | [地图显示](patches/map_kiosk.py) |
-| 部署与启动 | Docker、节点启动、串口占用管理和 systemd | [启动脚本](patches/ros2_bringup.sh) · [服务配置](systemd/rosmaster-ros2.service) |
+| 底盘与传感器 | 阿克曼里程计、IMU/EKF、启动检查及设备管理 | [里程计](patches/rosmaster_odom.py) · [EKF](patches/ekf_r2.yaml) · [健康检查](patches/robot_healthcheck.py) |
+| 会话管理 | 按算法和档位建立会话、录制数据、保存地图、监测后端与磁盘状态 | [SLAM 监督器](patches/slam_supervisor.py) |
+| 人机交互 | 遥控、档位、LED 算法提示、地图缩放与轨迹显示 | [手柄补丁](patches/yahboom_joy_R2_patched.py) · [地图显示](patches/map_kiosk.py) |
+| 启动与运行 | Docker、ROS2 节点与 systemd 入口 | [启动脚本](patches/ros2_bringup.sh) · [启动服务](systemd/rosmaster-ros2.service) |
 
-## 四类激光 SLAM
+## 四种算法的验证状态
 
-| 算法 | 输入与实现路径 | 参数入口 |
+| 算法 | 保留的实验 | 当前证据支持的结论 |
 |---|---|---|
-| GMapping | LiDAR + EKF 里程计，粒子滤波建图 | [配置](patches/slam_gmapping.yaml) |
-| Cartographer | LiDAR + 里程计/IMU，子图与位姿图 | [配置](patches/rosmaster_carto.lua) |
-| SLAM Toolbox | LiDAR + 里程计，异步位姿图 | [配置](patches/slam_toolbox_r2.yaml) |
-| RTAB-Map 2D | 激光 ICP + EKF 里程计，保存图与数据库 | [配置](patches/rtabmap_r2.yaml) |
+| **GMapping** | 1 次 ROS2 行驶会话；早期 ROS1 地图导出 | 已生成地图；ROS2 轨迹为空、结束元数据不完整 |
+| **Cartographer** | 2 次行驶 + 1 次静止验证 | 已保存地图、约束修正记录与优化轨迹输出 |
+| **SLAM Toolbox** | 1 次故障 + 1 次静止验证 | 定位到后端致命异常；后续静止验证未复现同类异常 |
+| **RTAB-Map 2D** | 1 次启动中止、1 次行驶 + 1 次静止验证 | 已保存地图和数据库；定位到优化器告警，动态闭环仍需验证 |
 
-原部署记录覆盖四类后端的启动、地图生成和会话保存。不同阶段的验证工况不完全相同；正式比较需固定路线、速度、参数和成功标准。
+三次修复验证均为静止测试；`gear2` 是档位标签，不能据此称为二档行驶精度测试。RGB-D + LiDAR 已有[研究配置](research/rtabmap_rgbd_r2.yaml)，本次数据中没有对应融合会话。
 
-## 项目中的关键问题与处理
+## 从实验中定位的问题
 
-| 问题 | 实现中的处理 | 公开记录 |
+| 观察到的现象 | 核对到的证据 | 项目中的处理与验证 |
 |---|---|---|
-| 手柄晚于系统启动，控制链路未接入 | 等待设备、热插拔后恢复手柄节点 | [手柄与档位日志](logs/2026-07-15_红灯指示与档位调整.md) |
-| 建图启停、雷达和显示状态分散 | 引入常驻监督器，统一会话生命周期 | [联动建图日志](logs/2026-07-15b_档位联动建图与屏幕实时显示.md) |
-| Cartographer 地图显示“没有墙” | 从仅接受占用值 100 改为阈值渲染 | [Cartographer 排查日志](logs/2026-07-17_cartographer与问题排查.md) |
-| 原始里程计异常影响建图 | 增加里程计样本检查、EKF 与启动健康检查 | [里程计代码](patches/rosmaster_odom.py) · [问题记录](R2_Issues_and_Fixes.md) |
-| 地图超出屏幕、轨迹与优化状态不同步 | 地图适配屏幕，并接入优化图/路径显示 | [地图显示](patches/map_kiosk.py) · [监督器](patches/slam_supervisor.py) |
+| 有地图文件，却没有正常完成建图 | SLAM Toolbox 的 `complete` 标签与 probability-search 致命日志矛盾 | 联合检查后端、轨迹与地图；后续静止会话保存 561 帧扫描且未复现该异常 |
+| 日志出现“闭环”，却无法证明成功闭环 | 旧计数匹配到了“词袋闭环检测被禁用”的提示 | 回查日志原文与数据库约束，不把关键词数量当作成功次数 |
+| 地图修正了，显示的红线仍然错位 | 旧轨迹来自在线采样，未随图优化重写 | 导出与显示接入优化轨迹；Cartographer 静止验证保留 147 个优化轨迹点 |
+| 数据库有数据，标准回放信息却不完整 | GMapping bag YAML 为空，轨迹为空，会话元数据含 NUL | 保留异常现场，通过 SQLite 只读核对；恢复回放时在副本上重建元数据 |
 
-研发日志保留了当时的现场观察和调参判断。对其中关于特定场景适用性的结论，需要结合原始数据和受控重复实验进一步核验。
+这部分是项目研究的核心：把“地图看起来异常”转化为可查证的问题，再分别验证系统、显示与后端行为。[查看完整证据与结论边界 →](docs/EXPERIMENTS.md)
 
-## 开发与实验进展
+## 研究进展
 
-| 阶段 | 工作内容 |
-|---|---|
-| 平台接入 | 从早期 ROS1 使用与问题排查，推进到 ROS2 Foxy 容器环境 |
-| 2026-07-15 | 手柄、档位、LED 提示和建图/显示联动 |
-| 2026-07-17 | Cartographer 接入、地图渲染诊断与离线重建管线 |
-| 多算法扩展 | 加入 SLAM Toolbox 与 RTAB-Map 2D，完善记录与运行监测 |
-| 后续研究 | 统一条件的算法对照、速度影响和 RGB-D 融合 |
+| 阶段 | 完成的工作 | 记录 |
+|---|---|---|
+| 早期 ROS1 建图 | 跑通建图、定时保存、二维占据地图导出 | [历史产物盘点](docs/EXPERIMENTS.md#4-早期-ros1-工作) |
+| 2026-07-15 | 手柄、LED、档位联动和实时地图显示 | [研发日志](logs/2026-07-15b_档位联动建图与屏幕实时显示.md) |
+| 2026-07-17 | Cartographer 接入、地图渲染与离线重建排查 | [研发日志](logs/2026-07-17_cartographer与问题排查.md) |
+| 2026-07-22 | 四类激光 SLAM 的运行与问题记录 | [实验总表](reports/session_summary_20261117.csv) |
+| 2026-07-23 | 三种后端的修复后静止验证 | [验证记录](docs/EXPERIMENTS.md#3-2026-07-23修复后的静止验证) |
+| 2026-11 | 汇总本地证据、区分验证层次、准备受控实验 | [研究报告提纲](docs/REPORT_OUTLINE.md) |
 
-## 机器人操作
+## 如何查看与复查
 
-1. 系统启动后，通过 Back 启用普通控制。
-2. 左摇杆控制行驶，右摇杆控制转向；LB 切换速度档位。
-3. Y 选择下一次建图的算法：蓝 / 黄 / 绿 / 紫分别对应四类后端。
-4. 1、2 档用于建图；结束控制、进入高档或竞速状态时保存并停止建图。
+**看项目：**从本页的地图、架构和问题案例开始；[报告提纲](docs/REPORT_OUTLINE.md)提供完整章节及 10 页汇报顺序。
 
-详细设置见[手柄与小车配置](Gamepad_and_Car_Setup.md)。会话目录为 `/root/rosmaster_maps/YYYYmmdd_HHMMSS_algorithm_gearN/`，按版本与后端保存地图、轨迹、档位事件、日志、元数据和 rosbag。
+**看代码：**运行补丁集中在 [`patches/`](patches/)，机器人操作见[部署与操作说明](docs/ROBOT_SETUP.md)；[`research/`](research/)保存后续研究辅助工具，与运行入口分开说明。
+
+**查数据：**仓库收录轻量日志、轨迹、预览与审计结果。原始数据库和压缩包保留在本地，通过[数据校验清单](reports/raw_data_manifest_20261117.json)关联；未上传的原始文件在审计时会明确标为缺失。
+
+```bash
+python -m pip install -r requirements-analysis.txt
+python -B tools/audit_experiments.py --audit-date 2026-11-17
+python -B research/optimization/test_finalization.py
+```
+
+本次完整本地审计中，9 个 bag 数据库的结构检查通过；结束流程研究模块的 4 项单元测试通过。命令的依赖、输出位置与数据缺失行为见[复查说明](docs/REPRODUCIBILITY.md)。
 
 ## 下一阶段
 
-- [ ] 汇总逐次实验及对应的地图、轨迹和日志证据。
-- [ ] 使用同一份 rosbag 做算法和参数的配对回放。
-- [ ] 固定路线与速度开展重复实车实验。
-- [ ] 引入参考轨迹或测量地标，评估定位和地图误差。
-- [ ] 采集同步 RGB-D 数据，验证融合方案。
-
-## 文档与源码导航
-
-| 材料 | 入口 |
-|---|---|
-| 手柄与平台设置 | [Gamepad_and_Car_Setup.md](Gamepad_and_Car_Setup.md) |
-| 问题与修复 | [R2_Issues_and_Fixes.md](R2_Issues_and_Fixes.md) |
-| ROS1 → ROS2 迁移 | [ROS_问题总结与迁移指南.md](ROS_问题总结与迁移指南.md) |
-| 按日期的研发过程 | [logs/](logs/) |
-| 机器人端运行实现 | [patches/](patches/) |
-| 自启动与数据同步 | [systemd/](systemd/) · [sync_scan.sh](sync_scan.sh) |
+- [ ] 在同一份 rosbag 上完成四算法的配对回放，记录运行和资源指标。
+- [ ] 固定路线、速度和起终点，完成重复实车闭环实验。
+- [ ] 引入参考轨迹或测量地标，评估定位与地图几何误差。
+- [ ] 采集同步 RGB-D + LiDAR 数据，验证融合方案的收益。
 
 ---
 
@@ -138,6 +156,6 @@ flowchart LR
 
 **ROSMASTER R2 · Raspberry Pi 5 · RPLIDAR A1 · ROS2 Foxy**
 
-展示页整理：2026-11-18
+证据盘点：2026-11-17 · 展示页整理：2026-11-18
 
 </div>

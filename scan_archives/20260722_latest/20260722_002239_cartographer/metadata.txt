@@ -1,0 +1,12 @@
+session: 20260722_002239_cartographer
+scan_start: 20260722_002239
+algo: cartographer
+algo_display: Cartographer
+loop_closure: explicit_pose_graph
+final_optimization: requested
+scan_end: 20260722_003202
+status: complete
+map: 679x626 res=0.05000000074505806
+stop_reason: requested
+pose_jumps: 0
+trajectory_endpoint_distance_m: 1.317

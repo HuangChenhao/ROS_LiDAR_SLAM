@@ -1,0 +1,17 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-07-22-00-20-24-849496-yahboom-796
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sllidar_node-1]: process started with pid [812]
+[sllidar_node-1] [INFO] [1784672424.936712637] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.0.0
+[sllidar_node-1] [INFO] [1784672424.989167396] [sllidar_node]: SLLidar S/N: B2B3ECF0C3E09ED4A0EA98F3216B4116
+[sllidar_node-1] [INFO] [1784672424.989209859] [sllidar_node]: Firmware Ver: 1.29
+[sllidar_node-1] [INFO] [1784672424.989220952] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-1] [INFO] [1784672425.040364304] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-1] [INFO] [1784672425.040402285] [sllidar_node]: SLLidar health status : OK.
+[sllidar_node-1] [INFO] [1784672425.269083804] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [1784672427.003655229] [rclcpp]: signal_handler(signal_value=2)
+[INFO] [sllidar_node-1]: sending signal 'SIGINT' to process[sllidar_node-1]
+[INFO] [1784672427.026845154] [rosbag2_storage]: Opened database '/root/rosmaster_maps/20260722_002022_rtabmap/bag/bag_0.db3' for READ_WRITE.
+[ERROR] [1784672427.027020543] [rosbag2_transport]: Failed to record: failed to create interrupt guard condition: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at /tmp/binarydeb/ros-foxy-rcl-1.1.14/src/rcl/guard_condition.c:67
+[sllidar_node-1] [INFO] [1784672427.242572062] [sllidar_node]: Stop motor
+[INFO] [sllidar_node-1]: process has finished cleanly [pid 812]
